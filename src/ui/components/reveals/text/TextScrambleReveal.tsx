@@ -103,9 +103,12 @@ const TextScrambleReveal: React.FC<TextScrambleRevealProps> = ({
     containerRef.current.addEventListener('pointermove', handlePointerMove);
 
     return () => {
-      containerRef.current?.removeEventListener('pointermove', handlePointerMove);
+      const container = containerRef.current;
+      if (container) {
+        container.removeEventListener('pointermove', handlePointerMove);
+      }
     };
-  },[chars, proximityRadius, scrambleChars, scrambleSpeed]);
+  }, [chars, proximityRadius, scrambleChar]);
 
   return (
     <div 
