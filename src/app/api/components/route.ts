@@ -15,7 +15,7 @@ const componentRegistry = {
       name: 'LiquidImageReveal',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/reveals/image/LiquidImageReveal.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/reveals/LiquidImageRevealDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: ['@gsap/react'],
       description: 'Liquid morphing image reveal animation'
     }
   ],
@@ -40,7 +40,7 @@ const componentRegistry = {
       name: 'MouseTrail',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/interactive/MouseTrail.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/interactive/MouseTrailDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: ['@gsap/react'],
       description: 'Animated mouse cursor trail effect'
     },
     {
@@ -81,7 +81,7 @@ const componentRegistry = {
       name: 'ExpandablePanel',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/layout/ExpandablePanel.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/layout/ExpandablePanelDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: ['@gsap/react'],
       description: 'Collapsible panel with smooth animations'
     }
   ]
