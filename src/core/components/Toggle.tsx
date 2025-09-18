@@ -33,7 +33,7 @@ const Toggle = ({ options, value, onChange, className }: ToggleProps) => {
         <div 
             ref={containerRef}
             className={cn(
-                "flex relative bg-gray-900/20 backdrop-blur-sm rounded-xl p-1 w-fit border border-white/10 cursor-pointer",
+                "flex relative bg-gray-900/20 backdrop-blur-sm rounded-xl p-1 w-fit border border-white/10 cursor-pointer ",
                 className
             )}
         >
