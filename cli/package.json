@@ -1,0 +1,36 @@
+{
+  "name": "dimaac",
+  "version": "1.0.1",
+  "description": "Add DiMaac UI components to your projects",
+  "main": "index.js",
+  "bin": {
+    "dimaac": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dimaac": "node index.js"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "cli",
+    "dimaac"
+  ],
+  "author": "DiMaac",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DimaacUI/DiMaac-UI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DimaacUI/DiMaac-UI/issues"
+  },
+  "homepage": "https://github.com/DimaacUI/DiMaac-UI#readme"
+}
