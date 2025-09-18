@@ -481,13 +481,6 @@ export const componentData: Record<string, ComponentPage> = {
             description: 'Characters used for scrambling effect'
           },
           {
-            property: 'scrambleSpeed',
-            type: 'number',
-            required: false,
-            defaultValue: '0.5',
-            description: 'Speed of the scramble animation (currently unused)'
-          },
-          {
             property: 'proximityRadius',
             type: 'number',
             required: false,

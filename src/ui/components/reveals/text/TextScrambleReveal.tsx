@@ -11,7 +11,6 @@ interface TextScrambleRevealProps {
   textColor?: string;
   scrambleColor?: string;
   scrambleChars?: string;
-  scrambleSpeed?: number;
   proximityRadius?: number;
   backgroundColor?: string;
   fontFamily?: string;
@@ -26,7 +25,6 @@ const TextScrambleReveal: React.FC<TextScrambleRevealProps> = ({
   textColor = '#ffffffb4',
   scrambleColor = '#00c8ff',
   scrambleChars = '.:', 
-  scrambleSpeed = 0.5,
   proximityRadius = 100,
   backgroundColor = 'transparent',
   fontFamily = '"Poppins", monospace',
