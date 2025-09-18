@@ -8,7 +8,7 @@ const componentRegistry = {
       name: 'TextScrambleReveal',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/reveals/text/TextScrambleReveal.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/reveals/TextScrambleRevealDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: [],
       description: 'Animated text reveal with scramble effect'
     },
     {
@@ -24,14 +24,14 @@ const componentRegistry = {
       name: 'MouseTiltCard',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/MouseTiltCard.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/MouseTiltCardDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: [],
       description: 'Interactive card with mouse tilt effect'
     },
     {
       name: 'SwipeableCards',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/SwipeableCards.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/SwipeableCardsDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: ['swiper', 'lucide-react'],
       description: 'Swipeable card stack component'
     }
   ],
@@ -47,7 +47,7 @@ const componentRegistry = {
       name: 'ContextMenu',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/interactive/ContextMenu.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/interactive/ContextMenuDemo.tsx`,
-      dependencies: [],
+      dependencies: ['@gsap/react'],
       description: 'Right-click context menu component'
     }
   ],
@@ -56,7 +56,7 @@ const componentRegistry = {
       name: 'ScrollingGallery',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/gallery/ScrollingGallery.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/gallery/ScrollingGalleryDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: ['@gsap/react'],
       description: 'Horizontal scrolling image gallery'
     },
     {
@@ -72,7 +72,7 @@ const componentRegistry = {
       name: 'TextLoader',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/loaders/TextLoader.tsx`,
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/loaders/TextLoaderDemo.tsx`,
-      dependencies: ['framer-motion'],
+      dependencies: ['@gsap/react'],
       description: 'Animated text loading component'
     }
   ],

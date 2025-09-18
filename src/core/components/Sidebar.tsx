@@ -32,12 +32,13 @@ const Sidebar = ({ sections, className, onItemClick, isMobile = false }: Sidebar
                 : "h-[calc(100dvh-1.25rem)] w-full sticky top-5 overflow-y-auto transition-all duration-300 ease-in",
             className
         )}>
+            <div className={cn("flex flex-col w-full", isMobile ? "" : "h-full")}>
             {!isMobile && (
                 <div className="mb-4">
                     <Logo className="w-24 h-auto" />
                 </div>
             )}
-            <div className={cn("flex flex-col w-full gap-6", isMobile ? "" : "h-full")}>
+                <div className="flex flex-col gap-6">
                 {sections.map((section) => {
                     return (
                         <div key={section.name} className="flex flex-col">
@@ -62,6 +63,7 @@ const Sidebar = ({ sections, className, onItemClick, isMobile = false }: Sidebar
                         </div>
                     )
                 })}
+                </div>
             </div>
         </div>
     )
