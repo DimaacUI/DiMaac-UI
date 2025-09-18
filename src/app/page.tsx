@@ -8,7 +8,7 @@ export default function Home() {
       title: "Expandable Panel",
       description: "Interactive panels that expand on click with smooth animations.",
       href: "/components/expandable-panel",
-      isNew: true,
+      isNew: false,
     },
     // Gallery & Media
     {
@@ -16,14 +16,14 @@ export default function Home() {
       title: "Image Gallery",
       description: "Interactive circular gallery with drag-to-spin functionality.",
       href: "/components/image-gallery",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/scrollingGallery.png",
       title: "Scrolling Gallery",
       description: "Smooth scrolling gallery with parallax effects and dynamic height.",
       href: "/components/scrolling-gallery",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/liquidImageReveal.png",
@@ -38,7 +38,7 @@ export default function Home() {
       title: "Mouse Tilt Card",
       description: "3D tilt cards with glare effects that respond to mouse movement.",
       href: "/components/mouse-tilt-card",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/swipeableCards.png",
@@ -53,14 +53,14 @@ export default function Home() {
       title: "Mouse Trail",
       description: "Dynamic image trail that follows your mouse cursor.",
       href: "/components/mouse-trail",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/contextMenu.png",
       title: "Context Menu",
       description: "Right-click context menus with GSAP animations and smart positioning.",
       href: "/components/context-menu",
-      isNew: true,
+      isNew: false,
     },
     // Text & Animation
     {
@@ -68,7 +68,7 @@ export default function Home() {
       title: "Text Loader",
       description: "Animated text loader with gradient reveals and smooth transitions.",
       href: "/components/text-loader",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/textScrambleReveal.png",

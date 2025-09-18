@@ -40,7 +40,7 @@ const Toggle = ({ options, value, onChange, className }: ToggleProps) => {
             {/* Sliding background */}
             <div 
                 className={cn(
-                    "absolute top-1 h-[calc(100%-0.5rem)] bg-[#DDFC3E] rounded-lg shadow-sm",
+                    "absolute top-1 h-[calc(100%-0.5rem)] bg-[#FFFFFF] rounded-lg shadow-sm",
                     hasInteracted && "transition-transform duration-300 ease-out"
                 )}
                 style={{

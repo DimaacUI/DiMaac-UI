@@ -13,6 +13,9 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "DiMAAC UI - Beautiful React Components",
   description: "Copy-paste React components built with Tailwind CSS and GSAP animations",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 const sections = [
@@ -25,35 +28,35 @@ const sections = [
   {
     name: "Layout Components",
     item: [
-      {name: "Expandable Panel", href: "/components/expandable-panel", isActive: false, isNew: true}
+      {name: "Expandable Panel", href: "/components/expandable-panel", isActive: false, isNew: false}
     ]
   },
   {
     name: "Gallery & Media",
     item: [
-      {name: "Image Gallery", href: "/components/image-gallery", isActive: false, isNew: true},
-      {name: "Scrolling Gallery", href: "/components/scrolling-gallery", isActive: false, isNew: true},
+      {name: "Image Gallery", href: "/components/image-gallery", isActive: false, isNew: false},
+      {name: "Scrolling Gallery", href: "/components/scrolling-gallery", isActive: false, isNew: false},
       {name: "Liquid Image Reveal", href: "/components/liquid-image-reveal", isActive: false, isNew: true}
     ]
   },
   {
     name: "Card Components",
     item: [
-      {name: "Mouse Tilt Card", href: "/components/mouse-tilt-card", isActive: false, isNew: true},
+      {name: "Mouse Tilt Card", href: "/components/mouse-tilt-card", isActive: false, isNew: false},
       {name: "Swipeable Cards", href: "/components/swipeable-cards", isActive: false, isNew: true}
     ]
   },
   {
     name: "Interactive Elements",
     item: [
-      {name: "Mouse Trail", href: "/components/mouse-trail", isActive: false, isNew: true},
-      {name: "Context Menu", href: "/components/context-menu", isActive: false, isNew: true}
+      {name: "Mouse Trail", href: "/components/mouse-trail", isActive: false, isNew: false},
+      {name: "Context Menu", href: "/components/context-menu", isActive: false, isNew: false}
     ]
   },
   {
     name: "Text & Animation",
     item: [
-      {name: "Text Loader", href: "/components/text-loader", isActive: false, isNew: true},
+      {name: "Text Loader", href: "/components/text-loader", isActive: false, isNew: false},
       {name: "Text Scramble Reveal", href: "/components/text-scramble-reveal", isActive: false, isNew: true}
     ]
   }

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import Sidebar from './Sidebar';
 import HamburgerMenu from './HamburgerMenu';
+import Logo from './Logo';
 
 interface Section {
   name: string;
@@ -55,7 +56,7 @@ const ResponsiveLayout = ({ sections, children }: ResponsiveLayoutProps) => {
       {/* Mobile Header with Hamburger */}
       {isMobile && (
         <header className="flex items-center justify-between p-4 bg-black/80 backdrop-blur-sm border-b border-white/10">
-          <h1 className="text-xl font-bold text-white">DIMAC</h1>
+          <Logo className="w-24 h-auto" />
           <HamburgerMenu 
             isOpen={isMobileMenuOpen} 
             onClick={toggleMobileMenu}
@@ -80,7 +81,7 @@ const ResponsiveLayout = ({ sections, children }: ResponsiveLayoutProps) => {
           {/* Fixed Header */}
           <div className="flex-shrink-0 p-4 border-b border-white/10">
             <div className="flex items-center justify-between">
-              <h1 className="text-xl font-bold text-white">DIMAC</h1>
+              <Logo className="w-24 h-auto" />
               <button
                 onClick={closeMobileMenu}
                 className="text-white hover:text-gray-300 text-2xl"
@@ -108,7 +109,7 @@ const ResponsiveLayout = ({ sections, children }: ResponsiveLayoutProps) => {
       <main className={cn(
         isMobile 
           ? "w-full px-4 py-4" // Mobile: full width container
-          : "flex w-[100dvw] max-w-[1440px] gap-5 px-4 py-4 container mx-auto" // Desktop: layout with sidebar
+          : "flex w-[100dvw] max-w-[1440px] gap-5 px-4 py-0 container mx-auto" // Desktop: layout with sidebar
       )}>
         {!isMobile && (
           <Sidebar title="DIMAC" sections={sections} className="w-[300px]" isMobile={false}/>
