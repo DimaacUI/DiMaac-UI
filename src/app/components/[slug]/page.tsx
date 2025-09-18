@@ -13,10 +13,29 @@ interface ComponentDetailPageProps {
     }>;
 }
 
+// Extract CLI component name from GitHub files or use cli property
+const getCliComponentName = (componentData: any): string => {
+    if (componentData.cli) {
+        return componentData.cli;
+    }
+    if (componentData.githubFiles && componentData.githubFiles.length > 0) {
+        const mainComponentFile = componentData.githubFiles.find((file: any) => 
+            file.displayName?.includes('components/ui/') && file.name.endsWith('.tsx')
+        );
+        
+        if (mainComponentFile) {
+            const fileName = mainComponentFile.name.replace('.tsx', '');
+            return fileName;
+        }
+    }
+    
+    return componentData.title.replace(/\s+/g, '');
+};
+
 export default async function ComponentDetailPage({ params }: ComponentDetailPageProps) {
     const { slug } = await params;
     const componentData = getComponentBySlug(slug);
-
+    
     if (!componentData) {
         return (
             <div className="w-full md:max-w-[calc(100%-300px)] flex items-center justify-center min-h-[400px]">
@@ -27,6 +46,8 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
             </div>
         );
     }
+    
+    const cliComponentName = getCliComponentName(componentData);
 
     // Fetch demo source code from GitHub if demoSourcePath is specified
     let demoSourceCode = componentData.sourceCode || '';
@@ -94,7 +115,18 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
                         <TabItem label="Installation">
                             <div className="space-y-6">
                                 <div>
-                                    <h3 className="text-md font-semibold text-white mb-3">Installation</h3>
+                                    <h3 className="text-md font-semibold text-white mb-3">Using CLI</h3>
+                                    <div className="bg-[#252222] p-4 rounded-lg border border-white/10 relative group">
+                                        <code className="text-sm text-white/90 font-mono">
+                                            npx dimaac add {cliComponentName}
+                                        </code>
+                                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                            <CopyButton text={`npx dimaac add ${cliComponentName}`} size="sm" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-md font-semibold text-white mb-3">Manual Installation</h3>
                                     <div className="bg-[#252222] p-4 rounded-lg border border-white/10 relative group">
                                         <code className="text-sm text-white/90 font-mono">
                                             npm install {componentData.dependencies.join(' ')}

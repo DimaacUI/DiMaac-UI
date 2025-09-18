@@ -89,17 +89,17 @@ async function installComponent(componentName, includeExample = false) {
     }
 
     const { category, component } = result;
-    const componentDir = path.join(process.cwd(), 'ui', 'components', category);
+    const componentDir = path.join(process.cwd(), 'ui', 'components');
     ensureDirectoryExists(componentDir);
 
     const destination = path.join(componentDir, `${component.name}.tsx`);
 
     console.log(`⬇️  Downloading ${component.name}...`);
     await downloadFile(component.sourceUrl, destination);
-    console.log(`✅ Successfully installed ${component.name} to ui/components/${category}/`);
+    console.log(`✅ Successfully installed ${component.name} to ui/components/`);
 
     if (includeExample && component.exampleUrl) {
-      const exampleDir = path.join(process.cwd(), 'examples', category);
+      const exampleDir = path.join(process.cwd(), 'examples');
       ensureDirectoryExists(exampleDir);
 
       const exampleDestination = path.join(exampleDir, `${component.name}Demo.tsx`);
@@ -107,7 +107,7 @@ async function installComponent(componentName, includeExample = false) {
       try {
         console.log(`⬇️  Downloading example...`);
         await downloadFile(component.exampleUrl, exampleDestination);
-        console.log(`✅ Successfully installed ${component.name}Demo to examples/${category}/`);
+        console.log(`✅ Successfully installed ${component.name}Demo to examples/`);
       } catch (error) {
         console.log(`⚠️  Example not found for ${component.name}`);
       }

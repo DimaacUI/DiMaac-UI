@@ -18,7 +18,7 @@ export const componentData: Record<string, ComponentPage> = {
     title: 'Rotating Image Gallery',
     description: 'A rotating image gallery component that displays a set of images in a circular motion which you can spin by using the mouse or touch.',
     tags: ['React', 'Tailwind CSS', 'Gallery', 'GSAP'],
-    dependencies: ['react', 'gsap'],
+    dependencies: ['react', '@gsap/react'],
     demoComponent: ImageGalleryDemo,
     demoSourcePath: COMPONENT_PATHS.imageGalleryDemo,
     githubFiles: [
@@ -74,7 +74,7 @@ export const componentData: Record<string, ComponentPage> = {
     title: 'Scrolling Gallery',
     description: 'A smooth scrolling gallery component with parallax effects and dynamic height calculation. Features GSAP ScrollSmoother, velocity-based skewing, and alternating image positioning for an engaging scroll experience.',
     tags: ['React', 'Tailwind CSS', 'Gallery', 'GSAP', 'ScrollTrigger', 'Parallax'],
-    dependencies: ['react', 'gsap', 'next/image'],
+    dependencies: ['react', '@gsap/react'],
     demoComponent: ScrollingGalleryDemo,
     demoSourcePath: COMPONENT_PATHS.scrollingGalleryDemo,
     githubFiles: [
@@ -128,7 +128,7 @@ export const componentData: Record<string, ComponentPage> = {
     title: 'Liquid Image Reveal',
     description: 'A liquid-style image reveal component that creates an organic, fluid reveal effect using SVG filters and GSAP animations. Features Safari compatibility with fallback rendering.',
     tags: ['React', 'Tailwind CSS', 'SVG', 'GSAP', 'Animation', 'Filters'],
-    dependencies: ['react', 'gsap'],
+    dependencies: ['react', '@gsap/react'],
     demoComponent: LiquidImageRevealDemo,
     demoSourcePath: COMPONENT_PATHS.liquidImageRevealDemo,
     githubFiles: [
@@ -246,7 +246,7 @@ export const componentData: Record<string, ComponentPage> = {
     title: 'Text Loader',
     description: 'An animated text loader component with gradient reveals and smooth GSAP animations. Features customizable colors, timing, and responsive design with Google Fonts integration.',
     tags: ['React', 'Tailwind CSS', 'GSAP', 'Animation', 'Typography', 'Loader'],
-    dependencies: ['react', 'gsap'],
+    dependencies: ['react', '@gsap/react'],
     demoComponent: TextLoaderDemo,
     demoSourcePath: COMPONENT_PATHS.textLoaderDemo,
     githubFiles: [
@@ -269,7 +269,7 @@ export const componentData: Record<string, ComponentPage> = {
             property: 'text',
             type: 'string',
             required: false,
-            defaultValue: 'HANKTHETANK',
+            defaultValue: 'DIMAAC',
             description: 'The text to be animated and displayed'
           },
           {
@@ -343,35 +343,23 @@ export const componentData: Record<string, ComponentPage> = {
         title: 'MouseTiltCard Props',
         props: [
           {
-            property: 'image',
-            type: 'string',
+            property: 'children',
+            type: 'React.ReactNode',
             required: true,
-            description: 'URL of the background image for the card'
-          },
-          {
-            property: 'heading',
-            type: 'string',
-            required: true,
-            description: 'Main heading text displayed on the card'
-          },
-          {
-            property: 'subheading',
-            type: 'string',
-            required: true,
-            description: 'Subheading text displayed below the heading'
+            description: 'The content to render inside the tiltable card'
           },
           {
             property: 'className',
             type: 'string',
             required: false,
-            description: 'Additional CSS classes to apply to the card'
+            description: 'Additional CSS classes to apply to the card container'
           },
           {
             property: 'tiltIntensity',
             type: 'number',
             required: false,
             defaultValue: '15',
-            description: 'Intensity of the tilt effect (degrees)'
+            description: 'Intensity of the tilt effect in degrees'
           },
           {
             property: 'perspective',
@@ -407,13 +395,6 @@ export const componentData: Record<string, ComponentPage> = {
             required: false,
             defaultValue: 'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
             description: 'CSS transition for smooth animations'
-          },
-          {
-            property: 'borderGlow',
-            type: 'boolean',
-            required: false,
-            defaultValue: 'true',
-            description: 'Whether to show border glow effect on hover'
           }
         ]
       }
@@ -538,7 +519,7 @@ export const componentData: Record<string, ComponentPage> = {
     title: 'Mouse Trail',
     description: 'An interactive mouse trail component that creates a stunning visual effect with images following the mouse cursor. Features customizable images, stagger timing, and smooth GSAP animations.',
     tags: ['React', 'GSAP', 'Interactive', 'Animation', 'Mouse Effects'],
-    dependencies: ['react', 'gsap'],
+    dependencies: ['react', '@gsap/react'],
     demoComponent: MouseTrailDemo,
     demoSourcePath: COMPONENT_PATHS.mouseTrailDemo,
     githubFiles: [
@@ -802,7 +783,7 @@ export const componentData: Record<string, ComponentPage> = {
     title: 'Context Menu',
     description: 'A customizable right-click context menu component with GSAP animations, Lucide icons, and smart positioning. Features smooth stacking effects and keyboard shortcut display.',
     tags: ['React', 'Tailwind CSS', 'GSAP', 'Interactive', 'Lucide Icons'],
-    dependencies: ['react', 'gsap', 'lucide-react'],
+    dependencies: ['react', '@gsap/react', 'lucide-react'],
     demoComponent: ContextMenuDemo,
     demoSourcePath: COMPONENT_PATHS.contextMenuDemo,
     githubFiles: [
