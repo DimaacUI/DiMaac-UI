@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import ResponsiveLayoutWrapper from "@/core/components/ResponsiveLayoutWrapper";
+import { Analytics } from "@vercel/analytics/next";
 
 
 const bricolage = Bricolage_Grotesque({
@@ -77,6 +78,7 @@ export default function RootLayout({
         <ResponsiveLayoutWrapper sections={sections}>
           {children}
         </ResponsiveLayoutWrapper>
+        <Analytics />
       </body>
     </html>
   );
