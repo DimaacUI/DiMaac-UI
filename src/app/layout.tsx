@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "DiMAAC UI - Beautiful React Components",
   description: "Copy-paste React components built with Tailwind CSS and GSAP animations",
   icons: {
-    icon: "/logo.png",
+    icon: "/favicon.png",
   },
 };
 
