@@ -8,6 +8,7 @@ import { TextScrambleRevealDemo } from '@/examples/components/reveals/TextScramb
 import { MouseTrailDemo } from '@/examples/components/interactive/MouseTrailDemo';
 import { ExpandablePanelDemo } from '@/examples/components/layout/ExpandablePanelDemo';
 import { SwipeableCardsDemo } from '@/examples/components/cards/SwipeableCardsDemo';
+import InstagramCardDemo from '@/examples/components/cards/InstagramCardDemo';
 import { ContextMenuDemo } from '@/examples/components/interactive/ContextMenuDemo';
 import { COMPONENT_PATHS } from '@/lib/githubFetcher';
 
@@ -764,6 +765,66 @@ export const componentData: Record<string, ComponentPage> = {
             required: false,
             defaultValue: '40',
             description: 'Space between cards in pixels (currently unused)'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'instagram-card': {
+    id: 'instagram-card',
+    slug: 'instagram-card',
+    title: 'Instagram Card',
+    description: 'A social media card component that mimics Instagram post styling with profile information, image display, and interactive elements like verification badges.',
+    tags: ['React', 'Tailwind CSS', 'Social Media', 'Cards', 'UI'],
+    dependencies: ['react'],
+    demoComponent: InstagramCardDemo,
+    demoSourcePath: COMPONENT_PATHS.instagramCardDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'InstagramCard.tsx',
+        githubPath: COMPONENT_PATHS.instagramCard,
+        displayName: 'components/ui/InstagramCard.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'InstagramCard Props',
+        props: [
+          {
+            property: 'image',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the main post image'
+          },
+          {
+            property: 'profileImage',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the user profile image'
+          },
+          {
+            property: 'isVerifiefd',
+            type: 'boolean',
+            required: true,
+            description: 'Whether the user account is verified (note: typo in original prop name)'
+          },
+          {
+            property: 'caption',
+            type: 'string',
+            required: true,
+            description: 'The post caption text content'
+          },
+          {
+            property: 'username',
+            type: 'string',
+            required: true,
+            description: 'The username of the post author'
           }
         ]
       }

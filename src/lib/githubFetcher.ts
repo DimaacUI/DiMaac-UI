@@ -105,6 +105,7 @@ export const COMPONENT_PATHS = {
   mouseTrail: 'src/ui/components/interactive/MouseTrail.tsx',
   expandablePanel: 'src/ui/components/layout/ExpandablePanel.tsx',
   swipeableCards: 'src/ui/components/cards/SwipeableCards.tsx',
+  instagramCard: 'src/ui/components/cards/InstagramCard.tsx',
   contextMenu: 'src/ui/components/interactive/ContextMenu.tsx',
   
   // Demo Components
@@ -117,6 +118,7 @@ export const COMPONENT_PATHS = {
   mouseTrailDemo: 'src/examples/components/interactive/MouseTrailDemo.tsx',
   expandablePanelDemo: 'src/examples/components/layout/ExpandablePanelDemo.tsx',
   swipeableCardsDemo: 'src/examples/components/cards/SwipeableCardsDemo.tsx',
+  instagramCardDemo: 'src/examples/components/cards/InstagramCardDemo.tsx',
   contextMenuDemo: 'src/examples/components/interactive/ContextMenuDemo.tsx',
   
   // Utility files

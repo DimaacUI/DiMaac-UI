@@ -47,7 +47,13 @@ export default function Home() {
       href: "/components/swipeable-cards",
       isNew: true,
     },
-    // Interactive Elements
+    {
+      img: "/swipeableCards.png",
+      title: "Instagram Post",
+      description: "Instagram post card with profile image, verified badge, caption, and username.",
+      href: "/components/instagram-card",
+      isNew: true,
+    },
     {
       img: "/mouseTrail.png",
       title: "Mouse Trail",

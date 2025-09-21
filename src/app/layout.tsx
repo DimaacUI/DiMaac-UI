@@ -44,7 +44,8 @@ const sections = [
     name: "Card Components",
     item: [
       {name: "Mouse Tilt Card", href: "/components/mouse-tilt-card", isActive: false, isNew: false},
-      {name: "Swipeable Cards", href: "/components/swipeable-cards", isActive: false, isNew: true}
+      {name: "Swipeable Cards", href: "/components/swipeable-cards", isActive: false, isNew: true},
+      {name: "Instagram Card", href: "/components/instagram-card", isActive: false, isNew: true}
     ]
   },
   {
