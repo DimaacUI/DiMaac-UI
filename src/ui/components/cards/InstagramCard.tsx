@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useState, useRef, useId } from 'react'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { cn } from '@/lib/utils';
 
 interface InstagramCardProps {
     image?: string;
@@ -13,6 +14,8 @@ interface InstagramCardProps {
     username: string;
     timestamp: string;
     customPost?: React.ReactNode;
+    className?: string;
+    postClassName?: string;
 }
 
 const InstagramCard = (props: InstagramCardProps) => {
@@ -59,7 +62,7 @@ const InstagramCard = (props: InstagramCardProps) => {
     return (
         <div 
             ref={containerRef}
-            className="w-full max-w-xs flex flex-col gap-2.5" 
+            className={cn("w-full max-w-xs flex flex-col gap-2.5", props.className)} 
             style={{
                 fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
             }}
@@ -110,11 +113,11 @@ const InstagramCard = (props: InstagramCardProps) => {
             </div>
             
             {props.customPost ? (
-                <div className="h-full min-h-[500px] w-full border border-white/10 rounded-md overflow-hidden">
+                <div className={cn("h-full min-h-[500px] w-full border border-white/10 rounded-md overflow-hidden", props.postClassName)}>
                     {props.customPost}
                 </div>
             ) : (
-                <div className="w-full h-fit min-h-[500px] border border-white/10 rounded-md overflow-hidden">
+                <div className={cn("w-full h-fit min-h-[500px] border border-white/10 rounded-md overflow-hidden", props.postClassName)}>
                     <Image 
                         src={props.image || ''} 
                         alt={props.username} 

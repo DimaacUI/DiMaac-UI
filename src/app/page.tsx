@@ -30,7 +30,7 @@ export default function Home() {
       title: "Liquid Image Reveal",
       description: "Organic fluid reveal effect using SVG filters and GSAP animations.",
       href: "/components/liquid-image-reveal",
-      isNew: true,
+      isNew: false,
     },
     // Card Components
     {
@@ -42,16 +42,37 @@ export default function Home() {
     },
     {
       img: "/swipeableCards.png",
+      title: "Post Swiper",
+      description: "Unified swipeable component for social media cards with smooth gestures.",
+      href: "/components/post-swiper",
+      isNew: true,
+    },
+    {
+      img: "/swipeableCards.png",
       title: "Swipeable Cards",
       description: "Touch-friendly card stack with smooth swipe gestures.",
       href: "/components/swipeable-cards",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/swipeableCards.png",
       title: "Instagram Post",
       description: "Instagram post card with profile image, verified badge, caption, and username.",
       href: "/components/instagram-card",
+      isNew: true,
+    },
+    {
+      img: "/swipeableCards.png",
+      title: "Twitter Card",
+      description: "Twitter/X post card with interactive elements, animations, and authentic styling.",
+      href: "/components/twitter-card",
+      isNew: true,
+    },
+    {
+      img: "/swipeableCards.png",
+      title: "Facebook Card",
+      description: "Facebook post card with profile, content, and interactive like/comment/share buttons.",
+      href: "/components/facebook-card",
       isNew: true,
     },
     {
@@ -81,7 +102,7 @@ export default function Home() {
       title: "Text Scramble Reveal",
       description: "Interactive text that scrambles on mouse proximity with custom characters.",
       href: "/components/text-scramble-reveal",
-      isNew: true,
+      isNew: false,
     }
   ]
   return (

@@ -9,6 +9,9 @@ import { MouseTrailDemo } from '@/examples/components/interactive/MouseTrailDemo
 import { ExpandablePanelDemo } from '@/examples/components/layout/ExpandablePanelDemo';
 import { SwipeableCardsDemo } from '@/examples/components/cards/SwipeableCardsDemo';
 import InstagramCardDemo from '@/examples/components/cards/InstagramCardDemo';
+import TwitterCardDemo from '@/examples/components/cards/TwitterCardDemo';
+import FacebookCardDemo from '@/examples/components/cards/FacebookCardDemo';
+import { PostSwiperDemo } from '@/examples/components/cards/PostSwiperDemo';
 import { ContextMenuDemo } from '@/examples/components/interactive/ContextMenuDemo';
 import { COMPONENT_PATHS } from '@/lib/githubFetcher';
 
@@ -67,7 +70,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'scrolling-gallery': {
     id: 'scrolling-gallery',
@@ -121,7 +124,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'liquid-image-reveal': {
     id: 'liquid-image-reveal',
@@ -239,7 +242,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'text-loader': {
     id: 'text-loader',
@@ -316,7 +319,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'mouse-tilt-card': {
     id: 'mouse-tilt-card',
@@ -400,7 +403,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'text-scramble-reveal': {
     id: 'text-scramble-reveal',
@@ -505,7 +508,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'mouse-trail': {
     id: 'mouse-trail',
@@ -588,7 +591,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'expandable-panel': {
     id: 'expandable-panel',
@@ -692,6 +695,68 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
+    isNew: false
+  },
+  'post-swiper': {
+    id: 'post-swiper',
+    slug: 'post-swiper',
+    title: 'Post Swiper',
+    description: 'A unified swipeable component for social media cards. Effortlessly create card stacks with Twitter, Instagram, Facebook posts, or any custom content with smooth swipe gestures.',
+    tags: ['React', 'Swiper', 'Cards', 'Social Media', 'Touch', 'Animation'],
+    dependencies: ['react', 'swiper'],
+    demoComponent: PostSwiperDemo,
+    demoSourcePath: COMPONENT_PATHS.postSwiperDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'PostSwiper.tsx',
+        githubPath: COMPONENT_PATHS.postSwiper,
+        displayName: 'components/ui/PostSwiper.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'PostSwiper Props',
+        props: [
+          {
+            property: 'slides',
+            type: 'React.ReactNode[]',
+            required: true,
+            description: 'Array of React components or elements to display as swipeable cards'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the container wrapper'
+          },
+          {
+            property: 'swiperClassName',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the Swiper element'
+          },
+          {
+            property: 'loop',
+            type: 'boolean',
+            required: false,
+            defaultValue: 'true',
+            description: 'Whether to enable infinite loop mode'
+          },
+          {
+            property: 'grabCursor',
+            type: 'boolean',
+            required: false,
+            defaultValue: 'true',
+            description: 'Whether to show grab cursor on hover'
+          }
+        ]
+      }
+    ],
     isNew: true
   },
   'swipeable-cards': {
@@ -769,15 +834,15 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'instagram-card': {
     id: 'instagram-card',
     slug: 'instagram-card',
     title: 'Instagram Card',
-    description: 'A social media card component that mimics Instagram post styling with profile information, image display, and interactive elements like verification badges.',
-    tags: ['React', 'Tailwind CSS', 'Social Media', 'Cards', 'UI'],
-    dependencies: ['react'],
+    description: 'A social media card component that mimics Instagram post styling with profile information, interactive like/bookmark buttons, and support for both images and custom content with GSAP animations.',
+    tags: ['React', 'Tailwind CSS', 'Social Media', 'Cards', 'GSAP', 'UI'],
+    dependencies: ['react', '@gsap/react'],
     demoComponent: InstagramCardDemo,
     demoSourcePath: COMPONENT_PATHS.instagramCardDemo,
     githubFiles: [
@@ -799,8 +864,8 @@ export const componentData: Record<string, ComponentPage> = {
           {
             property: 'image',
             type: 'string',
-            required: true,
-            description: 'URL or path to the main post image'
+            required: false,
+            description: 'URL or path to the main post image (not needed if using customPost)'
           },
           {
             property: 'profileImage',
@@ -809,22 +874,190 @@ export const componentData: Record<string, ComponentPage> = {
             description: 'URL or path to the user profile image'
           },
           {
-            property: 'isVerifiefd',
+            property: 'isVerified',
             type: 'boolean',
             required: true,
-            description: 'Whether the user account is verified (note: typo in original prop name)'
+            description: 'Whether the user account has a verified badge'
           },
           {
             property: 'caption',
             type: 'string',
             required: true,
-            description: 'The post caption text content'
+            description: 'The post caption text content displayed below the image'
           },
           {
             property: 'username',
             type: 'string',
             required: true,
             description: 'The username of the post author'
+          },
+          {
+            property: 'timestamp',
+            type: 'string',
+            required: true,
+            description: 'Time since the post was created (e.g., "2h", "1d", "3w")'
+          },
+          {
+            property: 'customPost',
+            type: 'React.ReactNode',
+            required: false,
+            description: 'Custom JSX content to display instead of an image for creative posts'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the card container'
+          },
+          {
+            property: 'postClassName',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the post/image container for custom sizing'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'twitter-card': {
+    id: 'twitter-card',
+    slug: 'twitter-card',
+    title: 'Twitter Card',
+    description: 'A social media card component that mimics Twitter/X post styling with profile information, content display, and interactive elements like likes, retweets, and bookmarks with smooth GSAP animations.',
+    tags: ['React', 'Tailwind CSS', 'Social Media', 'Cards', 'GSAP', 'UI'],
+    dependencies: ['react', '@gsap/react'],
+    demoComponent: TwitterCardDemo,
+    demoSourcePath: COMPONENT_PATHS.twitterCardDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'TwitterCard.tsx',
+        githubPath: COMPONENT_PATHS.twitterCard,
+        displayName: 'components/ui/TwitterCard.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'TwitterCard Props',
+        props: [
+          {
+            property: 'image',
+            type: 'string',
+            required: false,
+            description: 'URL or path to the media image in the tweet (only used with string content)'
+          },
+          {
+            property: 'profileImage',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the user profile image'
+          },
+          {
+            property: 'isVerified',
+            type: 'boolean',
+            required: true,
+            description: 'Whether the user account has a verified badge'
+          },
+          {
+            property: 'content',
+            type: 'string | React.ReactNode',
+            required: true,
+            description: 'The tweet content - can be text string or custom JSX for rich media posts'
+          },
+          {
+            property: 'username',
+            type: 'string',
+            required: true,
+            description: 'The username handle of the tweet author (without @)'
+          },
+          {
+            property: 'displayName',
+            type: 'string',
+            required: true,
+            description: 'The display name of the tweet author'
+          },
+          {
+            property: 'timestamp',
+            type: 'string',
+            required: true,
+            description: 'Time since the tweet was posted (e.g., "2h", "1d")'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the card container (e.g., for background customization)'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'facebook-card': {
+    id: 'facebook-card',
+    slug: 'facebook-card',
+    title: 'Facebook Card',
+    description: 'A social media card component that mimics Facebook post styling with profile information, content display, and interactive elements like likes, comments, and shares with smooth GSAP animations.',
+    tags: ['React', 'Tailwind CSS', 'Social Media', 'Cards', 'GSAP', 'UI'],
+    dependencies: ['react', '@gsap/react'],
+    demoComponent: FacebookCardDemo,
+    demoSourcePath: COMPONENT_PATHS.facebookCardDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'FacebookCard.tsx',
+        githubPath: COMPONENT_PATHS.facebookCard,
+        displayName: 'components/ui/FacebookCard.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'FacebookCard Props',
+        props: [
+          {
+            property: 'image',
+            type: 'string',
+            required: false,
+            description: 'URL or path to the media image in the post (only used with string content)'
+          },
+          {
+            property: 'profileImage',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the user profile image'
+          },
+          {
+            property: 'content',
+            type: 'string | React.ReactNode',
+            required: true,
+            description: 'The post content - can be text string or custom JSX for rich media posts'
+          },
+          {
+            property: 'username',
+            type: 'string',
+            required: true,
+            description: 'The username or display name of the post author'
+          },
+          {
+            property: 'timestamp',
+            type: 'string',
+            required: true,
+            description: 'Time since the post was created (e.g., "2h", "1d")'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the card container'
           }
         ]
       }
@@ -938,7 +1171,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
 };
 

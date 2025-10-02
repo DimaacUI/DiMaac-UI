@@ -12,6 +12,7 @@ const InstagramCardDemo = () => {
             caption="This is a caption"
             username="lylia_agent47"
             timestamp="1d"
+            postClassName="min-h-[500px]"
         />
         
         <InstagramCard
@@ -20,6 +21,7 @@ const InstagramCardDemo = () => {
             caption="midnight thoughts hitting different ✨ sometimes you just gotta trust the process and let creativity flow #midnightvibes #trusttheprocess #aesthetic"
             username="DiMaac"
             timestamp="23m"
+            postClassName="min-h-[500px]"
             customPost={
                 <div 
                     className="w-full h-full relative overflow-hidden"
@@ -82,6 +84,7 @@ const InstagramCardDemo = () => {
             caption="This is a caption"
             username="muscle_therapist"
             timestamp="2w"
+            postClassName="min-h-[500px]"
         />
     </div>
   )
