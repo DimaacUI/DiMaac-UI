@@ -33,6 +33,34 @@ const componentRegistry = {
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/SwipeableCardsDemo.tsx`,
       dependencies: ['swiper', 'lucide-react'],
       description: 'Swipeable card stack component'
+    },
+    {
+      name: 'PostSwiper',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/PostSwiper.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/PostSwiperDemo.tsx`,
+      dependencies: ['swiper'],
+      description: 'Unified swipeable component for social media cards with smooth gestures'
+    },
+    {
+      name: 'InstagramCard',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/InstagramCard.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/InstagramCardDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Instagram post card with profile image, verified badge, and username'
+    },
+    {
+      name: 'TwitterCard',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/TwitterCard.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/TwitterCardDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Twitter/X post card with interactive elements, animations, and authentic styling'
+    },
+    {
+      name: 'FacebookCard',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/FacebookCard.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/FacebookCardDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Facebook post card with profile, content, and interactive like/comment/share buttons'
     }
   ],
   interactive: [
