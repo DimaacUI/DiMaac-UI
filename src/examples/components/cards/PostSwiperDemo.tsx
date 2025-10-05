@@ -11,7 +11,9 @@ export const PostSwiperDemo = () => {
       key="twitter-1"
       profileImage="/logo.png"
       isVerified={true}
-      content="Just shipped PostSwiper! 🚀 A unified component for swipeable social media cards. Mix Twitter and Facebook posts seamlessly. \n\n #DiMaacUI #React"
+      content={`Just shipped PostSwiper! 🚀 A unified component for swipeable social media cards. Mix Twitter and Facebook posts seamlessly.
+
+#DiMaacUI #React`}
       displayName="DiMaac"
       username="DiMaacUI"
       timestamp="1h"
@@ -98,7 +100,6 @@ export const PostSwiperDemo = () => {
       key="instagram-2"
       profileImage="/logo.png"
       isVerified={true}
-      caption="midnight thoughts hitting different ✨ sometimes you just gotta trust the process and let creativity flow #midnightvibes #trusttheprocess #aesthetic"
       username="DiMaac"
       timestamp="6h"
       className="max-w-xl bg-[#252728] p-4 rounded-2xl border border-white/10"
@@ -163,7 +164,9 @@ export const PostSwiperDemo = () => {
     <FacebookCard
       key="facebook-2"
       profileImage="/logo.png"
-      content="The secret to becoming a better developer? Build things. Lots of things. Don't just follow tutorials—create your own projects, make mistakes, debug, learn, and repeat.\n\nYour portfolio isn't about perfection. It's about progress. 📈"
+      content={`The secret to becoming a better developer? Build things. Lots of things. Don't just follow tutorials—create your own projects, make mistakes, debug, learn, and repeat.
+
+Your portfolio isn't about perfection. It's about progress. 📈`}
       username="DiMaac"
       timestamp="8h"
     />,
@@ -173,7 +176,14 @@ export const PostSwiperDemo = () => {
       key="twitter-3"
       profileImage="/barakaDP.png"
       isVerified={true}
-      content="Your body is a temple. Your code is a cathedral.\n\nBoth need:\n✓ Strong foundations\n✓ Regular maintenance\n✓ Attention to detail\n\nDon't skip leg day. Don't skip code reviews. 🏋️‍♂️💻"
+      content={`Your body is a temple. Your code is a cathedral.
+
+Both need:
+✓ Strong foundations
+✓ Regular maintenance
+✓ Attention to detail
+
+Don't skip leg day. Don't skip code reviews. 🏋️‍♂️💻`}
       displayName="Baraka"
       username="muscle_therapist"
       timestamp="12h"

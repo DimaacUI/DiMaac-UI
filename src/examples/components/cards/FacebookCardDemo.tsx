@@ -15,7 +15,9 @@ const FacebookCardDemo = () => {
     },
     {
       profileImage: "/barakaDP.png",
-      content: "Just finished an intense workout session! 💪 Remember: your body and your code both need regular maintenance. Stay strong, stay sharp!\n\n#Fitness #Coding #HealthyDeveloper",
+      content: `Just finished an intense workout session! 💪 Remember: your body and your code both need regular maintenance. Stay strong, stay sharp!
+
+#Fitness #Coding #HealthyDeveloper`,
       username: "Baraka - Muscle Therapist",
       timestamp: "5h"
     },
@@ -80,25 +82,37 @@ const FacebookCardDemo = () => {
     },
     {
       profileImage: "/logo.png",
-      content: "The secret to becoming a better developer? Build things. Lots of things. Don't just follow tutorials—create your own projects, make mistakes, debug, learn, and repeat.\n\nYour portfolio isn't about perfection. It's about progress. 📈",
+      content: `The secret to becoming a better developer? Build things. Lots of things. Don't just follow tutorials—create your own projects, make mistakes, debug, learn, and repeat.
+
+Your portfolio isn't about perfection. It's about progress. 📈`,
       username: "DiMaac",
       timestamp: "12h"
     },
     {
       profileImage: "/barakaDP.png",
-      content: "They say sitting is the new smoking. As developers, we need to take care of our bodies just as much as we care about our code.\n\nStand up every hour. Stretch. Hydrate. Your future self will thank you. 🧘‍♂️💻",
+      content: `They say sitting is the new smoking. As developers, we need to take care of our bodies just as much as we care about our code.
+
+Stand up every hour. Stretch. Hydrate. Your future self will thank you. 🧘‍♂️💻`,
       username: "Baraka - Muscle Therapist",
       timestamp: "1d"
     },
     {
       profileImage: "/lyliaDP.png",
-      content: "Debugging is like being a detective in a crime movie where you're also the murderer. 🕵️‍♀️\n\nYou wrote the bug. You have to find the bug. You know you wrote it somewhere. But where?!\n\nThis is fine. Everything is fine. 😅",
+      content: `Debugging is like being a detective in a crime movie where you're also the murderer. 🕵️‍♀️
+
+You wrote the bug. You have to find the bug. You know you wrote it somewhere. But where?!
+
+This is fine. Everything is fine. 😅`,
       username: "Lylia",
       timestamp: "2d"
     },
     {
       profileImage: "/logo.png",
-      content: "Stop waiting for the perfect moment to start. There's no perfect time, no perfect setup, no perfect knowledge level.\n\nStart messy. Start incomplete. Start scared.\n\nJust start. You'll figure it out along the way. That's how everyone does it. 🚀",
+      content: `Stop waiting for the perfect moment to start. There's no perfect time, no perfect setup, no perfect knowledge level.
+
+Start messy. Start incomplete. Start scared.
+
+Just start. You'll figure it out along the way. That's how everyone does it. 🚀`,
       username: "DiMaac",
       timestamp: "3d"
     },

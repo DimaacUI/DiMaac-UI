@@ -10,7 +10,6 @@ interface InstagramCardProps {
     image?: string;
     profileImage: string;
     isVerified: boolean;
-    caption: string;
     username: string;
     timestamp: string;
     customPost?: React.ReactNode;

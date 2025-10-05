@@ -9,7 +9,6 @@ const InstagramCardDemo = () => {
             image="/lyliaInsta.png"
             profileImage="/lyliaDP.png"
             isVerified={true}
-            caption="This is a caption"
             username="lylia_agent47"
             timestamp="1d"
             postClassName="min-h-[500px]"
@@ -18,7 +17,6 @@ const InstagramCardDemo = () => {
         <InstagramCard
             profileImage="/logo.png"
             isVerified={true}
-            caption="midnight thoughts hitting different ✨ sometimes you just gotta trust the process and let creativity flow #midnightvibes #trusttheprocess #aesthetic"
             username="DiMaac"
             timestamp="23m"
             postClassName="min-h-[500px]"
@@ -81,7 +79,6 @@ const InstagramCardDemo = () => {
             image="/barakaInsta.png"
             profileImage="/barakaDP.png"
             isVerified={true}
-            caption="This is a caption"
             username="muscle_therapist"
             timestamp="2w"
             postClassName="min-h-[500px]"

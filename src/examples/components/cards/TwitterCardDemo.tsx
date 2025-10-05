@@ -18,7 +18,22 @@ const TwitterCardDemo = () => {
         {
             profileImage: "/logo.png",
             isVerified: true,
-            content: "Hot take: Your side project doesn't need:\n\n❌ Microservices\n❌ Kubernetes\n❌ Redis\n❌ GraphQL\n❌ Multiple databases\n\nIt needs:\n\n✅ To solve a real problem\n✅ To ship fast\n✅ To get users\n✅ To iterate based on feedback\n\nStop over-engineering. Start shipping. 🚢",
+            content: `Hot take: Your side project doesn't need:
+
+❌ Microservices
+❌ Kubernetes
+❌ Redis
+❌ GraphQL
+❌ Multiple databases
+
+It needs:
+
+✅ To solve a real problem
+✅ To ship fast
+✅ To get users
+✅ To iterate based on feedback
+
+Stop over-engineering. Start shipping. 🚢`,
             displayName: "DiMaac",
             username: "DiMaacUI",
             timestamp: "5h"
@@ -87,7 +102,18 @@ const TwitterCardDemo = () => {
         {
             profileImage: "/barakaDP.png",
             isVerified: true,
-            content: "Training legs today. Training code tomorrow.\n\nBoth require:\n• Consistency over intensity\n• Progressive overload\n• Proper form\n• Recovery time\n• Long-term thinking\n\nWhether you're building muscle or building apps, the principles are the same. Stay disciplined. 💪\n\n#FitnessAndCode",
+            content: `Training legs today. Training code tomorrow.
+
+Both require:
+• Consistency over intensity
+• Progressive overload
+• Proper form
+• Recovery time
+• Long-term thinking
+
+Whether you're building muscle or building apps, the principles are the same. Stay disciplined. 💪
+
+#FitnessAndCode`,
             displayName: "Baraka",
             username: "muscle_therapist",
             timestamp: "1d"
@@ -156,7 +182,16 @@ const TwitterCardDemo = () => {
         {
             profileImage: "/logo.png",
             isVerified: true,
-            content: "Real talk: The best developers I know aren't the ones who memorized every algorithm or framework.\n\nThey're the ones who:\n• Ask great questions\n• Admit when they don't know\n• Help others without ego\n• Ship features that users love\n• Debug with curiosity, not frustration\n\nBe the dev people want on their team. Technical skills are teachable. Character isn't. 💙",
+            content: `Real talk: The best developers I know aren't the ones who memorized every algorithm or framework.
+
+They're the ones who:
+• Ask great questions
+• Admit when they don't know
+• Help others without ego
+• Ship features that users love
+• Debug with curiosity, not frustration
+
+Be the dev people want on their team. Technical skills are teachable. Character isn't. 💙`,
             displayName: "DiMaac",
             username: "DiMaacUI",
             timestamp: "2d"
@@ -164,7 +199,15 @@ const TwitterCardDemo = () => {
         {
             profileImage: "/barakaDP.png",
             isVerified: true,
-            content: "Your body is a temple. Your code is a cathedral.\n\nBoth need:\n✓ Strong foundations\n✓ Regular maintenance\n✓ Attention to detail\n✓ Sustainable practices\n\nDon't skip leg day. Don't skip code reviews. Both will catch up with you eventually. 🏋️‍♂️💻",
+            content: `Your body is a temple. Your code is a cathedral.
+
+Both need:
+✓ Strong foundations
+✓ Regular maintenance
+✓ Attention to detail
+✓ Sustainable practices
+
+Don't skip leg day. Don't skip code reviews. Both will catch up with you eventually. 🏋️‍♂️💻`,
             displayName: "Baraka",
             username: "muscle_therapist",
             timestamp: "3d"
@@ -172,7 +215,16 @@ const TwitterCardDemo = () => {
         {
             profileImage: "/logo.png",
             isVerified: true,
-            content: "Unpopular opinion: You don't need to learn every new JavaScript framework that comes out.\n\nMaster the fundamentals:\n• Vanilla JS\n• CSS\n• HTML\n• HTTP\n• Browser APIs\n\nFrameworks come and go. Fundamentals are forever. Build on rock, not sand. 🏗️",
+            content: `Unpopular opinion: You don't need to learn every new JavaScript framework that comes out.
+
+Master the fundamentals:
+• Vanilla JS
+• CSS
+• HTML
+• HTTP
+• Browser APIs
+
+Frameworks come and go. Fundamentals are forever. Build on rock, not sand. 🏗️`,
             displayName: "DiMaac",
             username: "DiMaacUI",
             timestamp: "4d"

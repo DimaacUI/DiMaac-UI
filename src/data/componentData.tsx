@@ -880,12 +880,6 @@ export const componentData: Record<string, ComponentPage> = {
             description: 'Whether the user account has a verified badge'
           },
           {
-            property: 'caption',
-            type: 'string',
-            required: true,
-            description: 'The post caption text content displayed below the image'
-          },
-          {
             property: 'username',
             type: 'string',
             required: true,
