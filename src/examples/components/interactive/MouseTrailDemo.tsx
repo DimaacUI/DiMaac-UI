@@ -4,7 +4,7 @@ const MouseTrailDemo = () => {
   // Custom images for the demo
   const trailImages = [
     "/daisy0.png",
-    "/emily0.png",
+    "/emily.png",
     "/lance0.png",
     "/renei0.png",
     "/linda0.png",

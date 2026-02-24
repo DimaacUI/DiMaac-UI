@@ -61,9 +61,37 @@ const componentRegistry = {
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/FacebookCardDemo.tsx`,
       dependencies: ['@gsap/react'],
       description: 'Facebook post card with profile, content, and interactive like/comment/share buttons'
+    },
+    {
+      name: 'PerspectiveCardStack',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/PerspectiveCardStack.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/PerspectiveCardStackDemo.tsx`,
+      dependencies: ['next'],
+      description: '3D card stack that fans out on hover with perspective transforms'
+    },
+    {
+      name: 'StackedCardSlider',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/cards/StackedCardSlider.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/cards/StackedCardSliderDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Looped stacked cards carousel with GSAP Flip - clone, hide, onEnter/onLeave'
     }
   ],
   interactive: [
+    {
+      name: 'MaskRevealOnHover',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/interactive/MaskRevealOnHover.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/interactive/MaskRevealOnHoverDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Circular mask following cursor that reveals alternate content on hover'
+    },
+    {
+      name: 'ProjectHoverSection',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/interactive/ProjectHoverSection.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/interactive/ProjectHoverSectionDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Project showcase with hover-to-reveal floating thumbnails that follow the mouse'
+    },
     {
       name: 'MouseTrail',
       sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/interactive/MouseTrail.tsx`,

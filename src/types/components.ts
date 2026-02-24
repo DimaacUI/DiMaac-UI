@@ -6,6 +6,8 @@ export interface ComponentPage{
     tags: string[];
     cli?: string; 
     dependencies: string[];
+    /** When true, component page uses fullscreen layout: no sidebar, demo fills viewport, nav in drawer, Code/Preview toggle */
+    fullscreen?: boolean;
     demoComponent: React.ComponentType<Record<string, unknown>>;
     sourceCode?: string; // Made optional since we'll fetch from GitHub
     demoSourcePath?: string; // New: GitHub path for demo component source

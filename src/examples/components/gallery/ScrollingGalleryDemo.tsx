@@ -4,7 +4,7 @@ import React from 'react'
 const ScrollingGalleryDemo = () => {
     const galleryImages = [
       {
-        src: "/emily0.png",
+        src: "/emily.png",
         alt: "Emily",
         speed: 0.7
       },
@@ -34,7 +34,7 @@ const ScrollingGalleryDemo = () => {
         speed: 0.6
       },
       {
-        src: "/emily0.png",
+        src: "/emily.png",
         alt: "Emily",
         speed: 1.0
       },
@@ -64,7 +64,7 @@ const ScrollingGalleryDemo = () => {
         speed: 0.95
       },
       {
-        src: "/emily0.png",
+        src: "/emily.png",
         alt: "Emily",
         speed: 0.9
       },

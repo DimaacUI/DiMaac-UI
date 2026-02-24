@@ -64,7 +64,7 @@ export async function fetchGitHubFile(filePath: string, config: Partial<GitHubCo
     
     if (!response.ok) {
       console.warn(`GitHub fetch failed: ${response.status} ${response.statusText} for ${url}`);
-      throw new Error(`Failed to fetch file: ${response.status} ${response.statusText}`);
+      return `// Error: Could not fetch source code from GitHub (${response.status} ${response.statusText})\n// File: ${filePath}\n// URL: ${url}\n// The file may not exist yet on the main branch, or the repo may be private.`;
     }
     
     const content = await response.text();
@@ -73,8 +73,7 @@ export async function fetchGitHubFile(filePath: string, config: Partial<GitHubCo
   } catch (error) {
     console.error(`Error fetching GitHub file ${filePath}:`, error);
     console.error(`URL attempted: ${url}`);
-    // Return a fallback message instead of throwing
-    return `// Error: Could not fetch source code from GitHub\n// File: ${filePath}\n// URL: ${url}\n// Please check if the file exists and the repository is accessible.\n// You may need to update the GitHub configuration in githubFetcher.ts`;
+    return `// Error: Could not fetch source code from GitHub\n// File: ${filePath}\n// URL: ${url}\n// Please check if the file exists and the repository is accessible.`;
   }
 }
 
@@ -110,6 +109,10 @@ export const COMPONENT_PATHS = {
   twitterCard: 'src/ui/components/cards/TwitterCard.tsx',
   facebookCard: 'src/ui/components/cards/FacebookCard.tsx',
   contextMenu: 'src/ui/components/interactive/ContextMenu.tsx',
+  projectHoverSection: 'src/ui/components/interactive/ProjectHoverSection.tsx',
+  maskRevealOnHover: 'src/ui/components/interactive/MaskRevealOnHover.tsx',
+  perspectiveCardStack: 'src/ui/components/cards/PerspectiveCardStack.tsx',
+  stackedCardSlider: 'src/ui/components/cards/StackedCardSlider.tsx',
   
   // Demo Components
   imageGalleryDemo: 'src/examples/components/gallery/ImageGalleryDemo.tsx',
@@ -126,6 +129,10 @@ export const COMPONENT_PATHS = {
   twitterCardDemo: 'src/examples/components/cards/TwitterCardDemo.tsx',
   facebookCardDemo: 'src/examples/components/cards/FacebookCardDemo.tsx',
   contextMenuDemo: 'src/examples/components/interactive/ContextMenuDemo.tsx',
+  projectHoverSectionDemo: 'src/examples/components/interactive/ProjectHoverSectionDemo.tsx',
+  maskRevealOnHoverDemo: 'src/examples/components/interactive/MaskRevealOnHoverDemo.tsx',
+  perspectiveCardStackDemo: 'src/examples/components/cards/PerspectiveCardStackDemo.tsx',
+  stackedCardSliderDemo: 'src/examples/components/cards/StackedCardSliderDemo.tsx',
   
   // Utility files
   utils: 'src/lib/utils.ts',

@@ -3,7 +3,7 @@ import ImageGallery from "@/ui/components/gallery/ImageGallery";
 const ImageGalleryDemo = () => {
   const galleryImages = [
     {
-      src: "/emily0.png",
+      src: "/emily.png",
       alt: "Emily"
     },
     {

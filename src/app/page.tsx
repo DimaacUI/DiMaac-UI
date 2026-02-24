@@ -76,6 +76,20 @@ export default function Home() {
       isNew: true,
     },
     {
+      img: "/mouseTiltCard.png",
+      title: "Perspective Card Stack",
+      description: "3D card stack that fans out on hover with perspective transforms.",
+      href: "/components/perspective-card-stack",
+      isNew: true,
+    },
+    {
+      img: "/mouseTiltCard.png",
+      title: "Stacked Card Slider",
+      description: "Click to cycle through stacked cards with GSAP Flip - clone, hide, onEnter/onLeave.",
+      href: "/components/stacked-card-slider",
+      isNew: true,
+    },
+    {
       img: "/mouseTrail.png",
       title: "Mouse Trail",
       description: "Dynamic image trail that follows your mouse cursor.",
@@ -88,6 +102,20 @@ export default function Home() {
       description: "Right-click context menus with GSAP animations and smart positioning.",
       href: "/components/context-menu",
       isNew: false,
+    },
+    {
+      img: "/imageGallery.png",
+      title: "Project Hover Section",
+      description: "Project list with hover-to-reveal floating thumbnails that follow your mouse. Mobile: tap-to-expand.",
+      href: "/components/project-hover-section",
+      isNew: true,
+    },
+    {
+      img: "/textScrambleReveal.png",
+      title: "Mask Reveal on Hover",
+      description: "Circular mask follows cursor to reveal alternate content. Mask grows on hover, shrinks on leave.",
+      href: "/components/mask-reveal-on-hover",
+      isNew: true,
     },
     // Text & Animation
     {

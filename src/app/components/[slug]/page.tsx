@@ -2,6 +2,7 @@ import Badge from '@/core/components/Badge';
 import CodeBlock from '@/core/components/CodeBlock';
 import ClientTabPanel, { TabItem } from '@/core/components/ClientTabPanel';
 import CopyButton from '@/core/components/CopyButton';
+import FullscreenComponentView from '@/core/components/FullscreenComponentView';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { getComponentBySlug } from '@/data/componentData';
@@ -80,6 +81,23 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
     const filesToDisplay = githubFiles.length > 0 ? githubFiles : (componentData.files || []);
 
     const DemoComponent = componentData.demoComponent;
+
+    // Fullscreen layout: no sidebar, drawer nav, Code/Preview toggle
+    // Omit demoComponent - functions cannot be passed to Client Components
+    if (componentData.fullscreen) {
+        const { demoComponent: _, ...serializableComponentData } = componentData;
+        return (
+            <FullscreenComponentView
+                componentData={serializableComponentData}
+                demoSourceCode={demoSourceCode}
+                filesToDisplay={filesToDisplay}
+                cliComponentName={cliComponentName}
+            >
+                <DemoComponent />
+            </FullscreenComponentView>
+        );
+    }
+
     return (
         <div className="w-full md:max-w-[calc(100%-300px)] md:mt-[1rem]">
             <div className="w-full">

@@ -13,6 +13,10 @@ import TwitterCardDemo from '@/examples/components/cards/TwitterCardDemo';
 import FacebookCardDemo from '@/examples/components/cards/FacebookCardDemo';
 import { PostSwiperDemo } from '@/examples/components/cards/PostSwiperDemo';
 import { ContextMenuDemo } from '@/examples/components/interactive/ContextMenuDemo';
+import { ProjectHoverSectionDemo } from '@/examples/components/interactive/ProjectHoverSectionDemo';
+import { MaskRevealOnHoverDemo } from '@/examples/components/interactive/MaskRevealOnHoverDemo';
+import { PerspectiveCardStackDemo } from '@/examples/components/cards/PerspectiveCardStackDemo';
+import { StackedCardSliderDemo } from '@/examples/components/cards/StackedCardSliderDemo';
 import { COMPONENT_PATHS } from '@/lib/githubFetcher';
 
 export const componentData: Record<string, ComponentPage> = {
@@ -1058,6 +1062,168 @@ export const componentData: Record<string, ComponentPage> = {
     ],
     isNew: true
   },
+  'perspective-card-stack': {
+    id: 'perspective-card-stack',
+    slug: 'perspective-card-stack',
+    title: 'Perspective Card Stack',
+    description: 'A 3D card stack that fans out on hover. Displays up to 3 cards that stack vertically when idle and spread into a fanned perspective layout when hovering. Uses CSS transforms and Next.js Image for optimized rendering.',
+    tags: ['React', 'Tailwind CSS', 'Cards', '3D', 'Perspective', 'Hover'],
+    dependencies: ['react', 'next'],
+    cli: 'PerspectiveCardStack',
+    demoComponent: PerspectiveCardStackDemo,
+    demoSourcePath: COMPONENT_PATHS.perspectiveCardStackDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'PerspectiveCardStack.tsx',
+        githubPath: COMPONENT_PATHS.perspectiveCardStack,
+        displayName: 'components/ui/cards/PerspectiveCardStack.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'PerspectiveCardStack Props',
+        props: [
+          {
+            property: 'cards',
+            type: 'PerspectiveCard[]',
+            required: true,
+            description: 'Array of card objects with image and optional alt for accessibility'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the stack container'
+          },
+          {
+            property: 'cardWidth',
+            type: 'number',
+            required: false,
+            defaultValue: '360',
+            description: 'Width of each card in pixels'
+          },
+          {
+            property: 'cardHeight',
+            type: 'number',
+            required: false,
+            defaultValue: '280',
+            description: 'Height of each card in pixels'
+          }
+        ]
+      },
+      {
+        title: 'PerspectiveCard Interface',
+        props: [
+          {
+            property: 'image',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the card image'
+          },
+          {
+            property: 'alt',
+            type: 'string',
+            required: false,
+            description: 'Alt text for the image (defaults to "Card N")'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'stacked-card-slider': {
+    id: 'stacked-card-slider',
+    slug: 'stacked-card-slider',
+    title: 'Stacked Card Slider',
+    description: 'A stacked cards carousel that cycles on click. Displays up to 5 visible cards with offset stacking. Uses GSAP Flip for smooth transitions—clicking moves the top card to the back. Requires at least 2 cards.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'Flip', 'Cards', 'Carousel'],
+    dependencies: ['react', '@gsap/react'],
+    fullscreen: true,
+    cli: 'StackedCardSlider',
+    demoComponent: StackedCardSliderDemo,
+    demoSourcePath: COMPONENT_PATHS.stackedCardSliderDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'StackedCardSlider.tsx',
+        githubPath: COMPONENT_PATHS.stackedCardSlider,
+        displayName: 'components/ui/cards/StackedCardSlider.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'StackedCardSlider Props',
+        props: [
+          {
+            property: 'cards',
+            type: 'StackedCard[]',
+            required: true,
+            description: 'Array of card objects with image and optional alt (min 2 cards, displays 5)'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes for the slider inner container'
+          },
+          {
+            property: 'wrapperClassName',
+            type: 'string',
+            required: false,
+            description: 'CSS classes for the outer wrapper - use for responsive sizing (e.g. w-full max-w-[300px] sm:max-w-none, scale, etc.)'
+          },
+          {
+            property: 'cardWidth',
+            type: 'number',
+            required: false,
+            defaultValue: '300',
+            description: 'Width of each card in pixels'
+          },
+          {
+            property: 'offsetStep',
+            type: 'number',
+            required: false,
+            defaultValue: '20',
+            description: 'Pixel offset between stacked cards'
+          },
+          {
+            property: 'aspectRatio',
+            type: 'number',
+            required: false,
+            defaultValue: '2/3',
+            description: 'Aspect ratio of each card (e.g., 2/3 for portrait)'
+          }
+        ]
+      },
+      {
+        title: 'StackedCard Interface',
+        props: [
+          {
+            property: 'image',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the card image'
+          },
+          {
+            property: 'alt',
+            type: 'string',
+            required: false,
+            description: 'Alt text for the image (defaults to "Card N")'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
   'context-menu': {
     id: 'context-menu',
     slug: 'context-menu',
@@ -1167,6 +1333,162 @@ export const componentData: Record<string, ComponentPage> = {
     ],
     isNew: false
   },
+  'project-hover-section': {
+    id: 'project-hover-section',
+    slug: 'project-hover-section',
+    title: 'Project Hover Section',
+    description: 'A project list where hovering over each row reveals a floating thumbnail that follows your mouse. Desktop: GSAP-animated thumbnail with slider for multiple projects. Mobile: tap-to-expand accordion with inline images.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'Interactive', 'Projects', 'Hover'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'ProjectHoverSection',
+    demoComponent: ProjectHoverSectionDemo,
+    demoSourcePath: COMPONENT_PATHS.projectHoverSectionDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'ProjectHoverSection.tsx',
+        githubPath: COMPONENT_PATHS.projectHoverSection,
+        displayName: 'components/ui/interactive/ProjectHoverSection.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'ProjectHoverSection Props',
+        props: [
+          {
+            property: 'projects',
+            type: 'ProjectItem[]',
+            required: true,
+            description: 'Array of project objects with title, subtitle, image, and optional alt'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes to apply to the container'
+          },
+          {
+            property: 'thumbnailWidth',
+            type: 'number',
+            required: false,
+            defaultValue: '250',
+            description: 'Width of the floating thumbnail in pixels (desktop only)'
+          },
+          {
+            property: 'thumbnailHeight',
+            type: 'number',
+            required: false,
+            defaultValue: '300',
+            description: 'Height of the floating thumbnail in pixels (desktop only)'
+          }
+        ]
+      },
+      {
+        title: 'ProjectItem Interface',
+        props: [
+          {
+            property: 'title',
+            type: 'string',
+            required: true,
+            description: 'Project title displayed in the row'
+          },
+          {
+            property: 'subtitle',
+            type: 'string',
+            required: true,
+            description: 'Project subtitle or category'
+          },
+          {
+            property: 'image',
+            type: 'string',
+            required: true,
+            description: 'URL or path to the project thumbnail image'
+          },
+          {
+            property: 'alt',
+            type: 'string',
+            required: false,
+            description: 'Alt text for the image (defaults to title)'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'mask-reveal-on-hover': {
+    id: 'mask-reveal-on-hover',
+    slug: 'mask-reveal-on-hover',
+    title: 'Mask Reveal on Hover',
+    description: 'Reveals alternate content through a circular mask that follows your cursor. The base content is shown dimmed; hovering grows the mask to reveal the overlay content. Uses CSS mask-image and GSAP for smooth position and size animations.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'Interactive', 'Mask', 'CSS'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'MaskRevealOnHover',
+    demoComponent: MaskRevealOnHoverDemo,
+    demoSourcePath: COMPONENT_PATHS.maskRevealOnHoverDemo,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'MaskRevealOnHover.tsx',
+        githubPath: COMPONENT_PATHS.maskRevealOnHover,
+        displayName: 'components/ui/interactive/MaskRevealOnHover.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'MaskRevealOnHover Props',
+        props: [
+          {
+            property: 'originalContent',
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The base/dimmed content shown underneath'
+          },
+          {
+            property: 'maskContent',
+            type: 'React.ReactNode',
+            required: true,
+            description: 'The content revealed through the circular mask on hover'
+          },
+          {
+            property: 'maskSizeSmall',
+            type: 'number',
+            required: false,
+            defaultValue: '20',
+            description: 'Size of the mask circle in pixels when not hovering'
+          },
+          {
+            property: 'maskSizeLarge',
+            type: 'number',
+            required: false,
+            defaultValue: '100',
+            description: 'Size of the mask circle in pixels when hovering'
+          },
+          {
+            property: 'maskBackground',
+            type: 'string',
+            required: false,
+            defaultValue: '"#DDFC3E"',
+            description: 'Background color of the mask overlay (visible behind revealed content)'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes for the container'
+          }
+        ]
+      }
+    ],
+    isNew: true
+  },
 };
 
 // Helper function to get component data by slug
@@ -1177,4 +1499,9 @@ export const getComponentBySlug = (slug: string): ComponentPage | null => {
 // Get all component slugs
 export const getAllComponentSlugs = (): string[] => {
   return Object.keys(componentData);
+};
+
+// Check if a component uses the fullscreen layout (no sidebar, demo fills viewport, drawer nav)
+export const isFullscreenComponent = (slug: string): boolean => {
+  return !!componentData[slug]?.fullscreen;
 };
