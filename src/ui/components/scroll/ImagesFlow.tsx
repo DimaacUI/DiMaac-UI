@@ -114,7 +114,7 @@ const ImagesFlow: React.FC<ImagesFlowProps> = ({
           let x = gsap.utils.interpolate(start.x, end.x, imgProgress);
           let y = gsap.utils.interpolate(start.y, end.y, imgProgress);
           let z = gsap.utils.interpolate(start.z, end.z, imgProgress);
-          let scale = gsap.utils.interpolate(start.scale, end.scale, imgProgress);
+          const scale = gsap.utils.interpolate(start.scale, end.scale, imgProgress);
 
           if (index === images.length - 1) {
             x = 0;
