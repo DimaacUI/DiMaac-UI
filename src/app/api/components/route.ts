@@ -132,6 +132,15 @@ const componentRegistry = {
       description: 'Animated text loading component'
     }
   ],
+  textEffects: [
+    {
+      name: 'TextBlockEffect',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/text/TextBlockEffect.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/text/TextBlockEffectDemo.tsx`,
+      dependencies: ['@gsap/react', 'split-type'],
+      description: 'Scroll-triggered line reveal with colored block sweep animation'
+    }
+  ],
   layout: [
     {
       name: 'ExpandablePanel',
@@ -139,6 +148,43 @@ const componentRegistry = {
       exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/layout/ExpandablePanelDemo.tsx`,
       dependencies: ['@gsap/react'],
       description: 'Collapsible panel with smooth animations'
+    }
+  ],
+  scrollAnimations: [
+    {
+      name: 'PinRotateSections',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/scroll/PinRotateSections.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/scroll/PinRotateSectionsDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Full-page pinned sections with 3D rotate, scale, and overlay on scroll'
+    },
+    {
+      name: 'ProofOfWork',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/scroll/ProofOfWork.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/scroll/ProofOfWorkDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Grid of works with scroll-triggered rotation, y-offset, and opacity reveal'
+    },
+    {
+      name: 'ImagesFlow',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/scroll/ImagesFlow.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/scroll/ImagesFlowDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Pinned section with images flowing from center into 3D spread'
+    },
+    {
+      name: 'Section3D',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/scroll/Section3D.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/scroll/Section3DDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Pinned cards with 3D fade, lift, and tilt on scroll'
+    },
+    {
+      name: 'FlowArt',
+      sourceUrl: `${GITHUB_RAW_BASE}/src/ui/components/scroll/FlowArt.tsx`,
+      exampleUrl: `${GITHUB_RAW_BASE}/src/examples/components/scroll/FlowArtDemo.tsx`,
+      dependencies: ['@gsap/react'],
+      description: 'Colorful sections with pin and rotate-in-on-scroll'
     }
   ]
 };

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, CodeXml, Eye } from 'lucide-react';
+import LenisScrollArea from './LenisScrollArea';
 import { cn } from '@/lib/utils';
 import Sidebar from './Sidebar';
 import Logo from './Logo';
@@ -141,13 +142,11 @@ export default function FullscreenComponentView({
       </div>
 
       {/* Content area */}
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 flex flex-col min-h-0">
         {viewMode === 'preview' ? (
-          <div className="w-full h-full min-h-[calc(100dvh-3.5rem)] flex items-center justify-center">
-            {demoChildren}
-          </div>
+          <LenisScrollArea>{demoChildren}</LenisScrollArea>
         ) : (
-          <div className="w-full max-w-[900px] mx-auto px-4 py-8">
+          <div className="flex-1 overflow-auto w-full max-w-[900px] mx-auto px-4 py-8">
             {/* Header */}
             <header className="mb-8 space-y-4">
               <div className="space-y-3">

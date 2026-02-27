@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import FullscreenLayoutHandler from "@/core/components/FullscreenLayoutHandler";
+import SmoothScroller from "@/core/components/SmoothScroller";
 import { Analytics } from "@vercel/analytics/next";
 
 
@@ -30,9 +31,11 @@ export default function RootLayout({
         className={`${bricolage.className} antialiased`}
         suppressHydrationWarning={true}
       >
-        <FullscreenLayoutHandler>
-          {children}
-        </FullscreenLayoutHandler>
+        <SmoothScroller>
+          <FullscreenLayoutHandler>
+            {children}
+          </FullscreenLayoutHandler>
+        </SmoothScroller>
         <Analytics />
       </body>
     </html>

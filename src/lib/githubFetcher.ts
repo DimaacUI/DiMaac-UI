@@ -113,6 +113,12 @@ export const COMPONENT_PATHS = {
   maskRevealOnHover: 'src/ui/components/interactive/MaskRevealOnHover.tsx',
   perspectiveCardStack: 'src/ui/components/cards/PerspectiveCardStack.tsx',
   stackedCardSlider: 'src/ui/components/cards/StackedCardSlider.tsx',
+  pinRotateSections: 'src/ui/components/scroll/PinRotateSections.tsx',
+  proofOfWork: 'src/ui/components/scroll/ProofOfWork.tsx',
+  imagesFlow: 'src/ui/components/scroll/ImagesFlow.tsx',
+  section3D: 'src/ui/components/scroll/Section3D.tsx',
+  flowArt: 'src/ui/components/scroll/FlowArt.tsx',
+  textBlockEffect: 'src/ui/components/text/TextBlockEffect.tsx',
   
   // Demo Components
   imageGalleryDemo: 'src/examples/components/gallery/ImageGalleryDemo.tsx',
@@ -133,6 +139,12 @@ export const COMPONENT_PATHS = {
   maskRevealOnHoverDemo: 'src/examples/components/interactive/MaskRevealOnHoverDemo.tsx',
   perspectiveCardStackDemo: 'src/examples/components/cards/PerspectiveCardStackDemo.tsx',
   stackedCardSliderDemo: 'src/examples/components/cards/StackedCardSliderDemo.tsx',
+  pinRotateSectionsDemo: 'src/examples/components/scroll/PinRotateSectionsDemo.tsx',
+  proofOfWorkDemo: 'src/examples/components/scroll/ProofOfWorkDemo.tsx',
+  imagesFlowDemo: 'src/examples/components/scroll/ImagesFlowDemo.tsx',
+  section3DDemo: 'src/examples/components/scroll/Section3DDemo.tsx',
+  flowArtDemo: 'src/examples/components/scroll/FlowArtDemo.tsx',
+  textBlockEffectDemo: 'src/examples/components/text/TextBlockEffectDemo.tsx',
   
   // Utility files
   utils: 'src/lib/utils.ts',

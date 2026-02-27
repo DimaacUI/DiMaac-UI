@@ -17,6 +17,12 @@ import { ProjectHoverSectionDemo } from '@/examples/components/interactive/Proje
 import { MaskRevealOnHoverDemo } from '@/examples/components/interactive/MaskRevealOnHoverDemo';
 import { PerspectiveCardStackDemo } from '@/examples/components/cards/PerspectiveCardStackDemo';
 import { StackedCardSliderDemo } from '@/examples/components/cards/StackedCardSliderDemo';
+import { PinRotateSectionsDemo } from '@/examples/components/scroll/PinRotateSectionsDemo';
+import { ProofOfWorkDemo } from '@/examples/components/scroll/ProofOfWorkDemo';
+import { ImagesFlowDemo } from '@/examples/components/scroll/ImagesFlowDemo';
+import { Section3DDemo } from '@/examples/components/scroll/Section3DDemo';
+import { FlowArtDemo } from '@/examples/components/scroll/FlowArtDemo';
+import { TextBlockEffectDemo } from '@/examples/components/text/TextBlockEffectDemo';
 import { COMPONENT_PATHS } from '@/lib/githubFetcher';
 
 export const componentData: Record<string, ComponentPage> = {
@@ -513,6 +519,44 @@ export const componentData: Record<string, ComponentPage> = {
       }
     ],
     isNew: false
+  },
+  'text-block-effect': {
+    id: 'text-block-effect',
+    slug: 'text-block-effect',
+    title: 'Text Block Effect',
+    description: 'Scroll-triggered line reveal animation. TextBlock wraps text that gets the effect; compose your own sections with overlays, backgrounds, etc. Uses GSAP ScrollTrigger and SplitType.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'ScrollTrigger', 'Text', 'Animation', 'SplitType'],
+    dependencies: ['react', '@gsap/react', 'split-type'],
+    cli: 'TextBlockEffect',
+    demoComponent: TextBlockEffectDemo,
+    demoSourcePath: COMPONENT_PATHS.textBlockEffectDemo,
+    fullscreen: true,
+    githubFiles: [
+      { name: 'utils.ts', githubPath: COMPONENT_PATHS.utils, displayName: 'lib/utils.ts' },
+      { name: 'TextBlockEffect.tsx', githubPath: COMPONENT_PATHS.textBlockEffect, displayName: 'components/ui/text/TextBlockEffect.tsx' },
+    ],
+    props: [
+      {
+        title: 'TextBlockEffect Props',
+        props: [
+          { property: 'children', type: 'React.ReactNode', required: true, description: 'Sections with TextBlock and your own overlay/background content' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' },
+          { property: 'triggerStart', type: 'string', required: false, defaultValue: "'top 50%'", description: 'ScrollTrigger start position' },
+        ]
+      },
+      {
+        title: 'TextBlock Props',
+        props: [
+          { property: 'children', type: 'React.ReactNode', required: true, description: 'Text content for the line reveal' },
+          { property: 'blockColor', type: 'string', required: false, defaultValue: "'#DDFC3E'", description: 'Color of the sweeping reveal block' },
+          { property: 'textColor', type: 'string', required: false, defaultValue: "'#ededed'", description: 'Final text color after reveal' },
+          { property: 'fontFamily', type: 'string', required: false, defaultValue: "'DM Sans', sans-serif", description: 'Font family for text' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' },
+          { property: 'style', type: 'React.CSSProperties', required: false, description: 'Inline styles' },
+        ]
+      }
+    ],
+    isNew: true
   },
   'mouse-trail': {
     id: 'mouse-trail',
@@ -1484,6 +1528,217 @@ export const componentData: Record<string, ComponentPage> = {
             required: false,
             description: 'Additional CSS classes for the container'
           }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'pin-rotate-sections': {
+    id: 'pin-rotate-sections',
+    slug: 'pin-rotate-sections',
+    title: 'Pin Rotate Sections',
+    description: 'Full-page scroll experience with pinned sections that scale, rotate, and fade as you scroll. Each section pins while the next scrolls up, with 3D rotation and overlay effects. Uses GSAP ScrollTrigger.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'ScrollTrigger', 'Scroll', '3D', 'Pin'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'PinRotateSections',
+    demoComponent: PinRotateSectionsDemo,
+    demoSourcePath: COMPONENT_PATHS.pinRotateSectionsDemo,
+    fullscreen: true,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'PinRotateSections.tsx',
+        githubPath: COMPONENT_PATHS.pinRotateSections,
+        displayName: 'components/ui/scroll/PinRotateSections.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'PinRotateSections Props',
+        props: [
+          {
+            property: 'children',
+            type: 'React.ReactNode',
+            required: true,
+            description: 'PinRotateIntro, PinRotateSection, and PinRotateOutro components'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes for the main container'
+          }
+        ]
+      },
+      {
+        title: 'PinRotateIntro Props',
+        props: [
+          { property: 'children', type: 'React.ReactNode', required: true, description: 'Intro content (title, description, etc.)' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' }
+        ]
+      },
+      {
+        title: 'PinRotateSection Props',
+        props: [
+          { property: 'children', type: 'React.ReactNode', required: true, description: 'Section content (images, text, etc.)' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' },
+          { property: 'style', type: 'React.CSSProperties', required: false, description: 'Inline styles' }
+        ]
+      },
+      {
+        title: 'PinRotateOutro Props',
+        props: [
+          { property: 'children', type: 'React.ReactNode', required: true, description: 'Outro content' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'proof-of-work': {
+    id: 'proof-of-work',
+    slug: 'proof-of-work',
+    title: 'Proof Of Work',
+    description: 'Grid of work cards with scroll-triggered reveal: each image animates in with rotation, y-offset, and opacity. Alternating stagger on desktop. Perfect for portfolios and project galleries.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'ScrollTrigger', 'Scroll', 'Grid', 'Portfolio'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'ProofOfWork',
+    demoComponent: ProofOfWorkDemo,
+    demoSourcePath: COMPONENT_PATHS.proofOfWorkDemo,
+    fullscreen: true,
+    githubFiles: [
+      {
+        name: 'utils.ts',
+        githubPath: COMPONENT_PATHS.utils,
+        displayName: 'lib/utils.ts'
+      },
+      {
+        name: 'ProofOfWork.tsx',
+        githubPath: COMPONENT_PATHS.proofOfWork,
+        displayName: 'components/ui/scroll/ProofOfWork.tsx'
+      }
+    ],
+    props: [
+      {
+        title: 'ProofOfWork Props',
+        props: [
+          {
+            property: 'title',
+            type: 'string',
+            required: false,
+            defaultValue: "'My Works'",
+            description: 'Section heading'
+          },
+          {
+            property: 'works',
+            type: 'ProofOfWorkItem[]',
+            required: true,
+            description: 'Array of work items with image, title, subtitle'
+          },
+          {
+            property: 'className',
+            type: 'string',
+            required: false,
+            description: 'Additional CSS classes for the container'
+          }
+        ]
+      },
+      {
+        title: 'ProofOfWorkItem Interface',
+        props: [
+          { property: 'image', type: 'string', required: true, description: 'Image URL' },
+          { property: 'imageAlt', type: 'string', required: false, description: 'Image alt text' },
+          { property: 'title', type: 'string', required: true, description: 'Work title' },
+          { property: 'subtitle', type: 'string', required: true, description: 'Work subtitle/category' }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'images-flow': {
+    id: 'images-flow',
+    slug: 'images-flow',
+    title: 'Images Flow',
+    description: 'Pinned scroll section where images flow from center into a 3D spread. Intro, flow section with scrubbed animation, outro. Images animate from z: -1000 to positioned grid with staggered reveal.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'ScrollTrigger', 'Scroll', '3D', 'Pin'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'ImagesFlow',
+    demoComponent: ImagesFlowDemo,
+    demoSourcePath: COMPONENT_PATHS.imagesFlowDemo,
+    fullscreen: true,
+    githubFiles: [
+      { name: 'utils.ts', githubPath: COMPONENT_PATHS.utils, displayName: 'lib/utils.ts' },
+      { name: 'ImagesFlow.tsx', githubPath: COMPONENT_PATHS.imagesFlow, displayName: 'components/ui/scroll/ImagesFlow.tsx' }
+    ],
+    props: [
+      {
+        title: 'ImagesFlow Props',
+        props: [
+          { property: 'introTitle', type: 'string', required: true, description: 'Intro section heading' },
+          { property: 'introSubtitle', type: 'string', required: false, description: 'Intro section subtitle' },
+          { property: 'flowText', type: 'string', required: false, description: 'Text overlay in flow section (supports \\n for line breaks)' },
+          { property: 'outroTitle', type: 'string', required: true, description: 'Outro section heading' },
+          { property: 'outroSubtitle', type: 'string', required: false, description: 'Outro section subtitle' },
+          { property: 'images', type: 'string[]', required: true, description: 'Array of image URLs (last image becomes full-cover with overlay)' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'section-3d': {
+    id: 'section-3d',
+    slug: 'section-3d',
+    title: 'Section 3D',
+    description: 'Pinned team cards with 3D scroll: each card fades, lifts, and tilts back as the next scrolls up. Simple intro, scrubbed transform animation.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'ScrollTrigger', 'Scroll', '3D', 'Pin'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'Section3D',
+    demoComponent: Section3DDemo,
+    demoSourcePath: COMPONENT_PATHS.section3DDemo,
+    fullscreen: true,
+    githubFiles: [
+      { name: 'utils.ts', githubPath: COMPONENT_PATHS.utils, displayName: 'lib/utils.ts' },
+      { name: 'Section3D.tsx', githubPath: COMPONENT_PATHS.section3D, displayName: 'components/ui/scroll/Section3D.tsx' }
+    ],
+    props: [
+      {
+        title: 'Section3D Props',
+        props: [
+          { property: 'introTitle', type: 'string', required: true, description: 'Intro section heading' },
+          { property: 'introDescription', type: 'string', required: false, description: 'Intro section description' },
+          { property: 'cards', type: 'Section3DCard[]', required: true, description: 'Array of team cards' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' }
+        ]
+      }
+    ],
+    isNew: true
+  },
+  'flow-art': {
+    id: 'flow-art',
+    slug: 'flow-art',
+    title: 'Flow Art',
+    description: 'Colorful sections with pin-on-scroll: each container rotates in from 30° as you scroll. Bebas Neue headlines, flexible content blocks.',
+    tags: ['React', 'Tailwind CSS', 'GSAP', 'ScrollTrigger', 'Scroll', 'Pin'],
+    dependencies: ['react', '@gsap/react'],
+    cli: 'FlowArt',
+    demoComponent: FlowArtDemo,
+    demoSourcePath: COMPONENT_PATHS.flowArtDemo,
+    fullscreen: true,
+    githubFiles: [
+      { name: 'utils.ts', githubPath: COMPONENT_PATHS.utils, displayName: 'lib/utils.ts' },
+      { name: 'FlowArt.tsx', githubPath: COMPONENT_PATHS.flowArt, displayName: 'components/ui/scroll/FlowArt.tsx' }
+    ],
+    props: [
+      {
+        title: 'FlowArt Props',
+        props: [
+          { property: 'sections', type: 'FlowArtSection[]', required: true, description: 'Array of sections with tag, headline, bgColor, content' },
+          { property: 'className', type: 'string', required: false, description: 'Additional CSS classes' }
         ]
       }
     ],

@@ -117,6 +117,42 @@ export default function Home() {
       href: "/components/mask-reveal-on-hover",
       isNew: true,
     },
+    // Scroll Animations
+    {
+      img: "/scrollingGallery.png",
+      title: "Pin Rotate Sections",
+      description: "Full-page scroll: pinned sections scale, rotate in 3D, and fade as you scroll. GSAP ScrollTrigger.",
+      href: "/components/pin-rotate-sections",
+      isNew: true,
+    },
+    {
+      img: "/scrollingGallery.png",
+      title: "Proof Of Work",
+      description: "Grid of works with scroll-triggered reveal: rotation, y-offset, opacity. Staggered on desktop.",
+      href: "/components/proof-of-work",
+      isNew: true,
+    },
+    {
+      img: "/scrollingGallery.png",
+      title: "Images Flow",
+      description: "Pinned section: images flow from center into 3D spread. Intro, flow, outro.",
+      href: "/components/images-flow",
+      isNew: true,
+    },
+    {
+      img: "/scrollingGallery.png",
+      title: "Section 3D",
+      description: "Pinned cards fade, lift, tilt back as you scroll. Simple intro + 3D scroll.",
+      href: "/components/section-3d",
+      isNew: true,
+    },
+    {
+      img: "/scrollingGallery.png",
+      title: "Flow Art",
+      description: "Colorful sections pin on scroll. Containers rotate in from 30° as you scroll.",
+      href: "/components/flow-art",
+      isNew: true,
+    },
     // Text & Animation
     {
       img: "/textLoader.png",
@@ -131,6 +167,13 @@ export default function Home() {
       description: "Interactive text that scrambles on mouse proximity with custom characters.",
       href: "/components/text-scramble-reveal",
       isNew: false,
+    },
+    {
+      img: "/textScrambleReveal.png",
+      title: "Text Block Effect",
+      description: "Scroll-triggered line reveal. Colored block sweeps in, text appears, block sweeps out.",
+      href: "/components/text-block-effect",
+      isNew: true,
     }
   ]
   return (

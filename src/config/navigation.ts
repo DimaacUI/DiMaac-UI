@@ -50,10 +50,21 @@ export const NAV_SECTIONS: NavSection[] = [
     ],
   },
   {
+    name: 'Scroll Animations',
+    item: [
+      { name: 'Pin Rotate Sections', href: '/components/pin-rotate-sections', isActive: false, isNew: true },
+      { name: 'Proof Of Work', href: '/components/proof-of-work', isActive: false, isNew: true },
+      { name: 'Images Flow', href: '/components/images-flow', isActive: false, isNew: true },
+      { name: 'Section 3D', href: '/components/section-3d', isActive: false, isNew: true },
+      { name: 'Flow Art', href: '/components/flow-art', isActive: false, isNew: true },
+    ],
+  },
+  {
     name: 'Text & Animation',
     item: [
       { name: 'Text Loader', href: '/components/text-loader', isActive: false, isNew: false },
       { name: 'Text Scramble Reveal', href: '/components/text-scramble-reveal', isActive: false, isNew: false },
+      { name: 'Text Block Effect', href: '/components/text-block-effect', isActive: false, isNew: true },
     ],
   },
 ];
