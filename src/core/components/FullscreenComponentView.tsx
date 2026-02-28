@@ -69,8 +69,8 @@ export default function FullscreenComponentView({
 
   return (
     <div className="fixed inset-0 flex flex-col bg-[#0B0B0F] h-[100dvh]">
-      {/* Top bar */}
-      <header className="flex-shrink-0 flex items-center justify-between h-14 px-4 border-b border-white/10 bg-black/50 backdrop-blur-sm z-30">
+      {/* Top bar - above content, below drawer */}
+      <header className="flex-shrink-0 flex items-center justify-between h-14 px-4 border-b border-white/10 bg-black/50 backdrop-blur-sm z-[9997]">
         <button
           onClick={() => setDrawerOpen(true)}
           className="p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -105,19 +105,19 @@ export default function FullscreenComponentView({
         </div>
       </header>
 
-      {/* Drawer overlay */}
+      {/* Drawer overlay - high z so it stays above pinned/3D content (e.g. ImagesFlow) */}
       {drawerOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 md:z-40"
+          className="fixed inset-0 bg-black/50 z-[9998]"
           onClick={() => setDrawerOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      {/* Drawer */}
+      {/* Drawer - high z so it stays above all component content */}
       <div
         className={cn(
-          'fixed top-0 left-0 h-full w-80 bg-[#0B0B0F] border-r border-white/10 z-50 transform transition-transform duration-300 ease-out flex flex-col',
+          'fixed top-0 left-0 h-full w-80 bg-[#0B0B0F] border-r border-white/10 z-[9999] transform transition-transform duration-300 ease-out flex flex-col',
           drawerOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
