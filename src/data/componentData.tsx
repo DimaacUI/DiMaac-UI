@@ -805,7 +805,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'swipeable-cards': {
     id: 'swipeable-cards',
@@ -960,7 +960,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'twitter-card': {
     id: 'twitter-card',
@@ -1038,7 +1038,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'facebook-card': {
     id: 'facebook-card',
@@ -1104,7 +1104,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'perspective-card-stack': {
     id: 'perspective-card-stack',

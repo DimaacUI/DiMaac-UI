@@ -45,7 +45,7 @@ export default function Home() {
       title: "Post Swiper",
       description: "Unified swipeable component for social media cards with smooth gestures.",
       href: "/components/post-swiper",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/swipeableCards.png",
@@ -59,21 +59,21 @@ export default function Home() {
       title: "Instagram Post",
       description: "Instagram post card with profile image, verified badge, and username.",
       href: "/components/instagram-card",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/twitterCard.png",
       title: "Twitter Card",
       description: "Twitter/X post card with interactive elements, animations, and authentic styling.",
       href: "/components/twitter-card",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/facebookCard.png",
       title: "Facebook Card",
       description: "Facebook post card with profile, content, and interactive like/comment/share buttons.",
       href: "/components/facebook-card",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/mouseTiltCard.png",

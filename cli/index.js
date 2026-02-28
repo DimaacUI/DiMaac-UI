@@ -61,13 +61,42 @@ function fetchRegistry() {
   });
 }
 
+// Convert slug (post-swiper) to PascalCase (PostSwiper) for matching
+function slugToPascal(slug) {
+  if (!slug || typeof slug !== 'string') return slug;
+  return slug
+    .split(/[-_\s]+/)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join('');
+}
+
 async function findComponent(componentName, registry) {
+  if (!componentName) return null;
+
+  // Try exact match first
   for (const [category, components] of Object.entries(registry)) {
     const component = components.find(comp => comp.name === componentName);
-    if (component) {
-      return { category, component };
+    if (component) return { category, component };
+  }
+
+  // Try case-insensitive match
+  const nameLower = componentName.toLowerCase();
+  for (const [category, components] of Object.entries(registry)) {
+    const component = components.find(
+      comp => comp.name.toLowerCase() === nameLower
+    );
+    if (component) return { category, component };
+  }
+
+  // Try slug-to-PascalCase (e.g. post-swiper -> PostSwiper)
+  const pascalName = slugToPascal(componentName);
+  if (pascalName !== componentName) {
+    for (const [category, components] of Object.entries(registry)) {
+      const component = components.find(comp => comp.name === pascalName);
+      if (component) return { category, component };
     }
   }
+
   return null;
 }
 
