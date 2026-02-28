@@ -41,6 +41,7 @@ export default function LenisScrollArea({ children, className }: LenisScrollArea
       content,
       lerp: 0.1,
       smoothWheel: true,
+      syncTouch: true,
       autoRaf: false,
     });
 
@@ -69,7 +70,11 @@ export default function LenisScrollArea({ children, className }: LenisScrollArea
 
   return (
     <LenisProvider value={{ scrollerRef: wrapperRef, isReady }}>
-      <div ref={wrapperRef} className={cn('flex-1 overflow-hidden', className)}>
+      <div
+        ref={wrapperRef}
+        className={cn('flex-1 min-h-0 overflow-hidden', className)}
+        style={{ touchAction: 'pan-y' }}
+      >
         <div ref={contentRef} className="min-h-full w-full flex items-start justify-center">
           {children}
         </div>

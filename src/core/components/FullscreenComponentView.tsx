@@ -68,7 +68,7 @@ export default function FullscreenComponentView({
   }, [drawerOpen]);
 
   return (
-    <div className="fixed inset-0 flex flex-col bg-[#0B0B0F]">
+    <div className="fixed inset-0 flex flex-col bg-[#0B0B0F] h-[100dvh]">
       {/* Top bar */}
       <header className="flex-shrink-0 flex items-center justify-between h-14 px-4 border-b border-white/10 bg-black/50 backdrop-blur-sm z-30">
         <button
