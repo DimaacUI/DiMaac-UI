@@ -27,8 +27,8 @@ const TabHeader = ({ label, isActive, onClick }: TabHeaderProps) => {
             className={cn(
                 "px-4 py-2 transition-colors rounded-none",
                 isActive 
-                    ? "bg-[#18181C] text-[#EDEDED] border-b border-white" 
-                    : "bg-transparent text-white/80 hover:bg-[#18181C]"
+                    ? "bg-[#17171A] text-[#EDEDED] border-b border-white" 
+                    : "bg-transparent text-white/80 hover:bg-[#17171A]"
             )}
         >
             {label}
@@ -40,7 +40,7 @@ const TabItem = ({ children, isActive = false }: TabItemProps) => {
     if (!isActive) return null;
     
     return (
-        <div className="mt-4 p-4 bg-[#18181C] border  border-white/20 rounded-md">
+        <div className="mt-4 p-4 bg-[#17171A] border  border-white/20 rounded-md">
             {children}
         </div>
     );

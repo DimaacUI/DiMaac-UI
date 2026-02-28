@@ -37,7 +37,7 @@ const CodeBlock = ( props: CodeBlockProps) => {
             value={isPreview ? "preview" : "code"}
             onChange={(value) => setIsPreview(value === "preview")}
         />
-        <div className={cn("w-full bg-[#18181C] p-4 rounded-xl border border-white/10 text-sm font-mono mb-5 relative group", props.className)}>
+        <div className={cn("w-full bg-[#17171A] p-4 rounded-xl border border-white/10 text-sm font-mono mb-5 relative group", props.className)}>
             {!isPreview && (
                 <div className="absolute top-7 right-7 z-10">
                     <CopyButton text={props.sourceCode} size="sm" />

@@ -23,7 +23,9 @@ const HomeGrid = ({ grid }: HomeGridProps) => {
                             {eachGrid.isNew && <span className="text-sm bg-[#DDFC3E] font-bold text-black px-4 py-1 rounded-full">New</span>}
                         </div>
                         <div className="w-full h-full overflow-hidden flex items-center justify-center bg-[#17171A]">
-                            <Image src={eachGrid.img} alt={eachGrid.title} width={1080} height={1080} className="w-full h-full object-contain hover:scale-105 transition-all duration-200 ease-in" />
+                            <div className="aspect-square max-w-full max-h-full w-full">
+                                <Image src={eachGrid.img} alt={eachGrid.title} width={1080} height={1080} className="w-full h-full object-cover hover:scale-105 transition-all duration-200 ease-in" />
+                            </div>
                         </div>
                         <div className="inset-0 absolute" style={{
                             background: "linear-gradient(to bottom, transparent, #0B0B0F)",

@@ -146,7 +146,11 @@ export default function FullscreenComponentView({
         {viewMode === 'preview' ? (
           <LenisScrollArea>{demoChildren}</LenisScrollArea>
         ) : (
-          <div className="flex-1 overflow-auto w-full max-w-[900px] mx-auto px-4 py-8">
+          <div
+            className="flex-1 overflow-auto w-full px-4 py-8"
+            data-lenis-prevent
+          >
+            <div className="w-full max-w-[900px] mx-auto">
             {/* Header */}
             <header className="mb-8 space-y-4">
               <div className="space-y-3">
@@ -162,11 +166,11 @@ export default function FullscreenComponentView({
 
             {/* Source code */}
             <div className="w-full mb-8">
-              <div className="w-full bg-[#18181C] p-4 rounded-xl border border-white/10 relative group">
+              <div className="w-full bg-[#17171A] p-4 rounded-xl border border-white/10 relative group">
                 <div className="absolute top-4 right-4 z-10">
                   <CopyButton text={demoSourceCode} size="sm" />
                 </div>
-                <div className="w-full max-h-[600px] overflow-auto">
+                <div className="w-full max-h-[600px] overflow-auto" data-lenis-prevent>
                   <SyntaxHighlighter
                     lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }}
                     language="typescript"
@@ -206,7 +210,7 @@ export default function FullscreenComponentView({
                   {filesToDisplay.map((file, index) => (
                     <div
                       key={index}
-                      className="w-full bg-[#18181C] rounded-xl border border-white/10 relative group"
+                      className="w-full bg-[#17171A] rounded-xl border border-white/10 relative group"
                     >
                       <div className="p-4 pb-2">
                         <p className="text-white text-sm bg-[#252222] w-fit p-2 rounded-md">{file.name}</p>
@@ -214,7 +218,7 @@ export default function FullscreenComponentView({
                       <div className="absolute top-4 right-4 z-10">
                         <CopyButton text={file.content} size="sm" />
                       </div>
-                      <div className="px-4 pb-4 max-h-[500px] overflow-auto">
+                      <div className="px-4 pb-4 max-h-[500px] overflow-auto" data-lenis-prevent>
                         <SyntaxHighlighter
                           lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }}
                           language="typescript"
@@ -282,6 +286,7 @@ export default function FullscreenComponentView({
                 </div>
               </TabItem>
             </ClientTabPanel>
+            </div>
           </div>
         )}
       </main>

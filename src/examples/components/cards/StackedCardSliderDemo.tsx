@@ -37,7 +37,7 @@ const StackedCardSliderDemo = () => {
 
   return (
     <div
-      className="flex items-center justify-center w-full p-4 sm:p-8 bg-[#111] rounded-lg"
+      className="flex items-center justify-center w-full p-4 sm:p-8 bg-[#17171A] rounded-lg"
       style={{ height: 'calc(100dvh - 56px)' }}
     >
       {isLoading ? (

@@ -19,9 +19,6 @@ const ContextMenuDemo = () => {
     { image: "/crocs2.png", name: "Snap", title: "Swamp King", description: "Master of the lagoon" },
     { image: "/crow.png", name: "Crowley", title: "Night Watcher", description: "Messenger of the skies" },
     { image: "/foxy.png", name: "Foxy", title: "Forest Trickster", description: "Cunning and quick" },
-    { image: "/bulldog.png", name: "Tank", title: "Street Enforcer", description: "Loyal to the crew" },
-    { image: "/redPanda.png", name: "Rusty", title: "Smooth Operator", description: "Boss of the bamboo" },
-    { image: "/tiger2.png", name: "Blaze", title: "Street King", description: "Burning through the block" },
   ];
 
   const getContextMenuItems = (character: typeof characters[0]) => [

@@ -12,7 +12,7 @@ const TextLoaderDemo = () => {
       title: 'Red Gradient',
       text: 'DIMAAC',
       gradientColors: ['#ff0000', '#ff3333', '#ff6600', '#cc0000'],
-      backgroundColor: '#111',
+      backgroundColor: '#17171A',
     },
     {
       id: 2,

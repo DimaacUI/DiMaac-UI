@@ -28,7 +28,7 @@ const TextLoader: React.FC<TextLoaderProps> = ({
   className = '',
   onComplete,
   gradientColors = ['#ff0000', '#ff3333', '#ff6600', '#cc0000'],
-  backgroundColor = '#111',
+  backgroundColor = '#17171A',
   duration = {
     slideUp: 0.6,
     reveal: 0.8,

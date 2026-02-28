@@ -155,7 +155,7 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
                                     </div>
                                 </div>
                                 {filesToDisplay.map((file, index) => (
-                                    <div key={index} className="w-full bg-[#18181C] rounded-xl border border-white/10 relative group">
+                                    <div key={index} className="w-full bg-[#17171A] rounded-xl border border-white/10 relative group">
                                         <div className="p-4 pb-2">
                                             <p className='text-white text-sm bg-[#252222] w-fit p-2 rounded-md'>{file.name}</p>
                                         </div>

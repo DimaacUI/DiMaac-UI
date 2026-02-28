@@ -309,7 +309,7 @@ export const componentData: Record<string, ComponentPage> = {
             property: 'backgroundColor',
             type: 'string',
             required: false,
-            defaultValue: '#111',
+            defaultValue: '#17171A',
             description: 'Background color of the loader overlay'
           },
           {
