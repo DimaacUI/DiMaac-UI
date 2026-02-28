@@ -2,48 +2,18 @@ import ProjectHoverSection from '@/ui/components/interactive/ProjectHoverSection
 
 const ProjectHoverSectionDemo = () => {
   const projects = [
-    {
-      title: 'Emily',
-      subtitle: 'Portrait & Photography',
-      image: '/emily.png',
-      alt: 'Emily portrait',
-    },
-    {
-      title: 'Daisy',
-      subtitle: 'Editorial & Design',
-      image: '/daisy0.png',
-      alt: 'Daisy',
-    },
-    {
-      title: 'Lance',
-      subtitle: 'Brand Identity',
-      image: '/lance0.png',
-      alt: 'Lance',
-    },
-    {
-      title: 'Renei',
-      subtitle: 'Creative Direction',
-      image: '/renei0.png',
-      alt: 'Renei',
-    },
-    {
-      title: 'Roiin',
-      subtitle: 'Visual Storytelling',
-      image: '/roiin0.png',
-      alt: 'Roiin',
-    },
-    {
-      title: 'Lylia',
-      subtitle: 'Motion & Art',
-      image: '/lylia0.png',
-      alt: 'Lylia',
-    },
-    {
-      title: 'Linda',
-      subtitle: 'Digital Experience',
-      image: '/linda0.png',
-      alt: 'Linda',
-    },
+    { title: 'Bruno', subtitle: 'Keeper of the Woods', image: '/bear.png', alt: 'Bruno the Bear' },
+    { title: 'Chompy', subtitle: 'Jaws of the Marsh', image: '/crocs.png', alt: 'Chompy the Croc' },
+    { title: 'Snap', subtitle: 'Master of the Lagoon', image: '/crocs2.png', alt: 'Snap the Croc' },
+    { title: 'Crowley', subtitle: 'Messenger of the Skies', image: '/crow.png', alt: 'Crowley the Crow' },
+    { title: 'Foxy', subtitle: 'Cunning and Quick', image: '/foxy.png', alt: 'Foxy the Fox' },
+    { title: 'Gori', subtitle: 'Strength and Wisdom', image: '/gori.png', alt: 'Gori the Gorilla' },
+    { title: 'Hoot', subtitle: 'Eyes of the Night', image: '/owl.png', alt: 'Hoot the Owl' },
+    { title: 'Slither', subtitle: 'Ancient Wisdom', image: '/snake.png', alt: 'Slither the Snake' },
+    { title: 'Rajah', subtitle: 'Stripes of Power', image: '/tiger.png', alt: 'Rajah the Tiger' },
+    { title: 'Tank', subtitle: 'Street Enforcer', image: '/bulldog.png', alt: 'Tank the Bulldog' },
+    { title: 'Rusty', subtitle: 'Smooth Operator', image: '/redPanda.png', alt: 'Rusty the Red Panda' },
+    { title: 'Blaze', subtitle: 'Street King', image: '/tiger2.png', alt: 'Blaze the Tiger' },
   ];
 
   return (

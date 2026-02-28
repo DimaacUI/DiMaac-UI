@@ -2,53 +2,21 @@ import SwipeableCards from '@/ui/components/cards/SwipeableCards';
 
 const SwipeableCardsDemo = () => {
   const images = [
-    {
-      src: "/daisy.png",
-      alt: "Daisy",
-    },
-    {
-      src: "/emily.png",
-      alt: "Emily",
-    },
-    {
-      src: "/lance.png",
-      alt: "Lance",
-    },
-    {
-      src: "/linda.png",
-      alt: "Linda",
-    },
-    {
-      src: "/renei.png",
-      alt: "Renei",
-    },
-    {
-      src: "/roiin.png",
-      alt: "Roiin",
-    },{
-      src: "/emily.png",
-      alt: "Emily",
-    },
-    {
-      src: "/lance.png",
-      alt: "Lance",
-    },
-    {
-      src: "/linda.png",
-      alt: "Linda",
-    },
-    {
-      src: "/daisy.png",
-      alt: "Daisy",
-    },
-    {
-      src: "/renei.png",
-      alt: "Renei",
-    },
-    {
-      src: "/roiin.png",
-      alt: "Roiin",
-    },
+    { src: "/gori.png", alt: "Gori" },
+    { src: "/crow.png", alt: "Crowley" },
+    { src: "/crocs2.png", alt: "Snap" },
+    { src: "/foxy.png", alt: "Foxy" },
+    { src: "/snake.png", alt: "Slither" },
+    { src: "/bear.png", alt: "Bruno" },
+    { src: "/owl.png", alt: "Hoot" },
+    { src: "/crocs.png", alt: "Chompy" },
+    { src: "/tiger.png", alt: "Rajah" },
+    { src: "/bulldog.png", alt: "Tank" },
+    { src: "/redPanda.png", alt: "Rusty" },
+    { src: "/tiger2.png", alt: "Blaze" },
+    { src: "/gori.png", alt: "Gori" },
+    { src: "/crow.png", alt: "Crowley" },
+    { src: "/crocs2.png", alt: "Snap" },
   ];
 
   return (

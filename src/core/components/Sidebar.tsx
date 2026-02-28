@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Logo from './Logo';
@@ -25,13 +27,20 @@ interface SidebarItem {
 // for position sticky to work you need a fixed height and a top position
 
 const Sidebar = ({ sections, className, onItemClick, isMobile = false }: SidebarProps) => {
+    const handleWheel = (e: React.WheelEvent) => {
+        if (!isMobile) e.stopPropagation();
+    };
+
     return (
-        <div className={cn(
-            isMobile
-                ? "w-full transition-all duration-300 ease-in"
-                : "h-[calc(100dvh-1.25rem)] w-full sticky top-5 overflow-y-auto transition-all duration-300 ease-in",
-            className
-        )}>
+        <div
+            className={cn(
+                isMobile
+                    ? "w-full transition-all duration-300 ease-in"
+                    : "h-[calc(100dvh-1.25rem)] w-full sticky top-5 overflow-y-auto transition-all duration-300 ease-in",
+                className
+            )}
+            onWheel={handleWheel}
+        >
             <div className={cn("flex flex-col w-full", isMobile ? "" : "h-full")}>
             {!isMobile && (
                 <div className="mb-4">

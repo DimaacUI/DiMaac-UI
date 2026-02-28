@@ -2,21 +2,9 @@ import MouseTiltCard from '@/ui/components/cards/MouseTiltCard';
 
 const MouseTiltCardDemo = () => {
   const cards = [
-    {
-      image: "/roiin.png",
-      heading: "Wizard King",
-      subheading: "Ruler of the Forest"
-    },
-    {
-      image: "/daisy.png", 
-      heading: "Mace Witch",
-      subheading: "Beauty With Brains"
-    },
-    {
-      image: "/emily.png",
-      heading: "Princess of the Forest", 
-      subheading: "The Forest's Guardian"
-    }
+    { image: "/gori.png", heading: "Jungle Sage", subheading: "Strength and Wisdom" },
+    { image: "/crow.png", heading: "Night Watcher", subheading: "Messenger of the Skies" },
+    { image: "/owl.png", heading: "Wise Watcher", subheading: "Eyes of the Night" },
   ];
 
   return (

@@ -2,30 +2,14 @@ import ImageGallery from "@/ui/components/gallery/ImageGallery";
 
 const ImageGalleryDemo = () => {
   const galleryImages = [
-    {
-      src: "/emily.png",
-      alt: "Emily"
-    },
-    {
-      src: "/lance0.png",
-      alt: "Lance"
-    },
-    {
-      src: "/renei0.png",
-      alt: "Renei"
-    },
-    {
-      src: "/roiin0.png",
-      alt: "Roiin"
-    },
-    {
-      src: "/daisy0.png",
-      alt: "Daisy"
-    },
-    {
-      src: "/lylia0.png",
-      alt: "Lylia"
-    }
+    { src: "/gori.png", alt: "Gori" },
+    { src: "/crocs2.png", alt: "Snap" },
+    { src: "/crow.png", alt: "Crowley" },
+    { src: "/foxy.png", alt: "Foxy" },
+    { src: "/bear.png", alt: "Bruno" },
+    { src: "/bulldog.png", alt: "Tank" },
+    { src: "/redPanda.png", alt: "Rusty" },
+    { src: "/tiger2.png", alt: "Blaze" },
   ];
 
   return (

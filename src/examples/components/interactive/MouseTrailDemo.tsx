@@ -1,15 +1,19 @@
 import MouseTrail from '@/ui/components/interactive/MouseTrail';
 
 const MouseTrailDemo = () => {
-  // Custom images for the demo
   const trailImages = [
-    "/daisy0.png",
-    "/emily.png",
-    "/lance0.png",
-    "/renei0.png",
-    "/linda0.png",
-    "/roiin0.png",
-    "/lylia0.png",
+    "/gori.png",
+    "/crow.png",
+    "/crocs2.png",
+    "/foxy.png",
+    "/snake.png",
+    "/bear.png",
+    "/owl.png",
+    "/crocs.png",
+    "/tiger.png",
+    "/bulldog.png",
+    "/redPanda.png",
+    "/tiger2.png",
   ];
 
   return (
@@ -26,7 +30,7 @@ const MouseTrailDemo = () => {
       {/* Centered text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white/20 text-center tracking-tight px-4">
-          Move Your Mouse<br />To See Magic
+          Meet the Crew<br />Move Your Mouse
         </h1>
       </div>
     </div>

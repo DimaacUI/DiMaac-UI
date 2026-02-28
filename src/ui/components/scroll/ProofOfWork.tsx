@@ -103,7 +103,7 @@ const ProofOfWork: React.FC<ProofOfWorkProps> = ({
                   alt={work.imageAlt ?? work.title}
                   width={600}
                   height={600}
-                  className="aspect-square w-full object-cover"
+                  className="aspect-square w-full object-cover object-top"
                 />
               </div>
               <p className="mt-2 font-semibold uppercase text-white">{work.title}</p>

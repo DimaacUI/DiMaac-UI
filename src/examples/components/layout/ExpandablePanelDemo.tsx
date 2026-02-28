@@ -2,13 +2,16 @@ import ExpandablePanel from '@/ui/components/layout/ExpandablePanel';
 
 const ExpandablePanelDemo = () => {
   const demoImages = [
-    { image: "/emily.png", alt: "Architecture 1" },
-    { image: "/lance.png", alt: "Architecture 2" },
-    { image: "/renei.png", alt: "Architecture 3" },
-    { image: "/roiin.png", alt: "Architecture 4" },
-    { image: "/daisy.png", alt: "Architecture 5" },
-    { image: "/linda.png", alt: "Architecture 6" },
-    { image: "/lylia.png", alt: "Architecture 7" },
+    { image: "/gori.png", alt: "Gori" },
+    { image: "/crocs2.png", alt: "Snap" },
+    { image: "/crow.png", alt: "Crowley" },
+    { image: "/foxy.png", alt: "Foxy" },
+    { image: "/snake.png", alt: "Slither" },
+    { image: "/bear.png", alt: "Bruno" },
+    { image: "/owl.png", alt: "Hoot" },
+    { image: "/bulldog.png", alt: "Tank" },
+    { image: "/redPanda.png", alt: "Rusty" },
+    { image: "/tiger2.png", alt: "Blaze" },
   ];
 
   return (

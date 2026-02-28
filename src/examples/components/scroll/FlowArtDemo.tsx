@@ -7,7 +7,7 @@ const FlowArtDemo = () => (
       <hr className="my-[2vw] border-none border-t border-black opacity-100" />
       <div>
         <h1
-          className="text-[clamp(3.5rem,12vw,14rem)] font-normal leading-[0.85] uppercase tracking-tight"
+          className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Create
@@ -29,7 +29,7 @@ const FlowArtDemo = () => (
       <hr className="my-[2vw] border-none border-t border-white/60" />
       <div>
         <h2
-          className="text-[clamp(3.5rem,12vw,14rem)] font-normal leading-[0.85] uppercase tracking-tight"
+          className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Art
@@ -98,7 +98,7 @@ const FlowArtDemo = () => (
       <hr className="my-[2vw] border-none border-t border-black/60" />
       <div>
         <h2
-          className="text-[clamp(3.5rem,12vw,14rem)] font-normal leading-[0.85] uppercase tracking-tight"
+          className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Show
@@ -163,7 +163,7 @@ const FlowArtDemo = () => (
       <hr className="my-[2vw] border-none border-t border-white/50" />
       <div>
         <h2
-          className="text-[clamp(3.5rem,12vw,14rem)] font-normal leading-[0.85] uppercase tracking-tight"
+          className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Future
@@ -231,7 +231,7 @@ const FlowArtDemo = () => (
       <hr className="my-[2vw] border-none border-t border-black/60" />
       <div>
         <h2
-          className="text-[clamp(3.5rem,12vw,14rem)] font-normal leading-[0.85] uppercase tracking-tight"
+          className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Ready

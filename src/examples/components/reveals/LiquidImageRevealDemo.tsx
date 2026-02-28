@@ -6,8 +6,8 @@ const LiquidImageRevealDemo = () => {
       <div className="flex gap-5 h-fit px-4 flex-wrap justify-center items-center">
         <div className="rounded-2xl overflow-hidden w-fit h-[440px]">
         <LiquidImageReveal
-          src="/daisy.png"
-          alt="Beautiful landscape"
+          src="/gori.png"
+          alt="Gori the Gorilla"
           width={300}
           height={450}
           duration={2.5}
@@ -19,8 +19,8 @@ const LiquidImageRevealDemo = () => {
         
         <div className="rounded-2xl overflow-hidden w-fit h-[440px]">
         <LiquidImageReveal
-          src="/emily.png"
-          alt="Beautiful landscape"
+          src="/crocs2.png"
+          alt="Snap the Croc"
           width={300}
           height={450}
           duration={2.5}
@@ -32,8 +32,8 @@ const LiquidImageRevealDemo = () => {
         
         <div className="rounded-2xl overflow-hidden w-fit h-[440px]">
         <LiquidImageReveal
-          src="/renei.png"
-          alt="Beautiful landscape"
+          src="/snake.png"
+          alt="Slither the Snake"
           width={300}
           height={450}
           duration={2.5}

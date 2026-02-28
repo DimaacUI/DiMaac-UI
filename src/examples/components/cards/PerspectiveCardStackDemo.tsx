@@ -2,9 +2,9 @@ import PerspectiveCardStack from '@/ui/components/cards/PerspectiveCardStack';
 
 const PerspectiveCardStackDemo = () => {
   const cards = [
-    { image: '/emily.png', alt: 'Card 1' },
-    { image: '/daisy0.png', alt: 'Card 2' },
-    { image: '/lance0.png', alt: 'Card 3' },
+    { image: '/gori.png', alt: 'Gori' },
+    { image: '/crocs.png', alt: 'Chompy' },
+    { image: '/snake.png', alt: 'Slither' },
   ];
 
   return (
