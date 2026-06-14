@@ -33,6 +33,23 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# zips built at deploy time (see npm run build)
+/private/templates/*.zip
+
+# Only free template sources in git — pro templates stay local
+/private/templates/*
+!/private/templates/.gitignore
+!/private/templates/minimal/
+!/private/templates/minimal/**
+!/private/templates/ember/
+!/private/templates/ember/**
+!/private/templates/prism/
+!/private/templates/prism/**
+!/private/templates/backend/
+!/private/templates/backend/**
+!/private/templates/portfolio-landing/
+!/private/templates/portfolio-landing/**
+
 # vercel
 .vercel
 

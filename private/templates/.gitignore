@@ -1,0 +1,9 @@
+# Never commit dev/build cruft from template subprojects
+node_modules/
+.next/
+out/
+dist/
+.claude/
+*.tsbuildinfo
+.DS_Store
+__MACOSX/

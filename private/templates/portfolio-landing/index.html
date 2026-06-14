@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mara Vance — Digital Designer</title>
+  <meta name="description" content="Mara Vance is an independent UI/UX designer crafting interfaces, identities and digital experiences for ambitious brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <noscript>
+    <style>
+      .preloader { display: none; }
+      [data-fade] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__counter" id="preloaderCounter">00</div>
+    <div class="preloader__label">Mara Vance — Portfolio ’26</div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- WebGL background -->
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="#top" class="header__logo" data-magnetic>MV<span class="accent">®</span></a>
+    <nav class="header__nav" id="navLinks" aria-label="Primary">
+      <a href="#work" class="header__link" data-magnetic>Work</a>
+      <a href="#about" class="header__link" data-magnetic>About</a>
+      <a href="#services" class="header__link" data-magnetic>Services</a>
+      <a href="#contact" class="header__link" data-magnetic>Contact</a>
+    </nav>
+    <a href="#contact" class="header__cta" data-magnetic>
+      <span class="header__cta-dot"></span>Available for Q3
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a href="#work" class="mobile-menu__link"><em>01</em>Work</a>
+      <a href="#about" class="mobile-menu__link"><em>02</em>About</a>
+      <a href="#services" class="mobile-menu__link"><em>03</em>Services</a>
+      <a href="#contact" class="mobile-menu__link"><em>04</em>Contact</a>
+    </nav>
+    <div class="mobile-menu__footer">
+      <a href="mailto:hello@maravance.studio">hello@maravance.studio</a>
+      <p>Lisbon, PT — 38.7223° N</p>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__meta">
+        <p class="hero__meta-item" data-fade>Independent<br/>Digital Designer</p>
+        <p class="hero__meta-item" data-fade>Based in Lisbon,<br/>working worldwide</p>
+        <p class="hero__meta-item hero__meta-item--right" data-fade>Folio ’20 — ’26<br/><span class="accent">Selected works</span></p>
+      </div>
+      <h1 class="hero__title" aria-label="Mara Vance">
+        <span class="hero__line"><span class="hero__line-inner">MARA</span></span>
+        <span class="hero__line hero__line--indent"><span class="hero__line-inner">VANCE<sup class="hero__sup accent">©</sup></span></span>
+      </h1>
+      <div class="hero__bottom">
+        <p class="hero__tagline" data-fade>Designing interfaces that feel<br/><em>inevitable</em> — not decorated.</p>
+        <div class="hero__scroll" data-fade>
+          <span>Scroll</span>
+          <div class="hero__scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marqueeTrack">
+        <span class="marquee__item">UI / UX Design <i class="accent">✺</i> Art Direction <i class="accent">✺</i> Design Systems <i class="accent">✺</i> Prototyping <i class="accent">✺</i>&nbsp;</span>
+        <span class="marquee__item">UI / UX Design <i class="accent">✺</i> Art Direction <i class="accent">✺</i> Design Systems <i class="accent">✺</i> Prototyping <i class="accent">✺</i>&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- Work -->
+    <section class="work" id="work">
+      <div class="section-head">
+        <p class="section-head__label" data-fade><span class="accent">●</span> Selected Work</p>
+        <h2 class="section-head__title" data-split>Projects with<br/>a pulse</h2>
+        <p class="section-head__count" data-fade>(2020 — 2026)</p>
+      </div>
+
+      <ul class="work__list">
+        <li class="work__item" data-project>
+          <a href="#" class="work__link" aria-label="Aurora Banking case study">
+            <div class="work__visual work__visual--1">
+              <div class="work__visual-art">
+                <div class="art-card">
+                  <div class="art-card__bar"></div>
+                  <div class="art-card__num">€24,180</div>
+                  <div class="art-card__chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="work__info">
+              <span class="work__index">01</span>
+              <h3 class="work__name">Aurora Banking</h3>
+              <p class="work__tags">Product Design — Fintech</p>
+              <span class="work__year">2026</span>
+            </div>
+          </a>
+        </li>
+        <li class="work__item" data-project>
+          <a href="#" class="work__link" aria-label="Oslo Audio case study">
+            <div class="work__visual work__visual--2">
+              <div class="work__visual-art">
+                <div class="art-rings"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="work__info">
+              <span class="work__index">02</span>
+              <h3 class="work__name">Oslo Audio</h3>
+              <p class="work__tags">E-commerce — Art Direction</p>
+              <span class="work__year">2025</span>
+            </div>
+          </a>
+        </li>
+        <li class="work__item" data-project>
+          <a href="#" class="work__link" aria-label="Field Notes AI case study">
+            <div class="work__visual work__visual--3">
+              <div class="work__visual-art">
+                <div class="art-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="work__info">
+              <span class="work__index">03</span>
+              <h3 class="work__name">Field Notes AI</h3>
+              <p class="work__tags">SaaS — Design System</p>
+              <span class="work__year">2024</span>
+            </div>
+          </a>
+        </li>
+        <li class="work__item" data-project>
+          <a href="#" class="work__link" aria-label="Studio Hverdag case study">
+            <div class="work__visual work__visual--4">
+              <div class="work__visual-art">
+                <div class="art-type">Hv</div>
+              </div>
+            </div>
+            <div class="work__info">
+              <span class="work__index">04</span>
+              <h3 class="work__name">Studio Hverdag</h3>
+              <p class="work__tags">Brand — Web Experience</p>
+              <span class="work__year">2023</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <p class="about__label" data-fade><span class="accent">●</span> About</p>
+      <p class="about__text" id="aboutText">
+        I’m a designer who believes the best interfaces disappear. For six years I’ve helped startups and studios turn complex products into experiences people actually enjoy — pixel by pixel, decision by decision.
+      </p>
+      <div class="about__stats">
+        <div class="stat" data-fade>
+          <span class="stat__num" data-count="6">0</span><span class="stat__suffix">+</span>
+          <p class="stat__label">Years of practice</p>
+        </div>
+        <div class="stat" data-fade>
+          <span class="stat__num" data-count="48">0</span><span class="stat__suffix"></span>
+          <p class="stat__label">Projects shipped</p>
+        </div>
+        <div class="stat" data-fade>
+          <span class="stat__num" data-count="11">0</span><span class="stat__suffix"></span>
+          <p class="stat__label">Design awards</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="section-head">
+        <p class="section-head__label" data-fade><span class="accent">●</span> Services</p>
+        <h2 class="section-head__title" data-split>What I do<br/>best</h2>
+      </div>
+      <ul class="services__list">
+        <li class="service" data-service>
+          <span class="service__index">(01)</span>
+          <h3 class="service__name">Product Design</h3>
+          <p class="service__desc">End-to-end UX and UI for web and mobile products — from first wireframe to polished, dev-ready screens.</p>
+        </li>
+        <li class="service" data-service>
+          <span class="service__index">(02)</span>
+          <h3 class="service__name">Design Systems</h3>
+          <p class="service__desc">Scalable component libraries and tokens that keep large teams shipping consistent interfaces, fast.</p>
+        </li>
+        <li class="service" data-service>
+          <span class="service__index">(03)</span>
+          <h3 class="service__name">Art Direction</h3>
+          <p class="service__desc">Visual languages with a point of view — typography, motion and image systems that make brands unmistakable.</p>
+        </li>
+        <li class="service" data-service>
+          <span class="service__index">(04)</span>
+          <h3 class="service__name">Creative Development</h3>
+          <p class="service__desc">Interactive prototypes and award-grade marketing sites built with WebGL, GSAP and a lot of care.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="footer" id="contact">
+      <p class="footer__label" data-fade><span class="accent">●</span> Got a project?</p>
+      <a href="mailto:hello@maravance.studio" class="footer__title-link" data-magnetic-strong>
+        <h2 class="footer__title">
+          <span class="footer__line"><span class="footer__line-inner">LET’S</span></span>
+          <span class="footer__line"><span class="footer__line-inner">TALK<span class="accent">.</span></span></span>
+        </h2>
+      </a>
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@maravance.studio">hello@maravance.studio</a>
+          <a href="#">+351 910 000 000</a>
+        </div>
+        <div class="footer__col">
+          <h4>Socials</h4>
+          <a href="#">Dribbble ↗</a>
+          <a href="#">LinkedIn ↗</a>
+          <a href="#">Instagram ↗</a>
+        </div>
+        <div class="footer__col">
+          <h4>Studio</h4>
+          <p>Rua da Prata 80<br/>1100-420 Lisbon, PT</p>
+        </div>
+        <div class="footer__col footer__col--time">
+          <h4>Local time</h4>
+          <p id="localTime">00:00:00</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Mara Vance. All rights reserved.</p>
+        <button class="footer__top" id="backToTop" data-magnetic>Back to top ↑</button>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

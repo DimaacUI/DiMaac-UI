@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonas Beck — Backend Engineer</title>
+<meta name="description" content="Jonas Beck designs boring, reliable systems that stay up. Backend & infrastructure engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar__in">
+    <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="bar__path"><b>jonas@beck</b>:~/portfolio</span>
+    <nav class="bar__nav">
+      <a href="#services">services</a><a href="#projects">projects</a><a href="#log">changelog</a><a href="#skills">skills</a><a href="#contact">contact</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+
+<header class="hero">
+  <div class="term" id="term" aria-label="terminal introduction">
+    <span class="ln" data-t="$ whoami" data-ps></span>
+    <span class="ln out" data-t="jonas.beck — backend &amp; infrastructure engineer, Berlin"></span>
+    <span class="ln" data-t="$ uptime" data-ps></span>
+    <span class="ln out" data-t="9 years in production, 0 resume-driven rewrites, load average: calm"></span>
+    <span class="ln" data-t="$ cat philosophy.txt" data-ps></span>
+    <span class="ln out" data-t="<b>Boring on purpose.</b> Exciting systems page you at 03:00."></span>
+    <span class="ln"><span class="ps">$ </span><span class="caret"></span></span>
+  </div>
+  <h1>Jonas Beck<span>.</span></h1>
+  <p class="sub">I design and run the parts of the product nobody screenshots — <b>APIs, queues, data pipelines and the on-call rotations</b> that keep them honest. If it has a p99, I care about it.</p>
+  <div class="metrics rv">
+    <div><b><em id="m-req">0</em>B+</b><span>requests served / yr</span></div>
+    <div><b><em id="m-p99">0</em>ms</b><span>flagship API p99</span></div>
+    <div><b><em id="m-up">0</em>%</b><span>uptime, trailing 12mo</span></div>
+    <div><b><em id="m-tb">0</em>TB</b><span>daily pipeline volume</span></div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="sect rv"><span class="h">##</span><h2>systemctl list-units</h2><span class="c"># what I do</span></div>
+  <div class="svc rv">
+    <div class="svc__row"><span class="svc__name">api-design.service</span><span class="svc__desc">REST &amp; gRPC contracts people don't need a meeting to understand. Versioning that survives v3.</span><span class="svc__st">active</span></div>
+    <div class="svc__row"><span class="svc__name">distributed.service</span><span class="svc__desc">Queues, idempotency, backpressure, exactly-once-ish delivery with honest documentation about the "ish".</span><span class="svc__st">active</span></div>
+    <div class="svc__row"><span class="svc__name">data-pipeline.service</span><span class="svc__desc">Streaming and batch — CDC, Kafka, warehouse modelling. Data that arrives, reconciles, and is believed.</span><span class="svc__st">active</span></div>
+    <div class="svc__row"><span class="svc__name">reliability.service</span><span class="svc__desc">SLOs, error budgets, runbooks, chaos drills. Postmortems where nobody gets blamed and something gets fixed.</span><span class="svc__st">active</span></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sect rv"><span class="h">##</span><h2>GET /projects</h2><span class="c"># click a route</span></div>
+  <div class="ep rv">
+    <div class="ep__row open">
+      <div class="ep__head" data-ep>
+        <span class="ep__verb v-stream">STREAM</span>
+        <span class="ep__path">/projects/atlas-bus</span>
+        <span class="ep__sum">event backbone · 40k msg/s</span>
+        <span class="ep__code">200 OK</span><span class="ep__hint">▸</span>
+      </div>
+      <div class="ep__body"><div class="ep__inner">
+        <p>Company-wide event bus replacing a decade of cron jobs and CSV drops. Schema registry, dead-letter strategy, replay tooling. 40k messages/second at peak, with consumer lag alerts that actually mean something.</p>
+        <div class="kv"><span>Go</span><span>Kafka</span><span>Protobuf</span><span>40k msg/s</span><span>11 teams onboard</span></div>
+      </div></div>
+    </div>
+    <div class="ep__row">
+      <div class="ep__head" data-ep>
+        <span class="ep__verb v-get">GET</span>
+        <span class="ep__path">/projects/ledgerd</span>
+        <span class="ep__sum">double-entry ledger · financial core</span>
+        <span class="ep__code">200 OK</span><span class="ep__hint">▸</span>
+      </div>
+      <div class="ep__body"><div class="ep__inner">
+        <p>Append-only double-entry ledger powering balances for 2M accounts. Strict serializability where it matters, eventual everywhere else. Survived an audit and a Black Friday in the same quarter.</p>
+        <div class="kv"><span>Rust</span><span>PostgreSQL</span><span>CQRS</span><span>2M accounts</span><span>zero balance drift</span></div>
+      </div></div>
+    </div>
+    <div class="ep__row">
+      <div class="ep__head" data-ep>
+        <span class="ep__verb v-post">POST</span>
+        <span class="ep__path">/projects/shipyard</span>
+        <span class="ep__sum">internal deploy platform</span>
+        <span class="ep__code">201 Created</span><span class="ep__hint">▸</span>
+      </div>
+      <div class="ep__body"><div class="ep__inner">
+        <p>Golden-path deploy platform: one YAML file, canaries, automatic rollback on SLO burn. Took median deploy time from 40 minutes of ritual to 6 minutes of boredom.</p>
+        <div class="kv"><span>Kubernetes</span><span>Terraform</span><span>ArgoCD</span><span>120 services</span><span>deploys ×9/day</span></div>
+      </div></div>
+    </div>
+    <div class="ep__row">
+      <div class="ep__head" data-ep>
+        <span class="ep__verb v-get">GET</span>
+        <span class="ep__path">/projects/coldpath</span>
+        <span class="ep__sum">analytics pipeline · 3TB/day</span>
+        <span class="ep__code">200 OK</span><span class="ep__hint">▸</span>
+      </div>
+      <div class="ep__body"><div class="ep__inner">
+        <p>CDC out of the OLTP fleet into a lakehouse, with contract tests between producers and the warehouse. Analysts stopped asking "is this number right?" — the dashboards say when they aren't.</p>
+        <div class="kv"><span>Debezium</span><span>Spark</span><span>Iceberg</span><span>dbt</span><span>3TB/day</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="sect rv"><span class="h">##</span><h2>git log --oneline career</h2><span class="c"># experience</span></div>
+  <div class="log">
+    <div class="rel rv">
+      <span class="ver">v4.x · 2022 — now</span>
+      <h3>Staff Engineer · <b>Relay Systems</b></h3>
+      <ul>
+        <li>Own architecture for the payments core (ledgerd, atlas-bus)</li>
+        <li>Cut infra spend 31% while doubling traffic — mostly by deleting things</li>
+        <li>Run the architecture guild; write the RFCs people actually read</li>
+        <li class="minus">Removed: 14 services that should never have been services</li>
+      </ul>
+    </div>
+    <div class="rel rv">
+      <span class="ver">v3.x · 2019 — 2022</span>
+      <h3>Senior Backend Engineer · <b>Hafen Logistics</b></h3>
+      <ul>
+        <li>Built tracking ingestion for 60k vehicles (MQTT → Kafka → Postgres)</li>
+        <li>Led the monolith strangler project — finished, which is the rare part</li>
+        <li>Introduced SLOs; pages went down 70%, sleep went up accordingly</li>
+      </ul>
+    </div>
+    <div class="rel rv">
+      <span class="ver">v2.x · 2017 — 2019</span>
+      <h3>Backend Engineer · <b>Kassenwerk</b></h3>
+      <ul>
+        <li>POS sync engine for 3k stores with offline-first conflict resolution</li>
+        <li>First on-call rotation; learned the difference between alerts and noise</li>
+      </ul>
+    </div>
+    <div class="rel rv">
+      <span class="ver">v1.x · 2015 — 2017</span>
+      <h3>Junior Developer · <b>Agentur Nord</b></h3>
+      <ul>
+        <li>PHP, MySQL, FTP deploys at 17:55 on a Friday — once</li>
+        <li class="minus">Deprecated: the habit of deploying at 17:55 on a Friday</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sect rv"><span class="h">##</span><h2>htop — skills</h2><span class="c"># sorted by %CPU</span></div>
+  <div class="htop rv">
+    <div class="hdr"><span>process</span><span>load</span><span>%</span></div>
+    <div class="proc" style="--w:93%"><span class="n">go</span><span class="g"><i></i></span><span class="p">93</span></div>
+    <div class="proc" style="--w:88%"><span class="n">postgresql</span><span class="g"><i></i></span><span class="p">88</span></div>
+    <div class="proc" style="--w:85%"><span class="n">kafka</span><span class="g"><i></i></span><span class="p">85</span></div>
+    <div class="proc" style="--w:82%"><span class="n">kubernetes</span><span class="g"><i></i></span><span class="p">82</span></div>
+    <div class="proc" style="--w:78%"><span class="n">rust</span><span class="g"><i></i></span><span class="p">78</span></div>
+    <div class="proc" style="--w:76%"><span class="n">terraform</span><span class="g"><i></i></span><span class="p">76</span></div>
+    <div class="proc" style="--w:70%"><span class="n">observability</span><span class="g"><i></i></span><span class="p">70</span></div>
+    <div class="proc" style="--w:35%"><span class="n">css</span><span class="g"><i></i></span><span class="p">35</span></div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="foot">
+    <div class="curl rv">
+      <span class="ps">$</span> curl <span class="fl">-X</span> POST <a href="mailto:jonas@beck.example">jonas@beck.example</a> <span class="fl">-d</span> '{"subject":"let's build something boring"}'
+      <span class="resp">HTTP/2 202 Accepted — replies within one working day</span>
+    </div>
+    <div class="row rv">
+      <div class="soc"><a href="#">GitHub</a><a href="#">SourceHut</a><a href="#">LinkedIn</a><a href="#">RSS</a></div>
+      <span>Berlin · UTC+1 · remote-friendly</span>
+    </div>
+    <p class="fine">© 2026 Jonas Beck — fictional demo portfolio. No cookies, no trackers, one blinking cursor.</p>
+  </div>
+</footer>
+  <script src="./main.js"></script>
+</body>
+</html>
