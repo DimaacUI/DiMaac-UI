@@ -13,7 +13,10 @@ export interface NavSection {
 export const NAV_SECTIONS: NavSection[] = [
   {
     name: 'Getting Started',
-    item: [{ name: 'Introduction', href: '/', isActive: false, isNew: false }],
+    item: [
+      { name: 'Introduction', href: '/', isActive: false, isNew: false },
+      { name: 'Templates', href: '/templates', isActive: false, isNew: true },
+    ],
   },
   {
     name: 'Layout Components',
