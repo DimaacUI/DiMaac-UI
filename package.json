@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/zip-templates.mjs --free && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "zip:templates": "node scripts/zip-templates.mjs",
+    "zip:templates:launch": "node scripts/zip-templates.mjs --launch",
+    "zip:templates:free": "node scripts/zip-templates.mjs --free"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -36,5 +39,8 @@
     "eslint-config-next": "15.4.10",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "optionalDependencies": {
+    "@next/swc-darwin-arm64": "^16.2.9"
   }
 }

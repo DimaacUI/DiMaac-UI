@@ -203,6 +203,11 @@
   dependencies:
     fast-glob "3.3.1"
 
+"@next/swc-darwin-arm64@^16.2.9":
+  version "16.2.9"
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-16.2.9.tgz"
+  integrity sha512-HkfxNYUCmcct0Xsqib5KxqMSHV4AHJq857BNRchyBDs4YS19aHzVfn1kDuBYKqLLQBjXgnkIsjV2Kd4d2wzYhw==
+
 "@next/swc-darwin-arm64@15.4.8":
   version "15.4.8"
   resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-15.4.8.tgz"
