@@ -35,6 +35,10 @@ yarn-error.log*
 
 # zips built at deploy time (see npm run build)
 /private/templates/*.zip
+# Pro deliverables — committed so Vercel can serve downloads (sources stay local)
+!/private/templates/overclock.zip
+!/private/templates/phantom-sphere.zip
+!/private/templates/veldt-folio.zip
 
 # Only free template sources in git — pro templates stay local
 /private/templates/*
@@ -51,6 +55,9 @@ yarn-error.log*
 !/private/templates/backend/**
 !/private/templates/portfolio-landing/
 !/private/templates/portfolio-landing/**
+!/private/templates/overclock.zip
+!/private/templates/phantom-sphere.zip
+!/private/templates/veldt-folio.zip
 
 # vercel
 .vercel

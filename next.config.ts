@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Include template zips + source in the serverless bundle for download/preview APIs.
+  outputFileTracingIncludes: {
+    '/api/templates/download': ['./private/templates/**/*.zip'],
+    '/api/templates/preview': ['./private/templates/**/*'],
+  },
   images: {
     remotePatterns: [
       {
