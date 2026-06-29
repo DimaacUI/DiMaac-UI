@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lena Park</title>
+<meta name="description" content="Lena Park — product engineer. Minimal portfolio with an aurora footer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<main>
+
+  <header class="s" style="--i:0">
+    <h1><span class="dot" aria-hidden="true"></span>Lena Park</h1>
+    <p class="role">Product engineer · Seoul → remote</p>
+  </header>
+
+  <section class="s" style="--i:1">
+    <p>I sit between design and backend and make the product actually happen. Eight years of shipping — prototypes on Monday, production on Friday, postmortems never (well, rarely).</p>
+    <p class="muted">Right now I'm at <a href="#">Halo</a>, building collaborative editing. I like small teams, typed languages and changelogs written for humans.</p>
+  </section>
+
+  <section class="s" style="--i:2">
+    <h2>Projects</h2>
+    <div class="proj">
+      <a href="#"><b>undo.fm <i>↗</i></b><span>collaborative audio editor — CRDTs, no drama</span></a>
+      <a href="#"><b>shipnote <i>↗</i></b><span>changelogs your users actually read</span></a>
+      <a href="#"><b>granola.css <i>↗</i></b><span>a 4kb classless stylesheet with taste</span></a>
+      <a href="#"><b>seoulmetro.app <i>↗</i></b><span>offline subway times, 120k users</span></a>
+    </div>
+  </section>
+
+  <section class="s" style="--i:3">
+    <h2>Experience</h2>
+    <div class="xp">
+      <div><span class="yr">2023 —</span><p><b>Halo</b> <span class="at">· product engineer, realtime</span></p></div>
+      <div><span class="yr">2020 — 23</span><p><b>Mercury Labs</b> <span class="at">· fullstack engineer</span></p></div>
+      <div><span class="yr">2018 — 20</span><p><b>Studio Dotdash</b> <span class="at">· creative developer</span></p></div>
+    </div>
+  </section>
+
+  <section class="s" style="--i:4">
+    <h2>Elsewhere</h2>
+    <div class="links">
+      <a href="#">GitHub</a><a href="#">X</a><a href="#">Are.na</a><a href="#">CV</a>
+    </div>
+  </section>
+
+  <section class="s" style="--i:5">
+    <h2>Now playing</h2>
+    <a class="np" href="#" aria-label="Currently listening">
+      <span class="np__art" aria-hidden="true"></span>
+      <span class="np__meta"><b>Peach Static</b><i>Indoor Pools · on repeat</i></span>
+      <span class="np__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    </a>
+  </section>
+
+</main>
+
+<footer class="s" id="footer" style="--i:6">
+  <canvas class="glow" id="glow" aria-hidden="true"></canvas>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="foot__in">
+    <p class="cta">Got something good?<br><a href="mailto:lena@park.example">lena@park.example</a></p>
+    <div class="foot__row">
+      <span>© 2026 Lena Park — fictional demo</span>
+      <span>Made with one gradient and restraint</span>
+    </div>
+  </div>
+</footer>
+  <script src="./main.js"></script>
+</body>
+</html>

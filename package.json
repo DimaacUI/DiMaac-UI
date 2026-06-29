@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/zip-templates.mjs --free && next build",
+    "build": "node scripts/zip-templates.mjs --launch && next build",
     "start": "next start",
     "lint": "next lint",
     "zip:templates": "node scripts/zip-templates.mjs",

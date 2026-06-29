@@ -41,6 +41,8 @@ yarn-error.log*
 !/private/templates/.gitignore
 !/private/templates/minimal/
 !/private/templates/minimal/**
+!/private/templates/aurora/
+!/private/templates/aurora/**
 !/private/templates/ember/
 !/private/templates/ember/**
 !/private/templates/prism/

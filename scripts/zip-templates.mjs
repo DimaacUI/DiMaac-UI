@@ -33,14 +33,15 @@ const SLUGS = [
 ];
 
 /** Free templates — live on site now. */
-const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing'];
+const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing', 'aurora'];
 
-/** Free + pro when subscription is live. */
+/** Free + pro templates available in the catalog. */
 const LAUNCH_SLUGS = [
   ...FREE_SLUGS,
+  'frontend',
+  'altura',
+  'etude',
   'overclock',
-  'phantom-sphere',
-  'veldt-folio',
 ];
 
 const onlyFree = process.argv.includes('--free');

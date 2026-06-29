@@ -25,12 +25,12 @@ export const templateData: Record<string, TemplatePage> = {
     title: 'Aurora',
     description:
       'Clean product-engineer portfolio with CSS aurora footer and WebGL gradient glow shader.',
-    tier: 'pro',
+    tier: 'free',
     stack: 'html',
     tags: ['Portfolio', 'WebGL', 'Minimal'],
     thumbnail: '/templates/aurora.png',
     previewType: 'live',
-    comingSoon: true,
+    zipFileName: 'aurora.zip',
     isNew: true,
   },
   ember: {
@@ -71,8 +71,8 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'html',
     tags: ['Portfolio', 'Editorial', 'GSAP'],
     thumbnail: '/templates/editorial.png',
-    previewType: 'live',
-    comingSoon: true,
+    previewType: 'video',
+    zipFileName: 'frontend.zip',
     isNew: true,
   },
   backend: {
@@ -99,8 +99,8 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'html',
     tags: ['Multi-page', 'GSAP', 'Finance', 'Editorial'],
     thumbnail: '/templates/altura.png',
-    previewType: 'live',
-    comingSoon: true,
+    previewType: 'video',
+    zipFileName: 'altura.zip',
     isNew: true,
   },
   musea: {
@@ -130,7 +130,6 @@ export const templateData: Record<string, TemplatePage> = {
     previewType: 'video',
     previewVideoUrl: '/previews/overclock.mp4',
     zipFileName: 'overclock.zip',
-    comingSoon: true,
     isNew: true,
   },
   'phantom-sphere': {
@@ -190,8 +189,8 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'nextjs',
     tags: ['WebGL', 'R3F', 'Gallery'],
     thumbnail: '/templates/etude.png',
-    previewType: 'live',
-    comingSoon: true,
+    previewType: 'video',
+    zipFileName: 'etude.zip',
     isNew: true,
   },
 };
