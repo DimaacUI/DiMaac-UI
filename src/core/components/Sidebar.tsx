@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Logo from './Logo';
+import SidebarProCta from './SidebarProCta';
 
 interface SidebarProps {
     title: string;
@@ -10,6 +11,7 @@ interface SidebarProps {
     className?: string;
     onItemClick?: () => void;
     isMobile?: boolean;
+    showProCta?: boolean;
 }
 
 interface Section {
@@ -26,7 +28,7 @@ interface SidebarItem {
 
 // for position sticky to work you need a fixed height and a top position
 
-const Sidebar = ({ sections, className, onItemClick, isMobile = false }: SidebarProps) => {
+const Sidebar = ({ sections, className, onItemClick, isMobile = false, showProCta = true }: SidebarProps) => {
     const handleWheel = (e: React.WheelEvent) => {
         if (!isMobile) e.stopPropagation();
     };
@@ -73,6 +75,7 @@ const Sidebar = ({ sections, className, onItemClick, isMobile = false }: Sidebar
                     )
                 })}
                 </div>
+                {showProCta && <SidebarProCta onClick={onItemClick} />}
             </div>
         </div>
     )

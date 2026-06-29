@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import Sidebar from './Sidebar';
+import SidebarProCta from './SidebarProCta';
 import HamburgerMenu from './HamburgerMenu';
 import Logo from './Logo';
 
@@ -93,14 +94,19 @@ const ResponsiveLayout = ({ sections, children }: ResponsiveLayoutProps) => {
           </div>
           
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className="flex-1 overflow-y-auto p-4 pb-0">
             <Sidebar 
               title="DIMAC" 
               sections={sections} 
               className="w-full"
               onItemClick={closeMobileMenu}
               isMobile={true}
+              showProCta={false}
             />
+          </div>
+          
+          <div className="flex-shrink-0 px-4 pb-4 pt-0 border-t border-white/10 bg-black">
+            <SidebarProCta onClick={closeMobileMenu} className="sticky bottom-auto mt-0 mr-0 pr-0 mb-0 pt-3 border-t-0 bg-transparent" />
           </div>
         </div>
       )}
