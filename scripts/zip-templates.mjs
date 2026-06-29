@@ -38,10 +38,9 @@ const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing',
 /** Free + pro templates available in the catalog. */
 const LAUNCH_SLUGS = [
   ...FREE_SLUGS,
-  'frontend',
-  'altura',
-  'etude',
   'overclock',
+  'phantom-sphere',
+  'veldt-folio',
 ];
 
 const onlyFree = process.argv.includes('--free');

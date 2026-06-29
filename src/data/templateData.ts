@@ -71,8 +71,8 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'html',
     tags: ['Portfolio', 'Editorial', 'GSAP'],
     thumbnail: '/templates/editorial.png',
-    previewType: 'video',
-    zipFileName: 'frontend.zip',
+    previewType: 'live',
+    comingSoon: true,
     isNew: true,
   },
   backend: {
@@ -99,8 +99,8 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'html',
     tags: ['Multi-page', 'GSAP', 'Finance', 'Editorial'],
     thumbnail: '/templates/altura.png',
-    previewType: 'video',
-    zipFileName: 'altura.zip',
+    previewType: 'live',
+    comingSoon: true,
     isNew: true,
   },
   musea: {
@@ -145,7 +145,6 @@ export const templateData: Record<string, TemplatePage> = {
     previewType: 'video',
     previewVideoUrl: '/previews/studio.mp4',
     zipFileName: 'phantom-sphere.zip',
-    comingSoon: true,
     isNew: true,
   },
   'portfolio-landing': {
@@ -176,7 +175,6 @@ export const templateData: Record<string, TemplatePage> = {
     previewVideoUrl: '/previews/veldt.mp4',
     previewRoot: 'dist',
     zipFileName: 'veldt-folio.zip',
-    comingSoon: true,
     isNew: true,
   },
   etude: {
@@ -189,8 +187,8 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'nextjs',
     tags: ['WebGL', 'R3F', 'Gallery'],
     thumbnail: '/templates/etude.png',
-    previewType: 'video',
-    zipFileName: 'etude.zip',
+    previewType: 'live',
+    comingSoon: true,
     isNew: true,
   },
 };
