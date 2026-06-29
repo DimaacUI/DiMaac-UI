@@ -238,9 +238,9 @@ export function getCatalogTemplates(): TemplatePage[] {
   return [...available, ...comingSoon];
 }
 
-/** Flip to true in .env when Lemon Squeezy verification is complete. */
+/** Set NEXT_PUBLIC_SUBSCRIPTION_CHECKOUT_ENABLED=false to disable checkout (e.g. staging). */
 export function isSubscriptionCheckoutEnabled(): boolean {
-  return process.env.NEXT_PUBLIC_SUBSCRIPTION_CHECKOUT_ENABLED === 'true';
+  return process.env.NEXT_PUBLIC_SUBSCRIPTION_CHECKOUT_ENABLED !== 'false';
 }
 
 export function getTemplateBySlug(slug: string): TemplatePage | undefined {
