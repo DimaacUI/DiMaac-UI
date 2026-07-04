@@ -169,7 +169,7 @@ const FAQ_ITEMS = [
   },
   {
     title: 'License included',
-    body: 'Every download includes a LICENSE file. Use templates in your own sites and client work. You may not resell or redistribute the source as a template product.',
+    body: 'Every download includes a LICENSE file — perpetual use in unlimited personal and client projects. You may not resell or redistribute the source as a template product.',
   },
   {
     title: 'How pro downloads work',

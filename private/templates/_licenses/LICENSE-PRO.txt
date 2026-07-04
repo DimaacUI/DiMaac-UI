@@ -2,21 +2,35 @@ DiMaac Pro Template License
 
 Copyright (c) 2026 DiMaac (https://dimaac.com)
 
-Licensed to you through an active DiMaac Pro subscription or valid Lemon Squeezy
-license key. Subject to:
+You receive this license when you download this template through DiMaac Pro
+(a valid subscription or license key at the time of download).
 
-1. Use, modify, and publish in unlimited personal and commercial end products
-   while your DiMaac Pro subscription is active.
-2. Do not redistribute, resell, sublicense, or share the source files as a
-   template, theme, UI kit, or similar product.
-3. License is non-transferable and tied to your purchase or subscription.
-4. Replace placeholder copy, images, and demo assets before production.
+PERMITTED USE — PERPETUAL (does not expire):
 
-If your subscription ends, sites you already published may stay live. You may
-not download new pro templates or use new pro drops without an active subscription.
+You may use, modify, combine, and publish this template in unlimited personal
+and commercial end products — your own sites, apps, and client work — for as
+long as you want. No ongoing subscription is required to keep using templates
+you have already downloaded.
+
+You may:
+  • Customize layout, code, design, and content freely
+  • Use in unlimited projects and client deliverables
+  • Deploy to production and charge for work built with this template
+
+You may NOT:
+  • Redistribute, resell, sublicense, or share the source files (original or
+    modified) as a template, theme, UI kit, starter, or similar product
+  • Publish the source in a way that lets others download and use it as a
+    template (e.g. a public repo of the unmodified zip)
+  • Transfer this license to another person or entity
+
+OTHER:
+
+  • Replace placeholder copy, images, and demo assets before production.
+  • Downloading new pro templates requires an active DiMaac Pro subscription
+    at the time of download. Templates you already have keep this license forever.
+  • Third-party libraries in this template remain under their respective licenses.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED. IN NO EVENT SHALL DIMAAC BE LIABLE FOR ANY CLAIM ARISING FROM USE
 OF THIS TEMPLATE.
-
-Third-party libraries in this template remain under their respective licenses.

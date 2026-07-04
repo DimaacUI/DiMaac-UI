@@ -38,7 +38,6 @@ yarn-error.log*
 # Pro deliverables — committed so Vercel can serve downloads (sources stay local)
 !/private/templates/overclock.zip
 !/private/templates/phantom-sphere.zip
-!/private/templates/veldt-folio.zip
 !/private/templates/altura.zip
 !/private/templates/lumen.zip
 !/private/templates/etude.zip
@@ -62,9 +61,10 @@ yarn-error.log*
 !/private/templates/portfolio-landing/**
 !/private/templates/maya/
 !/private/templates/maya/**
+!/private/templates/veldt-folio/
+!/private/templates/veldt-folio/**
 !/private/templates/overclock.zip
 !/private/templates/phantom-sphere.zip
-!/private/templates/veldt-folio.zip
 !/private/templates/altura.zip
 !/private/templates/lumen.zip
 !/private/templates/etude.zip

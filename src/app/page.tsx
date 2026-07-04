@@ -80,14 +80,14 @@ export default function Home() {
       title: "Perspective Card Stack",
       description: "3D card stack that fans out on hover with perspective transforms.",
       href: "/components/perspective-card-stack",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/stackedCardSlider.png",
       title: "Stacked Card Slider",
       description: "Click to cycle through stacked cards with GSAP Flip - clone, hide, onEnter/onLeave.",
       href: "/components/stacked-card-slider",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/mouseTrail.png",
@@ -108,14 +108,14 @@ export default function Home() {
       title: "Project Hover Section",
       description: "Project list with hover-to-reveal floating thumbnails that follow your mouse. Mobile: tap-to-expand.",
       href: "/components/project-hover-section",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/maskRevealOnHover.png",
       title: "Mask Reveal on Hover",
       description: "Circular mask follows cursor to reveal alternate content. Mask grows on hover, shrinks on leave.",
       href: "/components/mask-reveal-on-hover",
-      isNew: true,
+      isNew: false,
     },
     // Scroll Animations
     {
@@ -123,35 +123,35 @@ export default function Home() {
       title: "Pin Rotate Sections",
       description: "Full-page scroll: pinned sections scale, rotate in 3D, and fade as you scroll. GSAP ScrollTrigger.",
       href: "/components/pin-rotate-sections",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/proofOfWork.png",
       title: "Proof Of Work",
       description: "Grid of works with scroll-triggered reveal: rotation, y-offset, opacity. Staggered on desktop.",
       href: "/components/proof-of-work",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/imagesFlow.png",
       title: "Images Flow",
       description: "Pinned section: images flow from center into 3D spread. Intro, flow, outro.",
       href: "/components/images-flow",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/section3D.png",
       title: "Section 3D",
       description: "Pinned cards fade, lift, tilt back as you scroll. Simple intro + 3D scroll.",
       href: "/components/section-3d",
-      isNew: true,
+      isNew: false,
     },
     {
       img: "/flowArt.png",
       title: "Flow Art",
       description: "Colorful sections pin on scroll. Containers rotate in from 30° as you scroll.",
       href: "/components/flow-art",
-      isNew: true,
+      isNew: false,
     },
     // Text & Animation
     {
@@ -173,7 +173,7 @@ export default function Home() {
       title: "Text Block Effect",
       description: "Scroll-triggered line reveal. Colored block sweeps in, text appears, block sweeps out.",
       href: "/components/text-block-effect",
-      isNew: true,
+      isNew: false,
     }
   ]
   return (

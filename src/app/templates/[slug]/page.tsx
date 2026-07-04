@@ -1,12 +1,14 @@
 import Badge from '@/core/components/Badge';
 import TemplateDownloadPanel from '@/core/components/TemplateDownloadPanel';
 import TemplatePreview from '@/core/components/TemplatePreview';
+import { TemplateNewBadge, TemplateTierBadge } from '@/core/components/TemplateTierBadge';
 import {
   getDevTemplateRunCommand,
   getTemplateBySlug,
   getTemplateLivePreviewUrl,
   isTemplateComingSoon,
 } from '@/data/templateData';
+import { buildTemplatesFilterUrl } from '@/lib/templateFilters';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { TemplatePage } from '@/types/templates';
@@ -32,6 +34,8 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
     ? { ...template, previewType: 'live', previewUrl: livePreviewUrl }
     : template;
 
+  const tierFilterHref = buildTemplatesFilterUrl(template.tier);
+
   const stackLabel =
     template.stack === 'html' ? 'HTML' : template.stack === 'vite' ? 'Vite' : 'Next.js';
 
@@ -47,14 +51,10 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-3">
             <h1 className="font-bold text-xl md:text-2xl text-white leading-tight">{template.title}</h1>
-            {template.tier === 'free' ? (
-              <span className="text-xs font-bold text-black bg-white px-3 py-1 rounded-full">Free</span>
-            ) : (
-              <span className="text-xs font-bold text-black bg-[#DDFC3E] px-3 py-1 rounded-full">Pro</span>
-            )}
-            {template.isNew && (
-              <span className="text-xs font-bold text-black bg-[#DDFC3E] px-3 py-1 rounded-full">New</span>
-            )}
+            <Link href={tierFilterHref} className="hover:opacity-90 transition-opacity">
+              <TemplateTierBadge tier={template.tier} />
+            </Link>
+            {template.isNew && <TemplateNewBadge />}
           </div>
           <p className="text-sm md:text-md text-white/80 leading-relaxed">{template.description}</p>
         </div>
@@ -81,7 +81,7 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
           <ul className="list-disc list-inside space-y-1">
             <li>Full HTML / WebGL source (zip)</li>
             <li>Documentation for setup & customization</li>
-            <li>LICENSE file — personal &amp; commercial use; no resale as a template</li>
+            <li>LICENSE file — perpetual use in personal &amp; commercial projects; no resale as a template</li>
           </ul>
           <p className="pt-2">
             Prefer all templates?{' '}

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
+import TemplateCatalog from '@/core/components/TemplateCatalog';
 import TemplateGrid from '@/core/components/TemplateGrid';
 import { getCatalogTemplates } from '@/data/templateData';
 
@@ -25,7 +27,9 @@ export default function TemplatesPage() {
         </div>
       </header>
 
-      <TemplateGrid templates={templates} />
+      <Suspense fallback={<TemplateGrid templates={templates} />}>
+        <TemplateCatalog templates={templates} />
+      </Suspense>
     </div>
   );
 }

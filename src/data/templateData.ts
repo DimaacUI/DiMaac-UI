@@ -17,7 +17,6 @@ export const templateData: Record<string, TemplatePage> = {
     thumbnail: '/templates/quiet.png',
     previewType: 'live',
     zipFileName: 'minimal.zip',
-    isNew: true,
   },
   aurora: {
     id: 'aurora',
@@ -31,7 +30,6 @@ export const templateData: Record<string, TemplatePage> = {
     thumbnail: '/templates/aurora.png',
     previewType: 'live',
     zipFileName: 'aurora.zip',
-    isNew: true,
   },
   ember: {
     id: 'ember',
@@ -45,7 +43,6 @@ export const templateData: Record<string, TemplatePage> = {
     thumbnail: '/templates/ember.png',
     previewType: 'live',
     zipFileName: 'ember.zip',
-    isNew: true,
   },
   prism: {
     id: 'prism',
@@ -59,7 +56,6 @@ export const templateData: Record<string, TemplatePage> = {
     thumbnail: '/templates/prisma.png',
     previewType: 'live',
     zipFileName: 'prism.zip',
-    isNew: true,
   },
   maya: {
     id: 'maya',
@@ -87,7 +83,6 @@ export const templateData: Record<string, TemplatePage> = {
     thumbnail: '/templates/terminal.png',
     previewType: 'live',
     zipFileName: 'backend.zip',
-    isNew: true,
   },
   altura: {
     id: 'altura',
@@ -132,7 +127,6 @@ export const templateData: Record<string, TemplatePage> = {
     previewType: 'video',
     previewVideoUrl: '/previews/overclock.mp4',
     zipFileName: 'overclock.zip',
-    isNew: true,
   },
   'phantom-sphere': {
     id: 'phantom-sphere',
@@ -147,7 +141,6 @@ export const templateData: Record<string, TemplatePage> = {
     previewType: 'video',
     previewVideoUrl: '/previews/studio.mp4',
     zipFileName: 'phantom-sphere.zip',
-    isNew: true,
   },
   'portfolio-landing': {
     id: 'portfolio-landing',
@@ -161,7 +154,6 @@ export const templateData: Record<string, TemplatePage> = {
     thumbnail: '/templates/mara-vance.png',
     previewType: 'live',
     zipFileName: 'portfolio-landing.zip',
-    isNew: true,
   },
   'veldt-folio': {
     id: 'veldt-folio',
@@ -173,8 +165,7 @@ export const templateData: Record<string, TemplatePage> = {
     stack: 'vite',
     tags: ['Portfolio', 'WebGL', 'Vite'],
     thumbnail: '/templates/veldt.png',
-    previewType: 'video',
-    previewVideoUrl: '/previews/veldt.mp4',
+    previewType: 'live',
     previewRoot: 'dist',
     zipFileName: 'veldt-folio.zip',
     isNew: true,

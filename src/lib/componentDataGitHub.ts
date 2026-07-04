@@ -62,7 +62,7 @@ export const expandablePanelGitHub: ComponentPage = {
       ]
     }
   ],
-  isNew: true
+  isNew: false
 };
 
 // This is how clean the component data becomes - no more duplicate source code!

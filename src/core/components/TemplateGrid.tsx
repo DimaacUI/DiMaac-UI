@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { TemplateNewBadge, TemplateTierBadge } from '@/core/components/TemplateTierBadge';
 import { TemplatePage } from '@/types/templates';
 
 interface TemplateGridProps {
@@ -20,14 +21,10 @@ function TemplateBadges({ template }: { template: TemplatePage }) {
         <span className="text-xs font-bold text-white bg-white/15 backdrop-blur px-3 py-1 rounded-full border border-white/20">
           Coming soon
         </span>
-      ) : template.tier === 'free' ? (
-        <span className="text-xs font-bold text-black bg-white px-3 py-1 rounded-full">Free</span>
       ) : (
-        <span className="text-xs font-bold text-black bg-[#DDFC3E] px-3 py-1 rounded-full">Pro</span>
+        <TemplateTierBadge tier={template.tier} />
       )}
-      {template.isNew && !template.comingSoon && (
-        <span className="text-xs font-bold text-black bg-[#DDFC3E] px-3 py-1 rounded-full">New</span>
-      )}
+      {template.isNew && !template.comingSoon && <TemplateNewBadge />}
     </div>
   );
 }
@@ -66,30 +63,39 @@ function TemplateCardBody({ template }: { template: TemplatePage }) {
 
 const TemplateGrid = ({ templates, comingSoonHeading = 'Fresh free & pro templates — next month' }: TemplateGridProps) => {
   const firstComingSoonIndex = templates.findIndex((t) => t.comingSoon);
+  const hasComingSoon = firstComingSoonIndex >= 0;
 
   return (
-    <div className="flex flex-wrap w-full gap-4">
-      {templates.map((template, index) => (
-        <div key={template.slug} className="contents">
-          {comingSoonHeading && index === firstComingSoonIndex && firstComingSoonIndex > 0 && (
-            <h2 className="w-full text-sm font-semibold uppercase tracking-[0.2em] text-white/45 pt-4 pb-1">
-              {comingSoonHeading}
-            </h2>
-          )}
-          {template.comingSoon ? (
-            <div
-              aria-label={`${template.title} — coming soon`}
-              className={`${cardClassName} cursor-default opacity-90`}
-            >
-              <TemplateCardBody template={template} />
-            </div>
-          ) : (
-            <Link href={`/templates/${template.slug}`} className={`${cardClassName} hover:border-white/20`}>
-              <TemplateCardBody template={template} />
-            </Link>
-          )}
-        </div>
-      ))}
+    <div className="flex flex-col w-full gap-4">
+      <div className="flex flex-wrap w-full gap-4">
+        {templates.map((template, index) => (
+          <div key={template.slug} className="contents">
+            {comingSoonHeading && index === firstComingSoonIndex && firstComingSoonIndex > 0 && (
+              <h2 className="w-full text-sm font-semibold uppercase tracking-[0.2em] text-white/45 pt-4 pb-1">
+                {comingSoonHeading}
+              </h2>
+            )}
+            {template.comingSoon ? (
+              <div
+                aria-label={`${template.title} — coming soon`}
+                className={`${cardClassName} cursor-default opacity-90`}
+              >
+                <TemplateCardBody template={template} />
+              </div>
+            ) : (
+              <Link href={`/templates/${template.slug}`} className={`${cardClassName} hover:border-white/20`}>
+                <TemplateCardBody template={template} />
+              </Link>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {!hasComingSoon && (
+        <p className="w-full text-center text-sm text-white/45 pt-8 pb-2 leading-relaxed">
+          New free &amp; pro templates drop every month — check back next month for fresh drops.
+        </p>
+      )}
     </div>
   );
 };

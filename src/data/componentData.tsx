@@ -556,7 +556,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'mouse-trail': {
     id: 'mouse-trail',
@@ -1178,7 +1178,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'stacked-card-slider': {
     id: 'stacked-card-slider',
@@ -1266,7 +1266,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'context-menu': {
     id: 'context-menu',
@@ -1461,7 +1461,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'mask-reveal-on-hover': {
     id: 'mask-reveal-on-hover',
@@ -1531,7 +1531,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'pin-rotate-sections': {
     id: 'pin-rotate-sections',
@@ -1597,7 +1597,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'proof-of-work': {
     id: 'proof-of-work',
@@ -1657,7 +1657,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'images-flow': {
     id: 'images-flow',
@@ -1688,7 +1688,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'section-3d': {
     id: 'section-3d',
@@ -1716,7 +1716,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
   'flow-art': {
     id: 'flow-art',
@@ -1742,7 +1742,7 @@ export const componentData: Record<string, ComponentPage> = {
         ]
       }
     ],
-    isNew: true
+    isNew: false
   },
 };
 

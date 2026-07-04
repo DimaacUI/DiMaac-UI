@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hank Veldt® — Frontend &amp; Design Engineer</title>
+  <meta name="description" content="Portfolio of Hank Veldt — frontend & design engineer. Interfaces where code meets composition." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23ece9e2'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%230c0c0c'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- intro reveal -->
+  <div class="intro" aria-hidden="true">
+    <p class="intro__top"><span>folio</span><span>©2026</span></p>
+    <div class="intro__center">
+      <h2 class="intro__line"><span>HANK VELDT</span></h2>
+      <h2 class="intro__line intro__line--serif"><span>frontend &amp; design engineer</span></h2>
+    </div>
+    <div class="intro__bar"><i></i></div>
+  </div>
+
+  <header class="site-header">
+    <a class="logo blend" href="#top" aria-label="back to top">HV<sup>®</sup></a>
+    <div class="view-toggle blend" role="group" aria-label="gallery layout">
+      <button class="view-toggle__btn is-active" data-mode="spiral" type="button">spiral</button>
+      <span class="view-toggle__dot" aria-hidden="true"></span>
+      <button class="view-toggle__btn" data-mode="list" type="button">list</button>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false">
+      <span class="menu-btn__label">menu</span>
+      <span class="menu-btn__dot" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <!-- menu overlay -->
+  <div class="menu-overlay" aria-hidden="true">
+    <nav class="menu-nav">
+      <div class="menu__item"><a class="menu__link" href="#work">Work<sup>08</sup></a></div>
+      <div class="menu__item"><a class="menu__link" href="#about">About</a></div>
+      <div class="menu__item"><a class="menu__link" href="#contact">Contact</a></div>
+    </nav>
+    <div class="menu__foot">
+      <span>©2026 — Hank Veldt</span>
+      <span>github &nbsp;/&nbsp; twitter &nbsp;/&nbsp; are.na</span>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <section class="hero">
+      <p class="hero__kicker">independent — est. 2019</p>
+      <h1 class="hero__title">
+        <span class="line"><span>HANK</span></span>
+        <span class="line"><span>VELDT<sup>©</sup></span></span>
+      </h1>
+      <p class="hero__role"><em>crafting interfaces</em> where code meets composition</p>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track"></div>
+      </div>
+
+      <button class="hero__scroll" type="button">scroll to explore<i>↓</i></button>
+
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <path id="badge-circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+          </defs>
+          <text>
+            <textPath href="#badge-circ">folio • 2026 • selected works • folio • 2026 •</textPath>
+          </text>
+        </svg>
+        <span class="badge__core"></span>
+      </div>
+    </section>
+
+    <section class="works" id="work">
+      <div class="works__stage">
+        <p class="works__label"><span>selected works</span><span>23 — 26</span></p>
+        <canvas class="works__canvas"></canvas>
+        <p class="works__hover" aria-hidden="true"><span class="works__hover-index"></span><em class="works__hover-title"></em><span class="works__hover-cta">open&nbsp;↗</span></p>
+        <div class="works__listwrap">
+          <ul class="works__list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <p class="about__kicker">about<sup>①</sup></p>
+      <p class="about__lead">
+        I’m a frontend &amp; design engineer building interfaces where
+        <em>engineering precision</em> meets <em>editorial craft</em> —
+        design systems, motion and websites that feel as considered as they are fast.
+      </p>
+      <div class="about__grid">
+        <div class="about__col">
+          <h4>capabilities</h4>
+          <ul>
+            <li>creative frontend</li>
+            <li>design systems</li>
+            <li>interaction &amp; motion</li>
+            <li>webgl &amp; shaders</li>
+            <li>accessibility &amp; perf</li>
+          </ul>
+        </div>
+        <div class="about__col">
+          <h4>currently</h4>
+          <p>
+            Partnering with studios and founders to ship award-grade web
+            experiences. One slot open for <em>Q3 — 2026</em>.
+          </p>
+        </div>
+        <div class="about__col">
+          <h4>recognition</h4>
+          <ul>
+            <li>awwwards × 4</li>
+            <li>fwa × 2</li>
+            <li>css design awards × 3</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="contact__kicker">have a project in mind?</p>
+      <a class="contact__mail" href="mailto:hello@hankveldt.dev"><span>hello@hankveldt.dev</span></a>
+      <footer class="footer">
+        <span>©2026 Hank Veldt</span>
+        <nav class="footer__nav">
+          <a href="#" rel="noopener">github</a>
+          <a href="#" rel="noopener">twitter</a>
+          <a href="#" rel="noopener">linkedin</a>
+        </nav>
+        <span class="footer__time">AMS — <i id="clock">00:00</i></span>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- project detail overlay -->
+  <div class="pdetail" aria-hidden="true">
+    <div class="pdetail__scroll">
+      <div class="pdetail__content">
+      <header class="pdetail__bar">
+        <span class="pdetail__count"><i class="pdetail__num">01</i>&nbsp;/&nbsp;<i class="pdetail__total">08</i></span>
+        <button class="pdetail__close" type="button">close<span class="pdetail__dot" aria-hidden="true"></span></button>
+      </header>
+      <div class="pdetail__inner">
+        <p class="pdetail__kicker pd-anim">case study</p>
+        <h2 class="pdetail__title"><span class="pdetail__title-inner">—</span></h2>
+        <p class="pdetail__sub pd-anim"><em class="pdetail__tags">—</em></p>
+        <div class="pdetail__meta pd-anim">
+          <div><h4>year</h4><p class="pdetail__year">—</p></div>
+          <div><h4>client</h4><p class="pdetail__client">—</p></div>
+          <div><h4>role</h4><p class="pdetail__role">—</p></div>
+          <div><h4>stack</h4><p class="pdetail__stack">—</p></div>
+        </div>
+        <figure class="pdetail__media pd-anim"><img alt="" /></figure>
+        <div class="pdetail__body pd-anim">
+          <p class="pdetail__p1">—</p>
+          <p class="pdetail__p2">—</p>
+        </div>
+        <footer class="pdetail__nav pd-anim">
+          <button class="pdetail__prev" type="button"><small>← previous</small><span>—</span></button>
+          <button class="pdetail__next" type="button"><small>next →</small><span>—</span></button>
+        </footer>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

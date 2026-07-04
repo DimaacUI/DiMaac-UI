@@ -39,8 +39,8 @@ export const NAV_SECTIONS: NavSection[] = [
       { name: 'Instagram Card', href: '/components/instagram-card', isActive: false, isNew: false },
       { name: 'Twitter Card', href: '/components/twitter-card', isActive: false, isNew: false },
       { name: 'Facebook Card', href: '/components/facebook-card', isActive: false, isNew: false },
-      { name: 'Perspective Card Stack', href: '/components/perspective-card-stack', isActive: false, isNew: true },
-      { name: 'Stacked Card Slider', href: '/components/stacked-card-slider', isActive: false, isNew: true },
+      { name: 'Perspective Card Stack', href: '/components/perspective-card-stack', isActive: false, isNew: false },
+      { name: 'Stacked Card Slider', href: '/components/stacked-card-slider', isActive: false, isNew: false },
     ],
   },
   {
@@ -48,18 +48,18 @@ export const NAV_SECTIONS: NavSection[] = [
     item: [
       { name: 'Mouse Trail', href: '/components/mouse-trail', isActive: false, isNew: false },
       { name: 'Context Menu', href: '/components/context-menu', isActive: false, isNew: false },
-      { name: 'Project Hover Section', href: '/components/project-hover-section', isActive: false, isNew: true },
-      { name: 'Mask Reveal on Hover', href: '/components/mask-reveal-on-hover', isActive: false, isNew: true },
+      { name: 'Project Hover Section', href: '/components/project-hover-section', isActive: false, isNew: false },
+      { name: 'Mask Reveal on Hover', href: '/components/mask-reveal-on-hover', isActive: false, isNew: false },
     ],
   },
   {
     name: 'Scroll Animations',
     item: [
-      { name: 'Pin Rotate Sections', href: '/components/pin-rotate-sections', isActive: false, isNew: true },
-      { name: 'Proof Of Work', href: '/components/proof-of-work', isActive: false, isNew: true },
-      { name: 'Images Flow', href: '/components/images-flow', isActive: false, isNew: true },
-      { name: 'Section 3D', href: '/components/section-3d', isActive: false, isNew: true },
-      { name: 'Flow Art', href: '/components/flow-art', isActive: false, isNew: true },
+      { name: 'Pin Rotate Sections', href: '/components/pin-rotate-sections', isActive: false, isNew: false },
+      { name: 'Proof Of Work', href: '/components/proof-of-work', isActive: false, isNew: false },
+      { name: 'Images Flow', href: '/components/images-flow', isActive: false, isNew: false },
+      { name: 'Section 3D', href: '/components/section-3d', isActive: false, isNew: false },
+      { name: 'Flow Art', href: '/components/flow-art', isActive: false, isNew: false },
     ],
   },
   {
@@ -67,7 +67,7 @@ export const NAV_SECTIONS: NavSection[] = [
     item: [
       { name: 'Text Loader', href: '/components/text-loader', isActive: false, isNew: false },
       { name: 'Text Scramble Reveal', href: '/components/text-scramble-reveal', isActive: false, isNew: false },
-      { name: 'Text Block Effect', href: '/components/text-block-effect', isActive: false, isNew: true },
+      { name: 'Text Block Effect', href: '/components/text-block-effect', isActive: false, isNew: false },
     ],
   },
 ];
