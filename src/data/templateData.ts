@@ -72,7 +72,7 @@ export const templateData: Record<string, TemplatePage> = {
     tags: ['Portfolio', 'Editorial', 'GSAP'],
     thumbnail: '/templates/maya.png',
     previewType: 'live',
-    comingSoon: true,
+    zipFileName: 'maya.zip',
     isNew: true,
   },
   backend: {

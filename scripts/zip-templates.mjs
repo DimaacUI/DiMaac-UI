@@ -56,7 +56,7 @@ const SLUGS = [
 ];
 
 /** Free templates — live on site now. */
-const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing', 'aurora', 'veldt-folio'];
+const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing', 'aurora', 'veldt-folio', 'maya'];
 
 /** Free + pro templates available in the catalog. */
 const LAUNCH_SLUGS = [
