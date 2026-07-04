@@ -118,7 +118,7 @@ const TemplatePricingCards = ({ plans, checkoutEnabled }: TemplatePricingCardsPr
             <button
               type="button"
               onClick={() => handleCheckoutClick(plan)}
-              className={`inline-flex w-full items-center justify-center rounded-xl font-bold text-sm px-5 py-3.5 transition-all ${
+              className={`inline-flex w-full items-center justify-center gap-2 rounded-xl font-bold text-sm px-5 py-3.5 transition-all ${
                 canCheckout
                   ? 'hover:opacity-90 cursor-pointer'
                   : 'cursor-pointer opacity-90 hover:opacity-100'
