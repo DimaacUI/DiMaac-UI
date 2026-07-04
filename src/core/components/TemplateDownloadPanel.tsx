@@ -107,6 +107,11 @@ const TemplateDownloadPanel = ({ template, subscriptionCheckoutUrl }: TemplateDo
         <p className={`text-sm ${status === 'error' ? 'text-red-400' : 'text-[#DDFC3E]'}`}>{message}</p>
       )}
 
+      <p className="text-xs text-white/45 leading-relaxed">
+        Each zip includes a <span className="text-white/60">LICENSE</span> file — use in personal
+        and commercial projects; do not resell or redistribute the source as a template.
+      </p>
+
       {template.tier === 'pro' && (
         <p className="text-xs text-white/50 leading-relaxed">
           After checkout, Lemon Squeezy emails your license key. Paste it here to download. One Pro

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Lindqvist — Frontend Engineer</title>
+<meta name="description" content="Maya Lindqvist builds calm, fast interfaces. Frontend engineer in Stockholm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<div class="cur" id="cur"></div>
+
+<nav>
+  <a class="brand" href="#top">Maya Lindqvist</a>
+  <div class="navlinks">
+    <a href="#work">Work</a><a href="#about">About</a><a href="#xp">Experience</a><a href="#contact">Contact</a>
+  </div>
+  <span class="avail"><i></i>Available for work</span>
+</nav>
+
+<header class="hero" id="top">
+  <p class="hello">Stockholm · Frontend Engineer</p>
+  <h1>Building calm,<br><em>fast</em> interfaces.</h1>
+  <p class="sub">I'm Maya — I turn ambiguous product ideas into precise, accessible UI. Seven years of design systems, motion and performance work for teams that care about craft.</p>
+  <div class="meta">
+    <span><b>7+ years</b>shipping production UI</span>
+    <span><b>3 design systems</b>built &amp; maintained</span>
+    <span><b>&lt; 100ms</b>favourite interaction budget</span>
+  </div>
+  <span class="down">scroll</span>
+</header>
+
+<div class="marq" aria-hidden="true">
+  <div class="marq__in" id="marq">
+    <span>React</span><b>✦</b><span>TypeScript</span><b>✦</b><span>design systems</span><b>✦</b><span>WebGL</span><b>✦</b><span>motion</span><b>✦</b><span>accessibility</span><b>✦</b><span>performance</span><b>✦</b>
+  </div>
+</div>
+
+<section class="work" id="work" style="padding-top:clamp(5rem,11vw,9rem)">
+  <div class="kicker rv"><span class="num">01</span><h2>Selected work</h2></div>
+  <div class="rows">
+    <a class="row rv" href="#" data-peek="pv-1" data-letter="N">
+      <span class="idx">001</span>
+      <span class="name">Northlight Design System</span>
+      <span class="role">Architecture · 60+ components</span>
+      <span class="year">2024</span>
+    </a>
+    <a class="row rv" href="#" data-peek="pv-2" data-letter="A">
+      <span class="idx">002</span>
+      <span class="name">Aurora Commerce</span>
+      <span class="role">Storefront rebuild · 98 Lighthouse</span>
+      <span class="year">2023</span>
+    </a>
+    <a class="row rv" href="#" data-peek="pv-3" data-letter="P">
+      <span class="idx">003</span>
+      <span class="name">Pulse Analytics</span>
+      <span class="role">Realtime dashboards · canvas charts</span>
+      <span class="year">2022</span>
+    </a>
+    <a class="row rv" href="#" data-peek="pv-4" data-letter="K">
+      <span class="idx">004</span>
+      <span class="name">Kartverk Maps</span>
+      <span class="role">WebGL vector maps · 60fps pan</span>
+      <span class="year">2021</span>
+    </a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="kicker rv"><span class="num">02</span><h2>About</h2></div>
+  <div class="about__grid">
+    <div class="face rv" aria-hidden="true"></div>
+    <div>
+      <p class="rv">I started in graphic design and drifted into the browser when I realised type, grids and motion could <b>respond to people</b>. That sensibility still drives how I build: interfaces should feel inevitable, not impressive.</p>
+      <p class="rv">Day to day I work across the stack of the front end — <b>component architecture, rendering performance, motion design and accessibility</b> — usually as the person translating between design and engineering.</p>
+      <div class="believe rv">
+        <div><b>Fast by default</b><span>Performance is a design feature, not a cleanup task.</span></div>
+        <div><b>Boring technology</b><span>Novelty in the experience, not the dependency tree.</span></div>
+        <div><b>Details compound</b><span>Easing curves and focus rings are the product.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="xp">
+  <div class="kicker rv"><span class="num">03</span><h2>Experience</h2></div>
+  <div class="xp__list">
+    <div class="xp__item rv">
+      <span class="xp__when">2022 — now</span>
+      <div>
+        <h3>Senior Frontend Engineer · <span class="at">Studio Norr</span></h3>
+        <p>Lead engineer on Northlight, the design system behind four products. Cut median page transition time 38% and made motion a first-class token.</p>
+        <div class="xp__tags"><span>React</span><span>TypeScript</span><span>Tokens</span><span>Framer Motion</span></div>
+      </div>
+    </div>
+    <div class="xp__item rv">
+      <span class="xp__when">2019 — 2022</span>
+      <div>
+        <h3>Frontend Engineer · <span class="at">Fjordpay</span></h3>
+        <p>Checkout team for a payments platform serving 14 markets. Owned the card-entry flow — the most-rage-clicked screen in fintech — and got its error rate under 1%.</p>
+        <div class="xp__tags"><span>Vue → React</span><span>i18n</span><span>A/B at scale</span></div>
+      </div>
+    </div>
+    <div class="xp__item rv">
+      <span class="xp__when">2017 — 2019</span>
+      <div>
+        <h3>Designer-Developer · <span class="at">Bryggan Agency</span></h3>
+        <p>Award-bait marketing sites and editorial work. Learned WebGL, scroll choreography, and that 60fps is a promise you keep on a mid-range Android.</p>
+        <div class="xp__tags"><span>WebGL</span><span>GSAP</span><span>Craft CMS</span></div>
+      </div>
+    </div>
+    <div class="xp__item rv">
+      <span class="xp__when">2016 — 2017</span>
+      <div>
+        <h3>Freelance · <span class="at">various</span></h3>
+        <p>Portfolios for photographers, a ticketing widget, one regrettable jQuery plugin. Everything starts somewhere.</p>
+        <div class="xp__tags"><span>HTML/CSS</span><span>jQuery, sorry</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p class="pre rv">Have a project in mind?</p>
+  <a class="bigmail rv" href="mailto:hej@mayalindqvist.example">hej@mayalindqvist.example</a>
+  <div class="socials rv">
+    <a href="#">GitHub</a><a href="#">CodePen</a><a href="#">LinkedIn</a><a href="#">Bluesky</a>
+  </div>
+  <div class="fine">
+    <span>© 2026 Maya Lindqvist — fictional demo portfolio</span>
+    <span>Set in Fraunces &amp; Space Grotesk · No trackers</span>
+  </div>
+</footer>
+
+<div class="peek" id="peek"><i id="peekL"></i></div>
+  <script src="./main.js"></script>
+</body>
+</html>

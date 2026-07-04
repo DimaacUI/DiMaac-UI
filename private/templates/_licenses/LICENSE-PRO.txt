@@ -1,0 +1,22 @@
+DiMaac Pro Template License
+
+Copyright (c) 2026 DiMaac (https://dimaac.com)
+
+Licensed to you through an active DiMaac Pro subscription or valid Lemon Squeezy
+license key. Subject to:
+
+1. Use, modify, and publish in unlimited personal and commercial end products
+   while your DiMaac Pro subscription is active.
+2. Do not redistribute, resell, sublicense, or share the source files as a
+   template, theme, UI kit, or similar product.
+3. License is non-transferable and tied to your purchase or subscription.
+4. Replace placeholder copy, images, and demo assets before production.
+
+If your subscription ends, sites you already published may stay live. You may
+not download new pro templates or use new pro drops without an active subscription.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL DIMAAC BE LIABLE FOR ANY CLAIM ARISING FROM USE
+OF THIS TEMPLATE.
+
+Third-party libraries in this template remain under their respective licenses.

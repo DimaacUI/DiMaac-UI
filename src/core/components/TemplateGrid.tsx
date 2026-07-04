@@ -64,7 +64,7 @@ function TemplateCardBody({ template }: { template: TemplatePage }) {
   );
 }
 
-const TemplateGrid = ({ templates, comingSoonHeading = 'Pro — coming soon' }: TemplateGridProps) => {
+const TemplateGrid = ({ templates, comingSoonHeading = 'Fresh free & pro templates — next month' }: TemplateGridProps) => {
   const firstComingSoonIndex = templates.findIndex((t) => t.comingSoon);
 
   return (

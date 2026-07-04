@@ -164,8 +164,12 @@ const FAQ_ITEMS = [
     body: 'Every free template has a live preview and instant zip download — no account needed.',
   },
   {
-    title: 'Pro coming soon',
-    body: 'Premium templates and DiMaac Pro subscriptions go live once checkout is ready — usually within a few days.',
+    title: 'Pro templates',
+    body: 'Subscribe to DiMaac Pro for premium templates — Overclock, Studio, Altura, Lumen, Étude, and every new pro drop.',
+  },
+  {
+    title: 'License included',
+    body: 'Every download includes a LICENSE file. Use templates in your own sites and client work. You may not resell or redistribute the source as a template product.',
   },
   {
     title: 'How pro downloads work',
@@ -179,7 +183,7 @@ export function PricingFaq() {
       <div className="space-y-2">
         <h2 className="text-lg sm:text-xl font-bold text-white">How it works</h2>
         <p className="text-sm text-white/55 max-w-xl">
-          Free templates are available today. Pro checkout is almost ready.
+          Free templates download instantly. Pro templates unlock with a DiMaac Pro subscription.
         </p>
       </div>
 

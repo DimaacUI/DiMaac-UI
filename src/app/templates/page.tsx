@@ -13,7 +13,7 @@ export default function TemplatesPage() {
             <h1 className="font-bold text-xl md:text-2xl text-white leading-tight">Templates</h1>
             <p className="text-sm md:text-md text-white/80 leading-relaxed max-w-2xl">
               Premium website templates — cinematic, ready to customize. Free templates download
-              instantly. Pro templates and subscriptions are rolling out shortly.
+              instantly. Pro templates unlock with DiMaac Pro.
             </p>
           </div>
           <Link

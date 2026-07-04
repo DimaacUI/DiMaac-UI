@@ -81,7 +81,7 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
           <ul className="list-disc list-inside space-y-1">
             <li>Full HTML / WebGL source (zip)</li>
             <li>Documentation for setup & customization</li>
-            <li>Commercial use per license terms</li>
+            <li>LICENSE file — personal &amp; commercial use; no resale as a template</li>
           </ul>
           <p className="pt-2">
             Prefer all templates?{' '}

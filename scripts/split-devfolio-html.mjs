@@ -12,7 +12,7 @@ const SOURCES = [
   { slug: 'aurora', file: 'aurora/index.html' },
   { slug: 'ember', file: 'ember/index.html' },
   { slug: 'prism', file: 'prism/index.html' },
-  { slug: 'frontend', file: 'frontend.html' },
+  { slug: 'maya', file: 'maya.html' },
   { slug: 'backend', file: 'backend.html' },
   { slug: 'gamedev', file: 'gamedev.html' },
 ];
