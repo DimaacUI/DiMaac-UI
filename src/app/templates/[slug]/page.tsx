@@ -7,7 +7,7 @@ import {
   getTemplateBySlug,
   getTemplateLivePreviewUrl,
   isTemplateComingSoon,
-} from '@/data/templateData';
+} from '@/lib/templates/repository';
 import { buildTemplatesFilterUrl } from '@/lib/templateFilters';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -19,17 +19,17 @@ interface TemplateDetailPageProps {
 
 export default async function TemplateDetailPage({ params }: TemplateDetailPageProps) {
   const { slug } = await params;
-  const template = getTemplateBySlug(slug);
+  const template = await getTemplateBySlug(slug);
 
-  if (!template || isTemplateComingSoon(slug)) {
+  if (!template || (await isTemplateComingSoon(slug))) {
     redirect('/templates');
   }
 
   const subscriptionCheckoutUrl = process.env.NEXT_PUBLIC_LEMONSQUEEZY_SUBSCRIPTION_MONTHLY_URL;
 
-  const livePreviewUrl = getTemplateLivePreviewUrl(slug);
+  const livePreviewUrl = await getTemplateLivePreviewUrl(slug);
   const devRunCommand =
-    process.env.NODE_ENV === 'development' ? getDevTemplateRunCommand(slug) : undefined;
+    process.env.NODE_ENV === 'development' ? await getDevTemplateRunCommand(slug) : undefined;
   const previewTemplate: TemplatePage = livePreviewUrl
     ? { ...template, previewType: 'live', previewUrl: livePreviewUrl }
     : template;

@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getTemplateBySlug, isTemplateComingSoon } from '@/data/templateData';
+import { getTemplateBySlug, isTemplateComingSoon } from '@/lib/templates/repository';
 import { serveTemplatePreview } from '@/lib/templatePreviewServe';
 
 const PREVIEW_PREFIX = '/dev/preview';
 
-function allowDevPreview(slug: string): boolean {
-  const template = getTemplateBySlug(slug);
-  return Boolean(template && !isTemplateComingSoon(slug));
+async function allowDevPreview(slug: string): Promise<boolean> {
+  const template = await getTemplateBySlug(slug);
+  return Boolean(template && !(await isTemplateComingSoon(slug)));
 }
 
 /** Dev-only: serve any non–coming-soon template from private/templates. */

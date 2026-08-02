@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllTemplates } from '@/data/templateData';
+import { getAllTemplates } from '@/lib/templates/repository';
 
 /** Dev-only catalog — preview HTML templates from private/templates */
-export default function DevTemplatesCatalogPage() {
+export default async function DevTemplatesCatalogPage() {
   if (process.env.NODE_ENV !== 'development') {
     notFound();
   }
 
-  const templates = getAllTemplates();
+  const templates = await getAllTemplates();
 
   return (
     <div className="min-h-[100dvh] bg-[#0B0B0F] text-white p-8">

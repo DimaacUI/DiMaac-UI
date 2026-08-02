@@ -24,8 +24,10 @@ import { Section3DDemo } from '@/examples/components/scroll/Section3DDemo';
 import { FlowArtDemo } from '@/examples/components/scroll/FlowArtDemo';
 import { TextBlockEffectDemo } from '@/examples/components/text/TextBlockEffectDemo';
 import { COMPONENT_PATHS } from '@/lib/githubFetcher';
+import { generatedComponentData } from './generatedComponents';
 
-export const componentData: Record<string, ComponentPage> = {
+/** Hand-written components. Portal-published ones live in generatedComponents.tsx. */
+const baseComponentData: Record<string, ComponentPage> = {
   'image-gallery': {
     id: 'image-gallery',
     slug: 'image-gallery',
@@ -1744,6 +1746,12 @@ export const componentData: Record<string, ComponentPage> = {
     ],
     isNew: false
   },
+};
+
+/** Published components override hand-written ones with the same slug. */
+export const componentData: Record<string, ComponentPage> = {
+  ...baseComponentData,
+  ...generatedComponentData,
 };
 
 // Helper function to get component data by slug

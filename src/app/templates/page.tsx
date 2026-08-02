@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import TemplateCatalog from '@/core/components/TemplateCatalog';
 import TemplateGrid from '@/core/components/TemplateGrid';
-import { getCatalogTemplates } from '@/data/templateData';
+import { getCatalogTemplates } from '@/lib/templates/repository';
 
-export default function TemplatesPage() {
-  const templates = getCatalogTemplates();
+export default async function TemplatesPage() {
+  const templates = await getCatalogTemplates();
 
   return (
     <div className="flex-1 md:mt-[1rem]">

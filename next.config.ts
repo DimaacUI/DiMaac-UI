@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        // Thumbnails uploaded through the admin portal.
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+        pathname: '/**'
+      },
+      {
         protocol: 'https',
         hostname: 'img.youtube.com',
         pathname: '/**'
