@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
 import { NextResponse } from 'next/server';
-import { getTemplateBySlug } from '@/data/templateData';
+import { getTemplateBySlug } from '@/lib/templates/repository';
 
 export const TEMPLATES_ROOT = path.join(process.cwd(), 'private/templates');
 
@@ -114,9 +114,9 @@ function rewritePreviewAsset(text: string, slug: string, ext: string, previewPre
   return text;
 }
 
-function resolveRelativePath(segments: string[]): string {
+async function resolveRelativePath(segments: string[]): Promise<string> {
   const slug = segments[0]!;
-  const template = getTemplateBySlug(slug);
+  const template = await getTemplateBySlug(slug);
   const tail = segments.slice(1);
 
   if (tail.length === 0) {
@@ -135,18 +135,18 @@ function resolveRelativePath(segments: string[]): string {
 export async function serveTemplatePreview(
   segments: string[],
   previewPrefix: string,
-  allowSlug: (slug: string) => boolean,
+  allowSlug: (slug: string) => boolean | Promise<boolean>,
 ): Promise<NextResponse> {
   if (segments.length === 0) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
   const slug = segments[0]!;
-  if (!allowSlug(slug)) {
+  if (!(await allowSlug(slug))) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
-  const relativePath = resolveRelativePath(segments);
+  const relativePath = await resolveRelativePath(segments);
   const absolutePath = path.resolve(TEMPLATES_ROOT, relativePath);
   const rootWithSep = TEMPLATES_ROOT + path.sep;
 

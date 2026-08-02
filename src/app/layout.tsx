@@ -3,6 +3,8 @@ import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import FullscreenLayoutHandler from "@/core/components/FullscreenLayoutHandler";
 import { Analytics } from "@vercel/analytics/next";
+import AnalyticsBeacon from "@/core/components/AnalyticsBeacon";
+import { Suspense } from "react";
 
 
 const bricolage = Bricolage_Grotesque({
@@ -34,6 +36,9 @@ export default function RootLayout({
           {children}
         </FullscreenLayoutHandler>
         <Analytics />
+        <Suspense fallback={null}>
+          <AnalyticsBeacon />
+        </Suspense>
       </body>
     </html>
   );

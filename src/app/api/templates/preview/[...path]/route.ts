@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { canServeLivePreview } from '@/data/templateData';
+import { canServeLivePreview } from '@/lib/templates/repository';
 import { serveTemplatePreview } from '@/lib/templatePreviewServe';
 
 const PREVIEW_PREFIX = '/api/templates/preview';

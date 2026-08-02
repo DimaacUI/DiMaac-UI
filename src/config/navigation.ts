@@ -1,3 +1,5 @@
+import { generatedNavItems } from './generatedNavigation';
+
 export interface SidebarItem {
   name: string;
   href: string;
@@ -10,7 +12,7 @@ export interface NavSection {
   item: SidebarItem[];
 }
 
-export const NAV_SECTIONS: NavSection[] = [
+const BASE_NAV_SECTIONS: NavSection[] = [
   {
     name: 'Getting Started',
     item: [
@@ -71,3 +73,26 @@ export const NAV_SECTIONS: NavSection[] = [
     ],
   },
 ];
+
+/**
+ * Sidebar with portal-published components folded in.
+ *
+ * Published items append to their existing section, or create a new section at
+ * the end when the name doesn't match one above.
+ */
+export const NAV_SECTIONS: NavSection[] = (() => {
+  const merged = BASE_NAV_SECTIONS.map((section) => ({
+    ...section,
+    item: [...section.item, ...(generatedNavItems[section.name] ?? [])],
+  }));
+
+  const knownNames = new Set(BASE_NAV_SECTIONS.map((s) => s.name));
+
+  for (const [name, items] of Object.entries(generatedNavItems)) {
+    if (!knownNames.has(name) && items.length > 0) {
+      merged.push({ name, item: items });
+    }
+  }
+
+  return merged;
+})();
