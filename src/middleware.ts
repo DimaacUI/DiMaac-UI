@@ -37,7 +37,14 @@ export default auth((request) => {
   // --- 2. Public host: /admin does not exist here ---------------------------
   if (!onAdminHost && !devAdminAccess) {
     if (isAdminPath || isAdminApi) {
-      return NextResponse.rewrite(new URL('/404', request.nextUrl.origin));
+      // A plain 404, not a rewrite: rewriting depends on nextUrl.origin being
+      // correct, and a wrong origin turns this into a cross-origin proxy that
+      // 500s. Returning the status directly also reveals nothing about the
+      // portal existing on another host.
+      return new NextResponse('Not found', {
+        status: 404,
+        headers: { 'Content-Type': 'text/plain' },
+      });
     }
     return NextResponse.next();
   }
@@ -56,15 +63,14 @@ export default auth((request) => {
     return NextResponse.next();
   }
 
-  // On the admin subdomain the root path is the dashboard.
-  if (onAdminHost && !isAdminPath && !isAdminApi) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/admin${pathname === '/' ? '' : pathname}`;
-    return NextResponse.rewrite(url);
-  }
+  // On the admin subdomain the root path is the dashboard, so resolve the
+  // effective admin path FIRST — the auth check below has to run against it.
+  // Rewriting before authenticating would serve the dashboard to anyone.
+  const targetPath =
+    isAdminPath || isAdminApi ? pathname : `/admin${pathname === '/' ? '' : pathname}`;
 
   const isLoggedIn = Boolean(request.auth);
-  const isPublicAdminPath = PUBLIC_ADMIN_PATHS.some((p) => pathname.startsWith(p));
+  const isPublicAdminPath = PUBLIC_ADMIN_PATHS.some((p) => targetPath.startsWith(p));
 
   if (!isLoggedIn && !isPublicAdminPath) {
     if (isAdminApi) {
@@ -72,7 +78,8 @@ export default auth((request) => {
     }
     const url = request.nextUrl.clone();
     url.pathname = '/admin/login';
-    url.searchParams.set('next', pathname);
+    url.search = '';
+    url.searchParams.set('next', targetPath);
     return NextResponse.redirect(url);
   }
 
@@ -82,6 +89,12 @@ export default auth((request) => {
     url.pathname = '/admin';
     url.search = '';
     return NextResponse.redirect(url);
+  }
+
+  if (targetPath !== pathname) {
+    const url = request.nextUrl.clone();
+    url.pathname = targetPath;
+    return NextResponse.rewrite(url);
   }
 
   return NextResponse.next();
