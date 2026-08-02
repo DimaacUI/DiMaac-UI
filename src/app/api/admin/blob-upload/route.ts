@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { auth } from '@/auth';
-import { isBlobConfigured } from '@/lib/blob';
+import { accessFor, isBlobConfigured, tokenFor, type BlobKind } from '@/lib/blob';
 
 export const runtime = 'nodejs';
 
@@ -15,7 +15,10 @@ export const runtime = 'nodejs';
 export async function POST(request: Request): Promise<NextResponse> {
   if (!isBlobConfigured()) {
     return NextResponse.json(
-      { error: 'BLOB_READ_WRITE_TOKEN is not set on the server.' },
+      {
+        error:
+          'Blob storage is not fully configured. Both BLOB_READ_WRITE_TOKEN (private, zips) and BLOB_PUBLIC_READ_WRITE_TOKEN (public, images) must be set.',
+      },
       { status: 503 },
     );
   }
@@ -32,13 +35,26 @@ export async function POST(request: Request): Promise<NextResponse> {
       body,
       request,
       onBeforeGenerateToken: async (pathname) => {
-        const isZip = pathname.endsWith('.zip');
+        // The folder the client uploads into decides which store is used, so a
+        // zip can never be issued a token for the public store by mistake.
+        const kind: BlobKind = pathname.startsWith('templates/zips/')
+          ? 'zip'
+          : pathname.startsWith('templates/previews/')
+            ? 'preview'
+            : 'thumbnail';
+
+        const isZip = kind === 'zip';
+
         return {
           allowedContentTypes: isZip
             ? ['application/zip', 'application/x-zip-compressed', 'application/octet-stream']
             : ['image/png', 'image/jpeg', 'image/webp', 'image/avif', 'video/mp4', 'video/webm'],
           maximumSizeInBytes: isZip ? 500 * 1024 * 1024 : 100 * 1024 * 1024,
           addRandomSuffix: true,
+          // Paid zips land in the private store; everything the browser must
+          // render by URL lands in the public one.
+          access: accessFor(kind),
+          token: tokenFor(kind),
         };
       },
       onUploadCompleted: async () => {

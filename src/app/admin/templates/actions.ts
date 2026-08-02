@@ -7,7 +7,7 @@ import { auth } from '@/auth';
 import { requireDb } from '@/db';
 import { templates as templatesTable } from '@/db/schema';
 import { TEMPLATES_CACHE_TAG } from '@/lib/templates/repository';
-import { deleteBlob } from '@/lib/blob';
+import { deleteBlob, type BlobKind } from '@/lib/blob';
 import { seedTemplates } from '@/lib/templates/seed';
 
 /**
@@ -152,11 +152,19 @@ export async function deleteTemplate(id: string): Promise<ActionResult> {
 
   await db.delete(templatesTable).where(eq(templatesTable.id, id));
 
-  // Clean up stored files after the row is gone.
+  // Clean up stored files after the row is gone. Each asset must be deleted
+  // with its own store's token — the zip lives in the private store, the
+  // thumbnail and video in the public one.
+  const assets: { url: string | null; kind: BlobKind }[] = [
+    { url: row.zipBlobUrl, kind: 'zip' },
+    { url: row.thumbnail, kind: 'thumbnail' },
+    { url: row.previewVideoUrl, kind: 'preview' },
+  ];
+
   await Promise.all(
-    [row.zipBlobUrl, row.thumbnail, row.previewVideoUrl]
-      .filter((url): url is string => Boolean(url?.startsWith('http')))
-      .map(deleteBlob),
+    assets
+      .filter((asset) => asset.url?.startsWith('http'))
+      .map((asset) => deleteBlob(asset.url!, asset.kind)),
   );
 
   revalidatePublicCatalog(row.slug);

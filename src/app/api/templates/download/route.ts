@@ -9,6 +9,7 @@ import {
 } from '@/lib/templates/repository';
 import { canDownloadTemplate, validateLicenseKey } from '@/lib/lemonSqueezy';
 import { recordEvent } from '@/lib/analytics/record';
+import { getPrivateBlobStream } from '@/lib/blob';
 
 export async function POST(request: NextRequest) {
   let body: { slug?: string; licenseKey?: string };
@@ -82,12 +83,15 @@ export async function POST(request: NextRequest) {
 
   const downloadName = template.zipFileName ?? `${slug}.zip`;
 
-  // 1. Blob storage — how templates uploaded through the admin portal are served.
+  // 1. Private Blob store — how templates uploaded through the admin portal are
+  //    served. The zip is NOT publicly readable: this read is authenticated with
+  //    the store token, and the URL is never sent to the browser. Everything the
+  //    client gets is the streamed bytes, after the licence check above.
   if (zipBlobUrl) {
     try {
-      const upstream = await fetch(zipBlobUrl, { cache: 'no-store' });
+      const result = await getPrivateBlobStream(zipBlobUrl);
 
-      if (upstream.ok && upstream.body) {
+      if (result) {
         await recordEvent({
           type: 'download_success',
           path: `/templates/${slug}`,
@@ -96,19 +100,20 @@ export async function POST(request: NextRequest) {
           meta: { source: 'blob' },
         });
 
-        return new NextResponse(upstream.body, {
+        return new NextResponse(result.stream, {
           status: 200,
           headers: {
             'Content-Type': 'application/zip',
             'Content-Disposition': `attachment; filename="${downloadName}"`,
             'Cache-Control': 'no-store',
+            ...(result.size ? { 'Content-Length': String(result.size) } : {}),
           },
         });
       }
 
-      console.error(`[download] blob fetch failed for ${slug}: ${upstream.status}`);
+      console.error(`[download] blob not found for ${slug}`);
     } catch (error) {
-      console.error(`[download] blob fetch threw for ${slug}:`, error);
+      console.error(`[download] blob read failed for ${slug}:`, error);
     }
     // Fall through to disk rather than failing the download outright.
   }

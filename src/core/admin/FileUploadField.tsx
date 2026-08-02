@@ -34,8 +34,12 @@ export default function FileUploadField({
     setProgress(0);
 
     try {
+      // Zips go to the private store, images/video to the public one. The
+      // server decides from the folder — this only has to match it.
+      const isPrivate = folder.startsWith('templates/zips');
+
       const result = await upload(`${folder}/${file.name}`, file, {
-        access: 'public',
+        access: isPrivate ? 'private' : 'public',
         handleUploadUrl: '/api/admin/blob-upload',
         onUploadProgress: ({ percentage }) => setProgress(percentage),
       });
@@ -66,14 +70,22 @@ export default function FileUploadField({
 
         {value && progress === null && (
           <>
-            <a
-              href={value}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="max-w-[220px] truncate text-sm text-[#DDFC3E] hover:underline"
-            >
-              {filename}
-            </a>
+            {folder.startsWith('templates/zips') ? (
+              // Private blob — the URL won't open without the store token, so
+              // showing it as a link would just look broken.
+              <span className="max-w-[220px] truncate text-sm text-white/70">
+                {filename} <span className="text-white/35">(private)</span>
+              </span>
+            ) : (
+              <a
+                href={value}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="max-w-[220px] truncate text-sm text-[#DDFC3E] hover:underline"
+              >
+                {filename}
+              </a>
+            )}
             <button
               type="button"
               onClick={() => onChange(null)}

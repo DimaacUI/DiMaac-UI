@@ -5,7 +5,7 @@ import { requireDb } from '@/db';
 import { templates as templatesTable, navSections, navItems } from '@/db/schema';
 import { templateData } from '@/data/templateData';
 import { NAV_SECTIONS } from '@/config/navigation';
-import { isBlobConfigured, uploadBlob } from '@/lib/blob';
+import { isPrivateBlobConfigured, uploadBlob } from '@/lib/blob';
 
 /**
  * One-way import of the static catalog into Postgres.
@@ -29,7 +29,7 @@ async function uploadZipIfPresent(
   slug: string,
   zipFileName: string | undefined,
 ): Promise<{ url: string; size: number } | null> {
-  if (!zipFileName || !isBlobConfigured()) return null;
+  if (!zipFileName || !isPrivateBlobConfigured()) return null;
 
   const zipPath = path.join(process.cwd(), 'private', 'templates', zipFileName);
 
@@ -48,7 +48,7 @@ async function uploadZipIfPresent(
 
 export async function seedTemplates(options: { uploadZips?: boolean } = {}): Promise<SeedResult> {
   const db = requireDb();
-  const uploadZips = options.uploadZips ?? isBlobConfigured();
+  const uploadZips = options.uploadZips ?? isPrivateBlobConfigured();
 
   const result: SeedResult = {
     templatesInserted: 0,
