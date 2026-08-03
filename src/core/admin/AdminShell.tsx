@@ -21,7 +21,10 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="flex min-h-[100dvh]">
-      <aside className="hidden w-[240px] shrink-0 flex-col border-r border-white/10 bg-[#0E0E12] p-5 md:flex">
+      {/* Sticky so the nav stays put on long pages (templates list, analytics).
+          Fixed to viewport height with its own overflow, so a long nav scrolls
+          inside the sidebar rather than dragging the whole column away. */}
+      <aside className="sticky top-0 hidden h-[100dvh] w-[240px] shrink-0 flex-col overflow-y-auto border-r border-white/10 bg-[#0E0E12] p-5 md:flex">
         <div className="mb-8 flex items-center gap-2">
           <Link href="/admin" className="transition-opacity hover:opacity-80">
             <DimaacMark width={104} />
@@ -65,17 +68,23 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
         </div>
       </aside>
 
-      <div className="flex-1 overflow-x-hidden">
-        <header className="flex items-center gap-3 border-b border-white/10 px-5 py-3 md:hidden">
+      {/* min-w-0 rather than overflow-x-hidden: the latter makes this a scroll
+          container, which silently breaks position:sticky on the header below. */}
+      <div className="min-w-0 flex-1">
+        <header className="sticky top-0 z-20 flex items-center gap-3 border-b border-white/10 bg-[#0B0B0F]/95 px-5 py-3 backdrop-blur md:hidden">
           <Link href="/admin" className="shrink-0">
             <DimaacMark width={88} />
           </Link>
-          <nav className="ml-auto flex gap-3 text-sm">
+          {/* Scrolls horizontally rather than clipping — five items don't fit on
+              a phone, and the last two were previously unreachable. */}
+          <nav className="-mx-1 flex min-w-0 flex-1 gap-4 overflow-x-auto px-1 text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={isActive(item.href, item.exact) ? 'text-white' : 'text-white/50'}
+                className={`whitespace-nowrap ${
+                  isActive(item.href, item.exact) ? 'text-white' : 'text-white/50'
+                }`}
               >
                 {item.label}
               </Link>
