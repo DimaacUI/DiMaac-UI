@@ -1,4 +1,4 @@
-import HomeGrid from "../core/components/HomeGrid";
+import HomeGrid from "@/core/components/HomeGrid";
 
 export default function Home() {
   const grid = [

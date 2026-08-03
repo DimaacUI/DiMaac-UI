@@ -13,11 +13,6 @@ interface FullscreenLayoutHandlerProps {
 export default function FullscreenLayoutHandler({ children }: FullscreenLayoutHandlerProps) {
   const pathname = usePathname();
 
-  // The admin portal brings its own chrome — never wrap it in the docs sidebar.
-  if (pathname.startsWith('/admin')) {
-    return <>{children}</>;
-  }
-
   const match = pathname.match(/^\/components\/([^/]+)$/);
   const slug = match?.[1];
   const useFullscreen = slug ? isFullscreenComponent(slug) : false;

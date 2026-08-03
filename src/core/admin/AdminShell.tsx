@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
+import DimaacMark from './DimaacMark';
 
 const NAV = [
   { href: '/admin', label: 'Dashboard', exact: true },
@@ -22,7 +23,9 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     <div className="flex min-h-[100dvh]">
       <aside className="hidden w-[240px] shrink-0 flex-col border-r border-white/10 bg-[#0E0E12] p-5 md:flex">
         <div className="mb-8 flex items-center gap-2">
-          <span className="text-lg font-bold">DiMaac</span>
+          <Link href="/admin" className="transition-opacity hover:opacity-80">
+            <DimaacMark width={104} />
+          </Link>
           <span className="rounded-full bg-[#DDFC3E] px-2 py-0.5 text-[10px] font-bold text-black">
             ADMIN
           </span>
@@ -64,7 +67,9 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
 
       <div className="flex-1 overflow-x-hidden">
         <header className="flex items-center gap-3 border-b border-white/10 px-5 py-3 md:hidden">
-          <span className="font-bold">DiMaac Admin</span>
+          <Link href="/admin" className="shrink-0">
+            <DimaacMark width={88} />
+          </Link>
           <nav className="ml-auto flex gap-3 text-sm">
             {NAV.map((item) => (
               <Link
