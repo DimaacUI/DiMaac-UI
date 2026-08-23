@@ -70,15 +70,19 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
-  // Pro templates must not expose a live preview of paid source.
+  // Pro templates must not expose a live preview of paid source. Serving from
+  // private/templates is blocked for pro in the preview API itself, so the only
+  // safe live option here is an externally hosted demo (its own deploy).
   const isPro = form.tier === 'pro';
-  const proNeedsVideo = isPro && !form.comingSoon;
+  const hasExternalPreview = /^https?:\/\//.test((form.previewUrl ?? '').trim());
+  const proLiveNeedsUrl = isPro && form.previewType === 'live' && !hasExternalPreview;
 
   function handleTierChange(tier: 'free' | 'pro') {
     setForm((prev) => ({
       ...prev,
       tier,
-      previewType: tier === 'pro' ? 'video' : prev.previewType,
+      // video is the safe default for pro — switch to live only with a hosted demo
+      previewType: tier === 'pro' && !hasExternalPreview ? 'video' : prev.previewType,
     }));
   }
 
@@ -188,7 +192,6 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
             className={inputClass}
             value={form.previewType}
             onChange={(e) => set('previewType', e.target.value as 'live' | 'video')}
-            disabled={proNeedsVideo}
           >
             <option value="live">Live iframe</option>
             <option value="video">Video</option>
@@ -196,10 +199,39 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
         </div>
       </div>
 
-      {proNeedsVideo && (
+      <div>
+        <label className={labelClass}>Preview URL</label>
+        <input
+          className={inputClass}
+          type="url"
+          inputMode="url"
+          value={form.previewUrl ?? ''}
+          onChange={(e) => set('previewUrl', e.target.value.trim() || null)}
+          placeholder="https://versant.vercel.app"
+        />
+        <p className="mt-1.5 text-xs text-white/40">
+          Where the live demo is hosted. Free templates can leave this empty — they are served
+          from private/templates automatically.
+        </p>
+      </div>
+
+      {isPro && form.previewType === 'video' && (
+        <p className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-white/60">
+          Video preview — the paid source is never served to visitors who haven&apos;t purchased.
+          To show a live demo instead, deploy the template and paste its URL in Preview URL.
+        </p>
+      )}
+
+      {proLiveNeedsUrl && (
         <p className="rounded-lg border border-[#DDFC3E]/25 bg-[#DDFC3E]/5 px-3 py-2 text-xs text-[#DDFC3E]">
-          Pro templates show a video instead of a live preview, so the paid source is never served
-          to visitors who haven&apos;t purchased.
+          A pro template can&apos;t be served from private/templates, so a live preview needs its
+          own deploy. Paste the hosted URL (https://…) in Preview URL, or switch back to Video.
+        </p>
+      )}
+
+      {isPro && form.previewType === 'live' && hasExternalPreview && (
+        <p className="rounded-lg border border-emerald-400/25 bg-emerald-400/5 px-3 py-2 text-xs text-emerald-300">
+          Live demo from your own deploy — visitors see the built site, never the source or the zip.
         </p>
       )}
 
@@ -239,8 +271,8 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
         />
 
         <FileUploadField
-          label={`Preview video${proNeedsVideo ? ' (required for pro)' : ''}`}
-          hint="MP4 or WebM. This is what non-purchasers see for pro templates."
+          label={`Preview video${isPro && form.previewType === 'video' ? ' (required)' : ''}`}
+          hint="MP4 or WebM. This is what non-purchasers see when preview type is Video."
           accept="video/mp4,video/webm"
           folder="templates/previews"
           value={form.previewVideoUrl ?? null}
