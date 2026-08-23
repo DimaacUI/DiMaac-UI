@@ -268,8 +268,10 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
 
         <FileUploadField
           label="Thumbnail"
-          hint="Shown on the templates grid. A wide screenshot reads better than a square crop."
-          accept="image/*"
+          hint="PNG, JPEG, WebP or AVIF. A wide screenshot reads better than a square crop."
+          // image/* would let the picker offer HEIC or SVG, which the upload
+          // allowlist rejects only after the whole file has transferred
+          accept="image/png,image/jpeg,image/webp,image/avif"
           folder="templates/thumbnails"
           value={form.thumbnail || null}
           onChange={(url) => set('thumbnail', url ?? '')}

@@ -52,7 +52,12 @@ export default function FileUploadField({
       // server decides from the folder — this only has to match it.
       const isPrivate = folder.startsWith('templates/zips');
 
-      const result = await upload(`${folder}/${file.name}`, file, {
+      // Blob pathnames go into a URL, and a picked file is often named
+      // "Screenshot 2026-08-24 at 11.32.45 AM.png". Match the sanitising the
+      // server-side helper already does rather than sending the raw name.
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '-');
+
+      const result = await upload(`${folder}/${safeName}`, file, {
         access: isPrivate ? 'private' : 'public',
         handleUploadUrl: '/api/admin/blob-upload',
         // multipart uploads report each part separately, so the raw percentage
