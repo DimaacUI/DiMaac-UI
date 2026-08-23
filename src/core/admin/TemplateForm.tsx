@@ -70,19 +70,20 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
-  // Pro templates must not expose a live preview of paid source. Serving from
-  // private/templates is blocked for pro in the preview API itself, so the only
-  // safe live option here is an externally hosted demo (its own deploy).
+  // A pro template may only be previewed live from built output (previewRoot),
+  // which keeps its source unreachable, or from its own external deploy.
   const isPro = form.tier === 'pro';
   const hasExternalPreview = /^https?:\/\//.test((form.previewUrl ?? '').trim());
-  const proLiveNeedsUrl = isPro && form.previewType === 'live' && !hasExternalPreview;
+  const hasPreviewRoot = Boolean((form.previewRoot ?? '').trim());
+  const proCanGoLive = hasPreviewRoot || hasExternalPreview;
+  const proLiveNeedsSource = isPro && form.previewType === 'live' && !proCanGoLive;
 
   function handleTierChange(tier: 'free' | 'pro') {
     setForm((prev) => ({
       ...prev,
       tier,
-      // video is the safe default for pro — switch to live only with a hosted demo
-      previewType: tier === 'pro' && !hasExternalPreview ? 'video' : prev.previewType,
+      // video is the safe default for pro until a built folder or demo URL exists
+      previewType: tier === 'pro' && !proCanGoLive ? 'video' : prev.previewType,
     }));
   }
 
@@ -199,39 +200,56 @@ export default function TemplateForm({ existing }: { existing?: TemplateRow }) {
         </div>
       </div>
 
-      <div>
-        <label className={labelClass}>Preview URL</label>
-        <input
-          className={inputClass}
-          type="url"
-          inputMode="url"
-          value={form.previewUrl ?? ''}
-          onChange={(e) => set('previewUrl', e.target.value.trim() || null)}
-          placeholder="https://versant.vercel.app"
-        />
-        <p className="mt-1.5 text-xs text-white/40">
-          Where the live demo is hosted. Free templates can leave this empty — they are served
-          from private/templates automatically.
-        </p>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div>
+          <label className={labelClass}>Preview root</label>
+          <input
+            className={inputClass}
+            value={form.previewRoot ?? ''}
+            onChange={(e) => set('previewRoot', e.target.value.trim() || null)}
+            placeholder="out"
+          />
+          <p className="mt-1.5 text-xs text-white/40">
+            Built-output folder inside the template — <code>out</code> for Next, <code>dist</code>{' '}
+            for Vite. Set this and the preview URL is generated automatically.
+          </p>
+        </div>
+        <div>
+          <label className={labelClass}>Preview URL (optional)</label>
+          <input
+            className={inputClass}
+            type="url"
+            inputMode="url"
+            value={form.previewUrl ?? ''}
+            onChange={(e) => set('previewUrl', e.target.value.trim() || null)}
+            placeholder="https://…"
+          />
+          <p className="mt-1.5 text-xs text-white/40">
+            Only needed to point at an external deploy instead. Leave empty to serve the built
+            output above.
+          </p>
+        </div>
       </div>
 
       {isPro && form.previewType === 'video' && (
         <p className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-white/60">
           Video preview — the paid source is never served to visitors who haven&apos;t purchased.
-          To show a live demo instead, deploy the template and paste its URL in Preview URL.
+          For a live demo instead, ship built output in the zip and set Preview root.
         </p>
       )}
 
-      {proLiveNeedsUrl && (
+      {proLiveNeedsSource && (
         <p className="rounded-lg border border-[#DDFC3E]/25 bg-[#DDFC3E]/5 px-3 py-2 text-xs text-[#DDFC3E]">
-          A pro template can&apos;t be served from private/templates, so a live preview needs its
-          own deploy. Paste the hosted URL (https://…) in Preview URL, or switch back to Video.
+          A live preview would serve this pro template&apos;s source. Set Preview root to its built
+          folder (<code>out</code>, <code>dist</code>), or point Preview URL at an external deploy.
         </p>
       )}
 
-      {isPro && form.previewType === 'live' && hasExternalPreview && (
+      {isPro && form.previewType === 'live' && proCanGoLive && (
         <p className="rounded-lg border border-emerald-400/25 bg-emerald-400/5 px-3 py-2 text-xs text-emerald-300">
-          Live demo from your own deploy — visitors see the built site, never the source or the zip.
+          {hasPreviewRoot
+            ? 'Preview URL is generated automatically from the built output — source and zip stay unreachable.'
+            : 'Live demo from your own deploy — visitors see the built site, never the source or the zip.'}
         </p>
       )}
 

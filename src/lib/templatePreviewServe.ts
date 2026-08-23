@@ -114,22 +114,24 @@ function rewritePreviewAsset(text: string, slug: string, ext: string, previewPre
   return text;
 }
 
-async function resolveRelativePath(segments: string[]): Promise<string> {
+/** Drop any segment that could climb out of the template folder. */
+function safeSegments(segments: string[]): string[] {
+  return segments.filter((s) => s !== '' && s !== '.' && s !== '..' && !s.includes('\0'));
+}
+
+async function resolveRelativePath(segments: string[]): Promise<string | null> {
   const slug = segments[0]!;
+  if (slug === '.' || slug === '..' || slug.includes('/') || slug.includes('\\')) return null;
+
   const template = await getTemplateBySlug(slug);
-  const tail = segments.slice(1);
+  const tail = safeSegments(segments.slice(1));
+  const root = template?.previewRoot;
 
   if (tail.length === 0) {
-    const root = template?.previewRoot;
-    if (root) return path.join(slug, root, 'index.html');
-    return path.join(slug, 'index.html');
+    return root ? path.join(slug, root, 'index.html') : path.join(slug, 'index.html');
   }
 
-  if (template?.previewRoot) {
-    return path.join(slug, template.previewRoot, ...tail);
-  }
-
-  return segments.join('/');
+  return root ? path.join(slug, root, ...tail) : path.join(slug, ...tail);
 }
 
 export async function serveTemplatePreview(
@@ -147,11 +149,24 @@ export async function serveTemplatePreview(
   }
 
   const relativePath = await resolveRelativePath(segments);
+  if (!relativePath) {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+  }
+
   const absolutePath = path.resolve(TEMPLATES_ROOT, relativePath);
   const rootWithSep = TEMPLATES_ROOT + path.sep;
 
   if (!absolutePath.startsWith(rootWithSep) && absolutePath !== TEMPLATES_ROOT) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+  }
+
+  // a scoped preview must never escape its own built-output folder
+  const template = await getTemplateBySlug(segments[0]!);
+  if (template?.previewRoot) {
+    const scope = path.resolve(TEMPLATES_ROOT, segments[0]!, template.previewRoot) + path.sep;
+    if (!absolutePath.startsWith(scope)) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
   }
 
   const ext = path.extname(absolutePath).toLowerCase();

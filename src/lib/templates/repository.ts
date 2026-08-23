@@ -92,15 +92,21 @@ export async function isTemplateFullscreen(slug: string): Promise<boolean> {
   return (await getTemplateBySlug(slug))?.fullscreenPreview === true;
 }
 
-/** Free, live-preview templates that can be served in production. */
+/**
+ * Templates that can be served live in production.
+ *
+ * Free templates serve from their folder as-is. Pro templates only qualify when
+ * previewRoot is set, which scopes the preview to built output (out/, dist/) —
+ * so a paid template's source is never reachable through the preview route.
+ */
 export async function canServeLivePreview(slug: string): Promise<boolean> {
   const template = await getTemplateBySlug(slug);
-  return Boolean(
-    template && !template.comingSoon && template.tier === 'free' && template.previewType === 'live',
-  );
+  if (!template || template.comingSoon || template.previewType !== 'live') return false;
+  if (template.tier === 'free') return true;
+  return Boolean(template.previewRoot);
 }
 
-/** Live iframe URL for free templates (same route in dev and production). */
+/** Live iframe URL — generated from the slug, no manual URL needed. */
 export async function getTemplateLivePreviewUrl(slug: string): Promise<string | undefined> {
   if (!(await canServeLivePreview(slug))) return undefined;
   return `/api/templates/preview/${slug}`;
