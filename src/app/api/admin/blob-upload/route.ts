@@ -48,7 +48,16 @@ export async function POST(request: Request): Promise<NextResponse> {
         return {
           allowedContentTypes: isZip
             ? ['application/zip', 'application/x-zip-compressed', 'application/octet-stream']
-            : ['image/png', 'image/jpeg', 'image/webp', 'image/avif', 'video/mp4', 'video/webm'],
+            : [
+                'image/png',
+                'image/jpeg',
+                'image/webp',
+                'image/avif',
+                'video/mp4',
+                'video/webm',
+                // macOS screen recordings arrive as .mov
+                'video/quicktime',
+              ],
           maximumSizeInBytes: isZip ? 500 * 1024 * 1024 : 100 * 1024 * 1024,
           addRandomSuffix: true,
           // Paid zips land in the private store; everything the browser must

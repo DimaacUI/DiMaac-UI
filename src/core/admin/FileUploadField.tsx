@@ -41,7 +41,10 @@ export default function FileUploadField({
       const result = await upload(`${folder}/${file.name}`, file, {
         access: isPrivate ? 'private' : 'public',
         handleUploadUrl: '/api/admin/blob-upload',
-        onUploadProgress: ({ percentage }) => setProgress(percentage),
+        // multipart uploads report each part separately, so the raw percentage
+        // can jump backwards — only ever move the bar forwards
+        onUploadProgress: ({ percentage }) =>
+          setProgress((prev) => (prev === null ? percentage : Math.max(prev, percentage))),
       });
 
       onChange(result.url, { size: file.size, name: file.name });
