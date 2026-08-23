@@ -1,9 +1,19 @@
 import { NextResponse } from 'next/server';
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { auth } from '@/auth';
-import { accessFor, isBlobConfigured, tokenFor, type BlobKind } from '@/lib/blob';
+import { isBlobConfigured, tokenFor, type BlobKind } from '@/lib/blob';
 
 export const runtime = 'nodejs';
+
+/**
+ * The folder the client uploads into decides which store is used, so a zip can
+ * never be issued a token for the public store by mistake.
+ */
+function kindForPathname(pathname: string): BlobKind {
+  if (pathname.startsWith('templates/zips/')) return 'zip';
+  if (pathname.startsWith('templates/previews/')) return 'preview';
+  return 'thumbnail';
+}
 
 /**
  * Issues short-lived client upload tokens.
@@ -30,20 +40,20 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const body = (await request.json()) as HandleUploadBody;
 
+  // handleUpload takes the store token at the top level — a token returned from
+  // onBeforeGenerateToken is ignored, which silently signed every upload with
+  // the default private-store token and made public thumbnails fail with 400.
+  const pathname =
+    body.type === 'blob.upload-completed' ? body.payload.blob.pathname : body.payload.pathname;
+  const kind = kindForPathname(pathname);
+
   try {
     const result = await handleUpload({
       body,
       request,
-      onBeforeGenerateToken: async (pathname) => {
-        // The folder the client uploads into decides which store is used, so a
-        // zip can never be issued a token for the public store by mistake.
-        const kind: BlobKind = pathname.startsWith('templates/zips/')
-          ? 'zip'
-          : pathname.startsWith('templates/previews/')
-            ? 'preview'
-            : 'thumbnail';
-
-        const isZip = kind === 'zip';
+      token: tokenFor(kind),
+      onBeforeGenerateToken: async (incomingPathname) => {
+        const isZip = kindForPathname(incomingPathname) === 'zip';
 
         return {
           allowedContentTypes: isZip
@@ -60,10 +70,6 @@ export async function POST(request: Request): Promise<NextResponse> {
               ],
           maximumSizeInBytes: isZip ? 500 * 1024 * 1024 : 100 * 1024 * 1024,
           addRandomSuffix: true,
-          // Paid zips land in the private store; everything the browser must
-          // render by URL lands in the public one.
-          access: accessFor(kind),
-          token: tokenFor(kind),
         };
       },
       onUploadCompleted: async () => {
