@@ -29,6 +29,20 @@ export default function FileUploadField({
   const [progress, setProgress] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  /** Dev-only disk fallback — Blob client uploads can't complete on localhost. */
+  async function uploadLocally(file: File) {
+    const body = new FormData();
+    body.append('file', file);
+    body.append('folder', folder);
+
+    const res = await fetch('/api/admin/local-upload', { method: 'POST', body });
+    if (!res.ok) {
+      const detail = await res.json().catch(() => null);
+      throw new Error(detail?.error ?? `Local upload failed (${res.status})`);
+    }
+    return (await res.json()) as { url: string };
+  }
+
   async function handleFile(file: File) {
     setError(null);
     setProgress(0);
@@ -50,6 +64,20 @@ export default function FileUploadField({
       onChange(result.url, { size: file.size, name: file.name });
       setProgress(null);
     } catch (err) {
+      // In dev, Blob is usually unconfigured or unreachable — fall back to disk
+      // so the admin stays testable instead of failing outright.
+      if (process.env.NODE_ENV !== 'production') {
+        try {
+          const local = await uploadLocally(file);
+          onChange(local.url, { size: file.size, name: file.name });
+          setProgress(null);
+          return;
+        } catch (localErr) {
+          setProgress(null);
+          setError(localErr instanceof Error ? localErr.message : 'Upload failed');
+          return;
+        }
+      }
       setProgress(null);
       setError(err instanceof Error ? err.message : 'Upload failed');
     }
