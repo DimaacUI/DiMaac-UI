@@ -102,6 +102,7 @@ const SLUGS = [
   'portfolio-landing',
   'veldt-folio',
   'etude',
+  'versant',
 ];
 
 /** Free templates — live on site now. */
@@ -115,6 +116,7 @@ const LAUNCH_SLUGS = [
   'altura',
   'lumen',
   'etude',
+  'versant',
 ];
 
 const onlyFree = process.argv.includes('--free');
