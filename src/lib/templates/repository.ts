@@ -64,8 +64,8 @@ const loadFromDb = unstable_cache(
 );
 
 /**
- * Database rows, followed by any static template the database doesn't know
- * yet. Templates shipped in the repo (thumbnail, preview video and zip all
+ * Any static template the database doesn't know yet, followed by the database
+ * rows. Templates shipped in the repo (thumbnail, preview video and zip all
  * committed) therefore appear as soon as the deploy lands, and `npm run
  * db:seed` can import them into the admin portal later without a gap.
  */
@@ -77,8 +77,9 @@ export async function getAllTemplates(): Promise<TemplatePage[]> {
     console.error('[templates] database read failed, using static data:', error);
   }
   if (!fromDb) return staticTemplates();
+  // Repo-shipped launches lead the catalog until they are seeded and ordered in the admin.
   const known = new Set(fromDb.map((t) => t.slug));
-  return [...fromDb, ...staticTemplates().filter((t) => !known.has(t.slug))];
+  return [...staticTemplates().filter((t) => !known.has(t.slug)), ...fromDb];
 }
 
 /** Available first, coming-soon grouped at the bottom. */

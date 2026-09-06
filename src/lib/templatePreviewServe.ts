@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises';
+import { access, readFile } from 'fs/promises';
 import path from 'path';
 import { NextResponse } from 'next/server';
 import { getTemplateBySlug } from '@/lib/templates/repository';
@@ -54,7 +54,12 @@ function rewriteRootAbsolutePaths(text: string, slug: string, previewPrefix: str
 
   for (const root of ROOT_ASSET_PREFIXES) {
     const target = `${previewBase}${root}`;
-    const re = new RegExp(`(?<!${escapeRegExp(previewBase)})${escapeRegExp(root)}`, 'g');
+    // Only where the path starts a URL (after a quote, bracket, `=`, comma or
+    // whitespace) — never inside an absolute URL such as https://cdn/assets/x.
+    const re = new RegExp(
+      `(?<=["'(=,\\s])(?<!${escapeRegExp(previewBase)})${escapeRegExp(root)}`,
+      'g',
+    );
     out = out.replace(re, target);
     out = out.replaceAll(`url(${root}`, `url(${target}`);
   }
@@ -124,8 +129,19 @@ async function resolveRelativePath(segments: string[]): Promise<string | null> {
   if (slug === '.' || slug === '..' || slug.includes('/') || slug.includes('\\')) return null;
 
   const template = await getTemplateBySlug(slug);
-  const tail = safeSegments(segments.slice(1));
+  let tail = safeSegments(segments.slice(1));
   const root = template?.previewRoot;
+
+  // A framework export built with basePath = this preview URL already carries
+  // the prefix in its own asset URLs; the text rewrite may add it a second
+  // time. Collapse any repeated "<prefix>/<slug>" at the head of the path.
+  const prefixSegments = ['api', 'templates', 'preview', slug];
+  while (
+    tail.length >= prefixSegments.length &&
+    prefixSegments.every((seg, i) => tail[i] === seg)
+  ) {
+    tail = tail.slice(prefixSegments.length);
+  }
 
   if (tail.length === 0) {
     return root ? path.join(slug, root, 'index.html') : path.join(slug, 'index.html');
@@ -169,7 +185,22 @@ export async function serveTemplatePreview(
     }
   }
 
-  const ext = path.extname(absolutePath).toLowerCase();
+  // Extension-less paths are routes from a static export: try the folder's
+  // index.html (trailingSlash builds) and then "<route>.html".
+  let filePath = absolutePath;
+  if (!path.extname(filePath)) {
+    for (const candidate of [path.join(filePath, 'index.html'), `${filePath}.html`]) {
+      try {
+        await access(candidate);
+        filePath = candidate;
+        break;
+      } catch {
+        /* try the next candidate */
+      }
+    }
+  }
+
+  const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME[ext];
 
   if (!contentType) {
@@ -177,7 +208,7 @@ export async function serveTemplatePreview(
   }
 
   try {
-    const file = await readFile(absolutePath);
+    const file = await readFile(filePath);
     const body = isTextAsset(ext)
       ? ext === '.html'
         ? rewritePreviewHtml(file.toString('utf8'), slug, previewPrefix)

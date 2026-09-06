@@ -85,3 +85,9 @@ next-env.d.ts
 !/private/templates/lorea.zip
 !/private/templates/atelier-nord.zip
 !/private/templates/form-and-co.zip
+
+# Free framework templates: full source committed (served live from out/, zipped at build)
+!/private/templates/atelier-nord/
+!/private/templates/atelier-nord/**
+!/private/templates/form-and-co/
+!/private/templates/form-and-co/**
