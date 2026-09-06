@@ -18,6 +18,9 @@ interface LemonSqueezyValidateResponse {
 export interface LicenseAccessResult {
   valid: boolean;
   variantId?: number;
+  productId?: number;
+  productName?: string;
+  storeId?: number;
   error?: string;
 }
 
@@ -38,11 +41,19 @@ export async function validateLicenseKey(licenseKey: string): Promise<LicenseAcc
       body: JSON.stringify({ license_key: trimmed }),
     });
 
-    if (!response.ok) {
-      return { valid: false, error: 'Could not validate license. Try again later.' };
+    // Lemon Squeezy answers 404 (with a JSON body) for keys it doesn't know,
+    // so read the body whenever there is one and only treat a non-JSON reply
+    // (outage, gateway error) as "try again later".
+    let data: LemonSqueezyValidateResponse | null = null;
+    try {
+      data = (await response.json()) as LemonSqueezyValidateResponse;
+    } catch {
+      data = null;
     }
 
-    const data = (await response.json()) as LemonSqueezyValidateResponse;
+    if (!data) {
+      return { valid: false, error: 'Could not validate license. Try again later.' };
+    }
 
     if (!data.valid) {
       return { valid: false, error: data.error ?? 'Invalid license key' };
@@ -60,14 +71,35 @@ export async function validateLicenseKey(licenseKey: string): Promise<LicenseAcc
     return {
       valid: true,
       variantId: data.meta?.variant_id,
+      productId: data.meta?.product_id,
+      productName: data.meta?.product_name,
+      storeId: data.meta?.store_id,
     };
   } catch {
     return { valid: false, error: 'License validation failed' };
   }
 }
 
-/** Subscription variant grants access to all pro templates. */
-export function hasSubscriptionAccess(variantId: number | undefined): boolean {
+/**
+ * The Lemon Squeezy product every Pro plan (monthly, yearly, any future
+ * variant) belongs to. A licence for this product unlocks all pro templates,
+ * so adding a plan in Lemon Squeezy never needs a config change here.
+ * Override with LEMONSQUEEZY_PRO_PRODUCT_ID if the product is ever recreated.
+ */
+const PRO_PRODUCT_NAME = 'DiMaac Pro';
+
+/** A DiMaac Pro licence — by product, or by an explicitly listed variant. */
+export function hasSubscriptionAccess(access: Pick<LicenseAccessResult, 'variantId' | 'productId' | 'productName'>): boolean {
+  const { variantId, productId, productName } = access;
+
+  const proProductId = process.env.LEMONSQUEEZY_PRO_PRODUCT_ID?.trim();
+  if (proProductId && productId !== undefined && String(productId) === proProductId) {
+    return true;
+  }
+  if (!proProductId && productName?.trim() === PRO_PRODUCT_NAME) {
+    return true;
+  }
+
   if (!variantId) return false;
 
   const subscriptionVariantId = process.env.LEMONSQUEEZY_SUBSCRIPTION_VARIANT_ID;
@@ -90,5 +122,5 @@ export function hasTemplatePurchaseAccess(): boolean {
 
 export function canDownloadTemplate(access: LicenseAccessResult): boolean {
   if (!access.valid) return false;
-  return hasSubscriptionAccess(access.variantId);
+  return hasSubscriptionAccess(access);
 }
