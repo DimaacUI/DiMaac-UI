@@ -55,6 +55,10 @@ interface LayoutState {
   onRevealed: () => void;
 }
 
+/** Compare routes ignoring a trailing slash, so "/work" matches "/work/" on static exports. */
+const samePath = (a: string | null | undefined, b: string | null | undefined) =>
+  !!a && !!b && (a.replace(/\/+$/, "") || "/") === (b.replace(/\/+$/, "") || "/");
+
 const LayoutContext = createContext<LayoutState | null>(null);
 
 export function LayoutProvider({ children }: { children: ReactNode }) {
@@ -78,7 +82,7 @@ export function LayoutProvider({ children }: { children: ReactNode }) {
 
   const transitionTo = useCallback(
     (href: string, from?: TransitionOrigin) => {
-      if (!href || href === pathname) return;
+      if (!href || samePath(href, pathname)) return;
       pendingHref.current = href;
       setMenuOpen(false);
       setSearchOpen(false);
@@ -103,7 +107,7 @@ export function LayoutProvider({ children }: { children: ReactNode }) {
   // When the route actually changes to the pending target, the new page has
   // mounted behind the curtain — scroll to top, then lift the curtain.
   useEffect(() => {
-    if (pendingHref.current && pathname === pendingHref.current) {
+    if (pendingHref.current && samePath(pathname, pendingHref.current)) {
       pendingHref.current = null;
       // Scroll reset is handled by SmoothScroll (via the Lenis instance) so it
       // doesn't fight Lenis. Once the new page has painted, hold a beat with
