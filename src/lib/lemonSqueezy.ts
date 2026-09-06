@@ -4,7 +4,9 @@ interface LemonSqueezyValidateResponse {
   license_key?: {
     status: string;
     activation_usage: number;
-    activation_limit: number;
+    activation_limit: number | null;
+    /** True for keys created while the store was in test mode — never paid for. */
+    test_mode?: boolean;
   };
   meta?: {
     store_id: number;
@@ -21,7 +23,13 @@ export interface LicenseAccessResult {
   productId?: number;
   productName?: string;
   storeId?: number;
+  testMode?: boolean;
   error?: string;
+}
+
+/** Test-mode licences are accepted only when LEMONSQUEEZY_ALLOW_TEST_LICENSES=1 (never by default). */
+export function allowTestLicenses(): boolean {
+  return process.env.LEMONSQUEEZY_ALLOW_TEST_LICENSES === '1';
 }
 
 /** Validate a Lemon Squeezy license key (subscription or one-time). */
@@ -68,12 +76,23 @@ export async function validateLicenseKey(licenseKey: string): Promise<LicenseAcc
       };
     }
 
+    // Test-mode keys validate fine at Lemon Squeezy but were never paid for.
+    // Only honour them when explicitly allowed (local testing).
+    if (data.license_key?.test_mode && !allowTestLicenses()) {
+      return {
+        valid: false,
+        testMode: true,
+        error: 'This is a test-mode license from Lemon Squeezy. Subscribe to DiMaac Pro to get a live key.',
+      };
+    }
+
     return {
       valid: true,
       variantId: data.meta?.variant_id,
       productId: data.meta?.product_id,
       productName: data.meta?.product_name,
       storeId: data.meta?.store_id,
+      testMode: Boolean(data.license_key?.test_mode),
     };
   } catch {
     return { valid: false, error: 'License validation failed' };
