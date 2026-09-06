@@ -1,7 +1,7 @@
-import { readFile } from 'fs/promises';
+import { access, readFile } from 'fs/promises';
 import path from 'path';
 import { NextRequest, NextResponse } from 'next/server';
-import { isSubscriptionCheckoutEnabled } from '@/data/templateData';
+import { isSubscriptionCheckoutEnabled, templateData } from '@/data/templateData';
 import {
   getTemplateBySlug,
   getTemplateRowBySlug,
@@ -82,6 +82,37 @@ export async function POST(request: NextRequest) {
   }
 
   const downloadName = template.zipFileName ?? `${slug}.zip`;
+
+  // 0. Templates that ship in the repo: the committed zip is the source of
+  //    truth, rebuilt on every deploy, so a fix pushed to git reaches buyers
+  //    immediately. A Blob copy made by the admin import would otherwise
+  //    freeze at whatever build it was imported from.
+  const shipped = templateData[slug]?.zipFileName;
+  if (shipped) {
+    const shippedPath = path.join(process.cwd(), 'private', 'templates', shipped);
+    try {
+      await access(shippedPath);
+      const file = await readFile(shippedPath);
+      await recordEvent({
+        type: 'download_success',
+        path: `/templates/${slug}`,
+        slug,
+        tier: template.tier,
+        meta: { source: 'repo' },
+      });
+      return new NextResponse(file, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/zip',
+          'Content-Disposition': `attachment; filename="${shipped}"`,
+          'Content-Length': String(file.byteLength),
+          'Cache-Control': 'no-store',
+        },
+      });
+    } catch {
+      // Not on this deployment's disk — fall through to Blob / legacy paths.
+    }
+  }
 
   // 1. Private Blob store — how templates uploaded through the admin portal are
   //    served. The zip is NOT publicly readable: this read is authenticated with
