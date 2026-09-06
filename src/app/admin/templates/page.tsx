@@ -3,11 +3,17 @@ import AdminShell from '@/core/admin/AdminShell';
 import TemplateList from '@/core/admin/TemplateList';
 import { getAllTemplateRows } from '@/lib/templates/repository';
 import { isDatabaseConfigured } from '@/db';
+import { templateData } from '@/data/templateData';
+import ImportMissingTemplates from '@/core/admin/ImportMissingTemplates';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminTemplatesPage() {
   const rows = await getAllTemplateRows();
+  // Shipped in this deploy's build but not yet in the database.
+  const missing = Object.values(templateData)
+    .filter((t) => !rows.some((r) => r.slug === t.slug))
+    .map((t) => ({ slug: t.slug, title: t.title }));
 
   return (
     <AdminShell>
@@ -35,7 +41,10 @@ export default async function AdminTemplatesPage() {
           </p>
         </div>
       ) : (
-        <TemplateList rows={rows} />
+        <>
+          {rows.length > 0 && missing.length > 0 && <ImportMissingTemplates missing={missing} />}
+          <TemplateList rows={rows} />
+        </>
       )}
     </AdminShell>
   );

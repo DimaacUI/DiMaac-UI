@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     '/api/templates/preview': ['./private/templates/**/*'],
     // Poster frames mark which previews have quality encodes (src/lib/previewVideo.ts).
     '/templates/[slug]': ['./public/previews/*-poster.jpg'],
+    // The admin import pushes repo-shipped zips to Blob storage.
+    '/admin/templates': ['./private/templates/*.zip'],
   },
   images: {
     remotePatterns: [

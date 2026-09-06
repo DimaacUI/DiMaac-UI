@@ -203,12 +203,21 @@ export async function reorderTemplates(orderedIds: string[]): Promise<ActionResu
   return { ok: true };
 }
 
-/** One-click import of the templates that shipped in templateData.ts. */
-export async function importStaticTemplates(): Promise<ActionResult & { summary?: string }> {
+/**
+ * Import the templates that shipped in templateData.ts.
+ *
+ * With `onlyMissing` (the default once the database has rows) only templates
+ * the database doesn't know yet are added and existing rows are left exactly
+ * as the admin set them. A full import also refreshes existing rows from the
+ * build — only wanted on a first setup.
+ */
+export async function importStaticTemplates(
+  options: { onlyMissing?: boolean } = {},
+): Promise<ActionResult & { summary?: string }> {
   await requireAdmin();
 
   try {
-    const result = await seedTemplates();
+    const result = await seedTemplates({ onlyMissing: options.onlyMissing ?? false });
     revalidatePublicCatalog();
     return {
       ok: true,

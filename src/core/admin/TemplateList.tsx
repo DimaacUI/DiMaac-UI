@@ -51,8 +51,8 @@ export default function TemplateList({ rows }: { rows: TemplateRow[] }) {
       <div className="rounded-xl border border-white/10 bg-[#111114] p-6">
         <p className="font-semibold">No templates in the database yet</p>
         <p className="mt-2 max-w-lg text-sm text-white/55">
-          Import the 13 templates already on your site to get started. This reads them from the
-          build and uploads any zips it finds locally — safe to run more than once.
+          Import the templates already on your site to get started. This reads them from the
+          build and uploads any zips it finds — safe to run more than once.
         </p>
         <button
           onClick={handleImport}

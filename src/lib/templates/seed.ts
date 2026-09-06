@@ -1,6 +1,6 @@
 import { readFile, stat } from 'fs/promises';
 import path from 'path';
-import { eq } from 'drizzle-orm';
+import { asc, eq } from 'drizzle-orm';
 import { requireDb } from '@/db';
 import { templates as templatesTable, navSections, navItems } from '@/db/schema';
 import { templateData } from '@/data/templateData';
@@ -46,9 +46,23 @@ async function uploadZipIfPresent(
   }
 }
 
-export async function seedTemplates(options: { uploadZips?: boolean } = {}): Promise<SeedResult> {
+export async function seedTemplates(
+  options: { uploadZips?: boolean; onlyMissing?: boolean } = {},
+): Promise<SeedResult> {
   const db = requireDb();
   const uploadZips = options.uploadZips ?? isPrivateBlobConfigured();
+  // onlyMissing: add static templates the database doesn't have yet and leave
+  // every existing row exactly as the admin left it (thumbnails, order, copy).
+  const onlyMissing = options.onlyMissing ?? false;
+
+  const lowest = onlyMissing
+    ? await db
+        .select({ sortOrder: templatesTable.sortOrder })
+        .from(templatesTable)
+        .orderBy(asc(templatesTable.sortOrder))
+        .limit(1)
+    : [];
+  let nextTopSort = (lowest[0]?.sortOrder ?? 0) - 1;
 
   const result: SeedResult = {
     templatesInserted: 0,
@@ -67,6 +81,8 @@ export async function seedTemplates(options: { uploadZips?: boolean } = {}): Pro
       .from(templatesTable)
       .where(eq(templatesTable.slug, template.slug))
       .limit(1);
+
+    if (onlyMissing && existing.length > 0) continue;
 
     let zipBlobUrl = existing[0]?.zipBlobUrl ?? null;
     let zipSizeBytes: number | null = null;
@@ -101,7 +117,8 @@ export async function seedTemplates(options: { uploadZips?: boolean } = {}): Pro
       comingSoon: template.comingSoon ?? false,
       isNew: template.isNew ?? false,
       published: true,
-      sortOrder: index,
+      // New launches go to the top of the catalog; a full seed keeps build order.
+      sortOrder: onlyMissing ? nextTopSort-- : index,
       updatedAt: new Date(),
     };
 
