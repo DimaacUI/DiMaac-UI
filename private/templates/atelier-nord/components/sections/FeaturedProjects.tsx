@@ -27,9 +27,9 @@ export function FeaturedProjects() {
           intro="A look at recent launches — identities, campaigns and editorial designed and produced end to end."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-stretch">
+        <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-stretch">
           {/* Stage */}
-          <div className="relative aspect-[16/11] overflow-hidden bg-ink/20">
+          <div className="relative aspect-[16/11] min-w-0 overflow-hidden bg-ink/20 lg:aspect-auto lg:min-h-[440px]">
             {PROJECTS.map((p, i) => {
               const state = i === index ? "active" : i === prev ? "exit" : "idle";
               return (
@@ -61,7 +61,7 @@ export function FeaturedProjects() {
           </div>
 
           {/* Details */}
-          <div className="flex flex-col justify-between bg-paper p-8 sm:p-10">
+          <div className="flex min-w-0 flex-col justify-between bg-paper p-7 sm:p-10 lg:p-8 xl:p-10">
             <div>
               <span className="inline-block bg-green px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white">
                 {project.tag}
@@ -85,13 +85,13 @@ export function FeaturedProjects() {
             </div>
 
             {/* Thumbnail picker with shared-element active marker */}
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               {PROJECTS.map((p, i) => (
                 <button
                   key={p.no}
                   onClick={() => select(i)}
                   aria-label={p.title}
-                  className={`relative h-16 w-16 shrink-0 overflow-hidden transition-opacity duration-500 ${
+                  className={`relative h-14 w-14 shrink-0 overflow-hidden transition-opacity duration-500 sm:h-16 sm:w-16 lg:h-[3.25rem] lg:w-[3.25rem] xl:h-16 xl:w-16 ${
                     i === index ? "opacity-100" : "opacity-50 hover:opacity-80"
                   }`}
                 >
@@ -113,7 +113,7 @@ export function FeaturedProjects() {
               ))}
             </div>
 
-            <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
               <ArrowLink href="/product">View case study</ArrowLink>
               <SliderControls
                 onPrev={() => go(-1)}

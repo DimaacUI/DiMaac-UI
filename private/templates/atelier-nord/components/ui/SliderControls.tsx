@@ -25,12 +25,12 @@ export function SliderControls({
   const divider = tone === "dark" ? "bg-ink/25" : "bg-white/30";
 
   return (
-    <div className={`flex items-center gap-7 ${color} ${className}`}>
+    <div className={`flex items-center gap-5 sm:gap-7 ${color} ${className}`}>
       <Control label="PREV" dir="prev" onClick={onPrev} />
       <span className={`h-8 w-px ${divider}`} />
       <Control label="NEXT" dir="next" onClick={onNext} />
       {typeof index === "number" && typeof total === "number" && (
-        <span className="ml-2 text-sm tabular-nums opacity-60">
+        <span className="ml-1 whitespace-nowrap text-sm tabular-nums opacity-60">
           {String(index + 1).padStart(2, "0")}{" "}
           <span className="opacity-50">/ {String(total).padStart(2, "0")}</span>
         </span>
