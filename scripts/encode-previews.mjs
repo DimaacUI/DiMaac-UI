@@ -5,7 +5,7 @@
  *
  * With no arguments every *.mp4 in public/previews that has no -720 sibling is
  * processed. For each input it writes, next to the source:
- *   name.mp4         1080p  ~2.5 Mbps cap, 30 fps, fast-start (replaces the input)
+ *   name.mp4         1080p  ~2.5 Mbps cap, 30 fps, fast-start, AAC audio kept (replaces the input)
  *   name-720.mp4     720p   ~1.4 Mbps cap
  *   name-480.mp4     480p   ~0.7 Mbps cap
  *   name-poster.jpg  frame at 1.5 s
@@ -52,7 +52,7 @@ for (const input of inputs) {
       '-i', input, '-r', '30', '-vf', `scale=-2:${h}`,
       '-c:v', 'libx264', '-preset', 'medium', '-crf', String(crf),
       '-maxrate', maxrate, '-bufsize', bufsize, '-profile:v', profile, '-pix_fmt', 'yuv420p',
-      '-movflags', '+faststart', '-an', out,
+      '-movflags', '+faststart', '-c:a', 'aac', '-b:a', '128k', '-ac', '2', out,
     ]);
     console.log(`  ${h}p → ${path.basename(out)}`);
   }
