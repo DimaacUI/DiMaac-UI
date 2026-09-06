@@ -5,13 +5,13 @@ import StackedCardSlider from '@/ui/components/cards/StackedCardSlider';
 import { cn } from '@/lib/utils';
 
 const CARDS = [
-  { image: '/gori.png', alt: 'Gori' },
-  { image: '/crocs2.png', alt: 'Snap' },
-  { image: '/crow.png', alt: 'Crowley' },
-  { image: '/foxy.png', alt: 'Foxy' },
-  { image: '/bear.png', alt: 'Bruno' },
-  { image: '/redPanda.png', alt: 'Rusty' },
-  { image: '/tiger2.png', alt: 'Blaze' },
+  { image: '/gori.webp', alt: 'Gori' },
+  { image: '/crocs2.webp', alt: 'Snap' },
+  { image: '/crow.webp', alt: 'Crowley' },
+  { image: '/foxy.webp', alt: 'Foxy' },
+  { image: '/bear.webp', alt: 'Bruno' },
+  { image: '/redPanda.webp', alt: 'Rusty' },
+  { image: '/tiger2.webp', alt: 'Blaze' },
 ];
 
 const preloadImages = (sources: { image: string }[]) => {

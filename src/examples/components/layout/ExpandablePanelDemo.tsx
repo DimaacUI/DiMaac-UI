@@ -4,16 +4,16 @@ import { useState, useEffect } from 'react';
 import ExpandablePanel from '@/ui/components/layout/ExpandablePanel';
 
 const DEMO_IMAGES = [
-  { image: "/gori.png", alt: "Gori" },
-  { image: "/crocs2.png", alt: "Snap" },
-  { image: "/crow.png", alt: "Crowley" },
-  { image: "/foxy.png", alt: "Foxy" },
-  { image: "/snake.png", alt: "Slither" },
-  { image: "/bear.png", alt: "Bruno" },
-  { image: "/owl.png", alt: "Hoot" },
-  { image: "/bulldog.png", alt: "Tank" },
-  { image: "/redPanda.png", alt: "Rusty" },
-  { image: "/tiger2.png", alt: "Blaze" },
+  { image: "/gori.webp", alt: "Gori" },
+  { image: "/crocs2.webp", alt: "Snap" },
+  { image: "/crow.webp", alt: "Crowley" },
+  { image: "/foxy.webp", alt: "Foxy" },
+  { image: "/snake.webp", alt: "Slither" },
+  { image: "/bear.webp", alt: "Bruno" },
+  { image: "/owl.webp", alt: "Hoot" },
+  { image: "/bulldog.webp", alt: "Tank" },
+  { image: "/redPanda.webp", alt: "Rusty" },
+  { image: "/tiger2.webp", alt: "Blaze" },
 ];
 
 const MOBILE_PANEL_COUNT = 4;

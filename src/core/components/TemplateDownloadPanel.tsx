@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { TemplatePage } from '@/types/templates';
+import HowToDownloadModal from './HowToDownloadModal';
 
 interface TemplateDownloadPanelProps {
   template: TemplatePage;
@@ -12,6 +13,7 @@ const TemplateDownloadPanel = ({ template, subscriptionCheckoutUrl }: TemplateDo
   const [licenseKey, setLicenseKey] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [message, setMessage] = useState('');
+  const [helpOpen, setHelpOpen] = useState(false);
 
   const handleDownload = async () => {
     setStatus('loading');
@@ -59,6 +61,22 @@ const TemplateDownloadPanel = ({ template, subscriptionCheckoutUrl }: TemplateDo
           {template.tier === 'free'
             ? 'Free download — full source, no license key needed.'
             : 'Pro template — subscribe to DiMaac Pro, then paste your license key from Lemon Squeezy.'}
+          {template.tier === 'pro' && (
+            <>
+              {' '}
+              <button
+                type="button"
+                onClick={() => setHelpOpen(true)}
+                className="inline-flex items-center gap-1 text-[#DDFC3E] hover:underline"
+              >
+                How do I download?
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
+                  <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M4.6 4.7a1.4 1.4 0 1 1 2 1.3c-.5.3-.6.5-.6.9M6 8.6h.01" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </button>
+            </>
+          )}
         </p>
       </div>
 
@@ -115,8 +133,19 @@ const TemplateDownloadPanel = ({ template, subscriptionCheckoutUrl }: TemplateDo
       {template.tier === 'pro' && (
         <p className="text-xs text-white/50 leading-relaxed">
           After checkout, Lemon Squeezy emails your license key. Paste it here to download. Once
-          downloaded, the template is yours to use forever — subscription only gates new pro drops.
+          downloaded, the template is yours to use forever — subscription only gates new pro drops.{' '}
+          <button type="button" onClick={() => setHelpOpen(true)} className="text-white/70 underline underline-offset-2 hover:text-white">
+            See the steps
+          </button>
         </p>
+      )}
+
+      {template.tier === 'pro' && (
+        <HowToDownloadModal
+          open={helpOpen}
+          onClose={() => setHelpOpen(false)}
+          checkoutUrl={subscriptionCheckoutUrl}
+        />
       )}
     </div>
   );

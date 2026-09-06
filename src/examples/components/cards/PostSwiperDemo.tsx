@@ -17,14 +17,14 @@ export const PostSwiperDemo = () => {
       displayName="DiMaac"
       username="DiMaacUI"
       timestamp="1h"
-      image="/socialMediaThumbnail.png"
+      image="/socialMediaThumbnail.webp"
       className="bg-[#252728]"
     />,
     
     // Facebook Card
     <FacebookCard
       key="facebook-1"
-      profileImage="/barakaDP.png"
+      profileImage="/barakaDP.webp"
       content="Fitness tip of the day: Your posture while coding matters! Keep your back straight, shoulders relaxed, and take breaks every hour. A healthy body supports a sharp mind. 💪💻"
       username="Baraka - Muscle Therapist"
       timestamp="3h"
@@ -174,7 +174,7 @@ Your portfolio isn't about perfection. It's about progress. 📈`}
     // Twitter text
     <TwitterCard
       key="twitter-3"
-      profileImage="/barakaDP.png"
+      profileImage="/barakaDP.webp"
       isVerified={true}
       content={`Your body is a temple. Your code is a cathedral.
 

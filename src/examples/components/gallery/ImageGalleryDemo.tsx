@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react';
 import ImageGallery from "@/ui/components/gallery/ImageGallery";
 
 const GALLERY_IMAGES = [
-  { src: "/gori.png", alt: "Gori" },
-  { src: "/crocs2.png", alt: "Snap" },
-  { src: "/crow.png", alt: "Crowley" },
-  { src: "/foxy.png", alt: "Foxy" },
-  { src: "/bear.png", alt: "Bruno" },
-  { src: "/bulldog.png", alt: "Tank" },
-  { src: "/redPanda.png", alt: "Rusty" },
-  { src: "/tiger2.png", alt: "Blaze" },
+  { src: "/gori.webp", alt: "Gori" },
+  { src: "/crocs2.webp", alt: "Snap" },
+  { src: "/crow.webp", alt: "Crowley" },
+  { src: "/foxy.webp", alt: "Foxy" },
+  { src: "/bear.webp", alt: "Bruno" },
+  { src: "/bulldog.webp", alt: "Tank" },
+  { src: "/redPanda.webp", alt: "Rusty" },
+  { src: "/tiger2.webp", alt: "Blaze" },
 ];
 
 const MOBILE_IMAGE_COUNT = 4;

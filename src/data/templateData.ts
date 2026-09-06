@@ -5,6 +5,66 @@ import { SubscriptionPlan, TemplatePage } from '@/types/templates';
  * Zip each folder for download: private/templates/{slug}.zip
  */
 export const templateData: Record<string, TemplatePage> = {
+  'atelier-nord': {
+    id: 'atelier-nord',
+    slug: 'atelier-nord',
+    title: 'Atelier Nord',
+    description:
+      'Next.js creative-studio site for fashion & beauty brands — iris page transition, work gallery with prev/next lightbox, voices page, share sheet, white / cobalt / butter palette.',
+    tier: 'free',
+    stack: 'nextjs',
+    tags: ['Agency', 'Next.js', 'Framer Motion', 'Editorial'],
+    thumbnail: '/templates/atelier-nord.webp',
+    previewType: 'video',
+    previewVideoUrl: '/previews/atelier-nord.mp4',
+    zipFileName: 'atelier-nord.zip',
+    isNew: true,
+  },
+  'form-and-co': {
+    id: 'form-and-co',
+    slug: 'form-and-co',
+    title: 'Form & Co',
+    description:
+      'Next.js design-studio portfolio — custom cursor, magnetic buttons, hero slider, lookbook, editorial image reveals, reduced-motion aware.',
+    tier: 'free',
+    stack: 'nextjs',
+    tags: ['Studio', 'Next.js', 'Framer Motion', 'Minimal'],
+    thumbnail: '/templates/form-and-co.webp',
+    previewType: 'video',
+    previewVideoUrl: '/previews/form-and-co.mp4',
+    zipFileName: 'form-and-co.zip',
+    isNew: true,
+  },
+  lorea: {
+    id: 'lorea',
+    slug: 'lorea',
+    title: 'Lorea',
+    description:
+      'Next.js freelancer portfolio — full-bleed hero, portfolio & case studies, blog, contact, privacy and terms pages, sitemap and robots included.',
+    tier: 'pro',
+    stack: 'nextjs',
+    tags: ['Portfolio', 'Next.js', 'Multi-page', 'Blog'],
+    thumbnail: '/templates/lorea.webp',
+    previewType: 'video',
+    previewVideoUrl: '/previews/lorea.mp4',
+    zipFileName: 'lorea.zip',
+    isNew: true,
+  },
+  arlo: {
+    id: 'arlo',
+    slug: 'arlo',
+    title: 'Arlo',
+    description:
+      'Vite + GSAP motion-designer portfolio built as a design canvas — hover-open folder drawers, pinned reel deck, pinboard playground with lightbox, nine pages.',
+    tier: 'pro',
+    stack: 'vite',
+    tags: ['Portfolio', 'GSAP', 'Lenis', 'Playful'],
+    thumbnail: '/templates/arlo.webp',
+    previewType: 'video',
+    previewVideoUrl: '/previews/arlo.mp4',
+    zipFileName: 'arlo.zip',
+    isNew: true,
+  },
   minimal: {
     id: 'minimal',
     slug: 'minimal',

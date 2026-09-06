@@ -88,6 +88,15 @@ const EXCLUDE = {
   ],
 };
 
+/**
+ * Default excludes a template needs back. Arlo generates its inner pages at
+ * build time, so stripping scripts/*.mjs would leave a buyer with an
+ * `npm run dev` that fails on a missing generator.
+ */
+const KEEP = {
+  arlo: ['scripts/*.mjs'],
+};
+
 const SLUGS = [
   'minimal',
   'aurora',
@@ -103,10 +112,14 @@ const SLUGS = [
   'veldt-folio',
   'etude',
   'versant',
+  'arlo',
+  'form-and-co',
+  'lorea',
+  'atelier-nord',
 ];
 
 /** Free templates — live on site now. */
-const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing', 'aurora', 'veldt-folio', 'maya'];
+const FREE_SLUGS = ['minimal', 'ember', 'prism', 'backend', 'portfolio-landing', 'aurora', 'veldt-folio', 'maya', 'form-and-co', 'atelier-nord'];
 
 /** Free + pro templates available in the catalog. */
 const LAUNCH_SLUGS = [
@@ -117,6 +130,8 @@ const LAUNCH_SLUGS = [
   'lumen',
   'etude',
   'versant',
+  'arlo',
+  'lorea',
 ];
 
 const onlyFree = process.argv.includes('--free');
@@ -146,7 +161,11 @@ for (const slug of slugsToZip) {
   if (fs.existsSync(zip)) {
     fs.unlinkSync(zip);
   }
-  const excludes = [...(EXCLUDE.default ?? DEFAULT_EXCLUDES), ...(EXCLUDE[slug] ?? [])];
+  const keep = KEEP[slug] ?? [];
+  const excludes = [
+    ...(EXCLUDE.default ?? DEFAULT_EXCLUDES).filter((p) => !keep.includes(p)),
+    ...(EXCLUDE[slug] ?? []),
+  ];
   const zipArgs = ['-r', zip, '.', ...excludes.flatMap((p) => ['-x', p])];
   const result = spawnSync('zip', zipArgs, { cwd: dir, stdio: 'inherit' });
   if (result.status !== 0) {

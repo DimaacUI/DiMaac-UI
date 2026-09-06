@@ -6,7 +6,7 @@ const InstagramCardDemo = () => {
 <div className="w-full flex gap-6 flex-wrap justify-center">
         {/* Your InstagramCard components */}
         <InstagramCard
-            image="/lyliaInsta.png"
+            image="/lyliaInsta.webp"
             profileImage="/lyliaDP.png"
             isVerified={true}
             username="lylia_agent47"
@@ -76,8 +76,8 @@ const InstagramCardDemo = () => {
             }
         />
                 <InstagramCard
-            image="/barakaInsta.png"
-            profileImage="/barakaDP.png"
+            image="/barakaInsta.webp"
+            profileImage="/barakaDP.webp"
             isVerified={true}
             username="muscle_therapist"
             timestamp="2w"

@@ -15,10 +15,10 @@ import {
 
 const ContextMenuDemo = () => {
   const characters = [
-    { image: "/gori.png", name: "Gori", title: "Jungle Sage", description: "Strength and wisdom" },
-    { image: "/crocs2.png", name: "Snap", title: "Swamp King", description: "Master of the lagoon" },
-    { image: "/crow.png", name: "Crowley", title: "Night Watcher", description: "Messenger of the skies" },
-    { image: "/foxy.png", name: "Foxy", title: "Forest Trickster", description: "Cunning and quick" },
+    { image: "/gori.webp", name: "Gori", title: "Jungle Sage", description: "Strength and wisdom" },
+    { image: "/crocs2.webp", name: "Snap", title: "Swamp King", description: "Master of the lagoon" },
+    { image: "/crow.webp", name: "Crowley", title: "Night Watcher", description: "Messenger of the skies" },
+    { image: "/foxy.webp", name: "Foxy", title: "Forest Trickster", description: "Cunning and quick" },
   ];
 
   const getContextMenuItems = (character: typeof characters[0]) => [

@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Preview videos
+
+Pro templates show a screen recording instead of a live site. Drop the recording at
+`public/previews/<slug>.mp4`, set `previewVideoUrl: '/previews/<slug>.mp4'`, then run
+
+```bash
+npm run encode:previews
+```
+
+It needs `ffmpeg` on your PATH (`brew install ffmpeg`). For each recording it writes a
+fast-start 1080p (replacing the original), 720p and 480p encodes plus a poster frame;
+the template page picks them up automatically and the Plyr player offers a quality
+menu (720p by default) and playback speed. Fast-start matters: without it the browser
+must download the whole file before the first frame.

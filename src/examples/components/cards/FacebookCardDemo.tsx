@@ -11,10 +11,10 @@ const FacebookCardDemo = () => {
       content: "Excited to announce the launch of DiMaac UI! 🎉 A collection of beautiful, animated components built with React and GSAP.",
       username: "DiMaac",
       timestamp: "2h",
-      image: "/socialMediaThumbnail.png"
+      image: "/socialMediaThumbnail.webp"
     },
     {
-      profileImage: "/barakaDP.png",
+      profileImage: "/barakaDP.webp",
       content: `Just finished an intense workout session! 💪 Remember: your body and your code both need regular maintenance. Stay strong, stay sharp!
 
 #Fitness #Coding #HealthyDeveloper`,
@@ -89,7 +89,7 @@ Your portfolio isn't about perfection. It's about progress. 📈`,
       timestamp: "12h"
     },
     {
-      profileImage: "/barakaDP.png",
+      profileImage: "/barakaDP.webp",
       content: `They say sitting is the new smoking. As developers, we need to take care of our bodies just as much as we care about our code.
 
 Stand up every hour. Stretch. Hydrate. Your future self will thank you. 🧘‍♂️💻`,
@@ -117,7 +117,7 @@ Just start. You'll figure it out along the way. That's how everyone does it. �
       timestamp: "3d"
     },
     {
-      profileImage: "/barakaDP.png",
+      profileImage: "/barakaDP.webp",
       content: (
         <div 
           className="w-full aspect-video relative overflow-hidden"

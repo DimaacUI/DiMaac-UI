@@ -93,3 +93,39 @@ img, image {
   pointer-events: auto;
   -webkit-touch-callout: none;
 }
+/* Plyr preview player — lime accent, flush in the 16:10 preview frame */
+.dimaac-player {
+  --plyr-color-main: #ddfc3e;
+  --plyr-video-control-color-hover: #000;
+  --plyr-menu-background: #17171a;
+  --plyr-menu-color: #fff;
+  --plyr-menu-item-arrow-color: rgba(255, 255, 255, 0.6);
+  --plyr-menu-back-border-color: rgba(255, 255, 255, 0.1);
+  --plyr-menu-back-border-shadow-color: transparent;
+  --plyr-font-family: inherit;
+}
+.dimaac-player .plyr {
+  height: 100%;
+  border-radius: 0;
+}
+.dimaac-player .plyr__video-wrapper,
+.dimaac-player video {
+  height: 100%;
+  background: #000;
+}
+.dimaac-player .plyr__control--overlaid {
+  background: #ddfc3e;
+  color: #000;
+}
+.dimaac-player .plyr__menu__container {
+  border-radius: 10px;
+}
+.dimaac-player .plyr__menu__container::after {
+  border-top-color: #17171a;
+}
+
+/* How-to-download stepper: each step fades up as it replaces the last */
+@keyframes fadeStep {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}

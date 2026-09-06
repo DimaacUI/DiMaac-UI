@@ -2,18 +2,18 @@ import MouseTrail from '@/ui/components/interactive/MouseTrail';
 
 const MouseTrailDemo = () => {
   const trailImages = [
-    "/gori.png",
-    "/crow.png",
-    "/crocs2.png",
-    "/foxy.png",
-    "/snake.png",
-    "/bear.png",
-    "/owl.png",
-    "/crocs.png",
-    "/tiger.png",
-    "/bulldog.png",
-    "/redPanda.png",
-    "/tiger2.png",
+    "/gori.webp",
+    "/crow.webp",
+    "/crocs2.webp",
+    "/foxy.webp",
+    "/snake.webp",
+    "/bear.webp",
+    "/owl.webp",
+    "/crocs.webp",
+    "/tiger.webp",
+    "/bulldog.webp",
+    "/redPanda.webp",
+    "/tiger2.webp",
   ];
 
   return (

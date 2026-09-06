@@ -79,3 +79,9 @@ next-env.d.ts
 
 # dev-only local upload fallback
 /public/uploads
+
+# Launched framework templates — zips are committed, sources stay local
+!/private/templates/arlo.zip
+!/private/templates/lorea.zip
+!/private/templates/atelier-nord.zip
+!/private/templates/form-and-co.zip

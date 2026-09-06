@@ -4,7 +4,7 @@ export default function Home() {
   const grid = [
     // Layout Components
     {
-      img: "/expandablePanel.png",
+      img: "/expandablePanel.webp",
       title: "Expandable Panel",
       description: "Interactive panels that expand on click with smooth animations.",
       href: "/components/expandable-panel",
@@ -12,21 +12,21 @@ export default function Home() {
     },
     // Gallery & Media
     {
-      img: "/imageGallery.png",
+      img: "/imageGallery.webp",
       title: "Image Gallery",
       description: "Interactive circular gallery with drag-to-spin functionality.",
       href: "/components/image-gallery",
       isNew: false,
     },
     {
-      img: "/scrollingGallery.png",
+      img: "/scrollingGallery.webp",
       title: "Scrolling Gallery",
       description: "Smooth scrolling gallery with parallax effects and dynamic height.",
       href: "/components/scrolling-gallery",
       isNew: false,
     },
     {
-      img: "/liquidImageReveal.png",
+      img: "/liquidImageReveal.webp",
       title: "Liquid Image Reveal",
       description: "Organic fluid reveal effect using SVG filters and GSAP animations.",
       href: "/components/liquid-image-reveal",
@@ -34,7 +34,7 @@ export default function Home() {
     },
     // Card Components
     {
-      img: "/mouseTiltCard.png",
+      img: "/mouseTiltCard.webp",
       title: "Mouse Tilt Card",
       description: "3D tilt cards with glare effects that respond to mouse movement.",
       href: "/components/mouse-tilt-card",
@@ -48,14 +48,14 @@ export default function Home() {
       isNew: false,
     },
     {
-      img: "/swipeableCards.png",
+      img: "/swipeableCards.webp",
       title: "Swipeable Cards",
       description: "Touch-friendly card stack with smooth swipe gestures.",
       href: "/components/swipeable-cards",
       isNew: false,
     },
     {
-      img: "/instagramCard.png",
+      img: "/instagramCard.webp",
       title: "Instagram Post",
       description: "Instagram post card with profile image, verified badge, and username.",
       href: "/components/instagram-card",
@@ -76,28 +76,28 @@ export default function Home() {
       isNew: false,
     },
     {
-      img: "/perspectiveCardStack.png",
+      img: "/perspectiveCardStack.webp",
       title: "Perspective Card Stack",
       description: "3D card stack that fans out on hover with perspective transforms.",
       href: "/components/perspective-card-stack",
       isNew: false,
     },
     {
-      img: "/stackedCardSlider.png",
+      img: "/stackedCardSlider.webp",
       title: "Stacked Card Slider",
       description: "Click to cycle through stacked cards with GSAP Flip - clone, hide, onEnter/onLeave.",
       href: "/components/stacked-card-slider",
       isNew: false,
     },
     {
-      img: "/mouseTrail.png",
+      img: "/mouseTrail.webp",
       title: "Mouse Trail",
       description: "Dynamic image trail that follows your mouse cursor.",
       href: "/components/mouse-trail",
       isNew: false,
     },
     {
-      img: "/contextMenu.png",
+      img: "/contextMenu.webp",
       title: "Context Menu",
       description: "Right-click context menus with GSAP animations and smart positioning.",
       href: "/components/context-menu",
@@ -119,14 +119,14 @@ export default function Home() {
     },
     // Scroll Animations
     {
-      img: "/pinRotateSections.png",
+      img: "/pinRotateSections.webp",
       title: "Pin Rotate Sections",
       description: "Full-page scroll: pinned sections scale, rotate in 3D, and fade as you scroll. GSAP ScrollTrigger.",
       href: "/components/pin-rotate-sections",
       isNew: false,
     },
     {
-      img: "/proofOfWork.png",
+      img: "/proofOfWork.webp",
       title: "Proof Of Work",
       description: "Grid of works with scroll-triggered reveal: rotation, y-offset, opacity. Staggered on desktop.",
       href: "/components/proof-of-work",
@@ -140,7 +140,7 @@ export default function Home() {
       isNew: false,
     },
     {
-      img: "/section3D.png",
+      img: "/section3D.webp",
       title: "Section 3D",
       description: "Pinned cards fade, lift, tilt back as you scroll. Simple intro + 3D scroll.",
       href: "/components/section-3d",

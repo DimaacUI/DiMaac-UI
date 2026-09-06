@@ -13,7 +13,7 @@ const TwitterCardDemo = () => {
             displayName: "DiMaac",
             username: "DiMaacUI",
             timestamp: "2h",
-            image: "/socialMediaThumbnail.png"
+            image: "/socialMediaThumbnail.webp"
         },
         {
             profileImage: "/logo.png",
@@ -100,7 +100,7 @@ Stop over-engineering. Start shipping. 🚢`,
             timestamp: "8h"
         },
         {
-            profileImage: "/barakaDP.png",
+            profileImage: "/barakaDP.webp",
             isVerified: true,
             content: `Training legs today. Training code tomorrow.
 
@@ -197,7 +197,7 @@ Be the dev people want on their team. Technical skills are teachable. Character 
             timestamp: "2d"
         },
         {
-            profileImage: "/barakaDP.png",
+            profileImage: "/barakaDP.webp",
             isVerified: true,
             content: `Your body is a temple. Your code is a cathedral.
 

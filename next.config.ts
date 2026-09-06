@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     '/api/templates/download': ['./private/templates/**/*.zip'],
     '/api/templates/preview': ['./private/templates/**/*'],
+    // Poster frames mark which previews have quality encodes (src/lib/previewVideo.ts).
+    '/templates/[slug]': ['./public/previews/*-poster.jpg'],
   },
   images: {
     remotePatterns: [

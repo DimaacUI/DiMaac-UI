@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { TemplatePage } from '@/types/templates';
+import TemplateVideoPlayer, { type VideoSource } from './TemplateVideoPlayer';
 
 function isEmbedUrl(url: string): boolean {
   return url.includes('youtube.com') || url.includes('youtu.be') || url.includes('vimeo.com');
@@ -30,9 +31,12 @@ function toEmbedUrl(url: string): string {
 interface TemplatePreviewProps {
   template: TemplatePage;
   devRunCommand?: string;
+  /** Quality encodes of the preview recording, when generated. Falls back to previewVideoUrl. */
+  videoSources?: VideoSource[];
+  videoPoster?: string;
 }
 
-const TemplatePreview = ({ template, devRunCommand }: TemplatePreviewProps) => {
+const TemplatePreview = ({ template, devRunCommand, videoSources, videoPoster }: TemplatePreviewProps) => {
   const isVideo = template.previewType === 'video';
   const label = isVideo ? 'Preview' : 'Live preview';
   const liveUrl = template.previewUrl;
@@ -77,13 +81,14 @@ const TemplatePreview = ({ template, devRunCommand }: TemplatePreviewProps) => {
               allowFullScreen
             />
           ) : (
-            <video
-              src={template.previewVideoUrl}
-              controls
-              playsInline
-              preload="metadata"
-              poster={template.thumbnail}
-              className="absolute inset-0 w-full h-full object-cover"
+            <TemplateVideoPlayer
+              title={template.title}
+              poster={videoPoster ?? template.thumbnail}
+              sources={
+                videoSources && videoSources.length
+                  ? videoSources
+                  : [{ src: template.previewVideoUrl, size: 1080 }]
+              }
             />
           )
         ) : isVideo ? (

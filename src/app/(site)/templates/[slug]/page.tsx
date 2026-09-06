@@ -12,6 +12,7 @@ import { buildTemplatesFilterUrl } from '@/lib/templateFilters';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { TemplatePage } from '@/types/templates';
+import { getPreviewVideoSources } from '@/lib/previewVideo';
 
 interface TemplateDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -35,6 +36,7 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
     : template;
 
   const tierFilterHref = buildTemplatesFilterUrl(template.tier);
+  const previewVideo = getPreviewVideoSources(previewTemplate.previewVideoUrl);
 
   const stackLabel =
     template.stack === 'html' ? 'HTML' : template.stack === 'vite' ? 'Vite' : 'Next.js';
@@ -66,7 +68,12 @@ export default async function TemplateDetailPage({ params }: TemplateDetailPageP
         </div>
       </header>
 
-      <TemplatePreview template={previewTemplate} devRunCommand={devRunCommand} />
+      <TemplatePreview
+        template={previewTemplate}
+        devRunCommand={devRunCommand}
+        videoSources={previewVideo.sources}
+        videoPoster={previewVideo.poster}
+      />
 
       <section className="mb-8">
         <TemplateDownloadPanel
