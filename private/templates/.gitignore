@@ -5,6 +5,11 @@ out/
 **/dist/
 !veldt-folio/dist/
 !veldt-folio/dist/**
+# Free framework templates: committed static exports feed the live preview
+!atelier-nord/out/
+!atelier-nord/out/**
+!form-and-co/out/
+!form-and-co/out/**
 .claude/
 *.tsbuildinfo
 .DS_Store
